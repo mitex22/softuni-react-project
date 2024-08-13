@@ -1,7 +1,7 @@
 function App() {
 	return (
 		<>
-			<h1>Hi From React</h1>
+			<h1 className="text-5xl">Hi From React</h1>
 		</>
 	)
 }
