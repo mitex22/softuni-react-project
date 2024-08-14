@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import AuthContext from '../../contexts/authContext';
 import PATH from '../../paths/paths';
-import logo from '../../assets/images/logo.png';
+import nftLogo from '../../assets/images/nft-logo.png';
 
 const Header = () => {
 
@@ -25,7 +25,7 @@ const Header = () => {
                             <NavLink
                                 className='flex flex-shrink-0 items-center mr-4'
                                 to={PATH.HOME}>
-                                <img className='h-10 w-auto' src={logo} alt='React Jobs' />
+                                <img className='h-10 w-auto' src={nftLogo} alt='React Jobs' />
                                 <span className='hidden md:block text-white text-2xl font-bold ml-2'>NFT Zoo</span>
                             </NavLink>
                             <div className='md:ml-auto'>
