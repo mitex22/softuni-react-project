@@ -33,11 +33,11 @@ const NFTDetails = () => {
 
     const [error, setError] = useState('');
 
-    const deleteGameButtonClickHandler = async () => {
+    const deleteNFTButtonClickHandler = async () => {
         const hasConfirmed = confirm(`Are you sure you want to delete ${nft.title}?`);
 
         if (hasConfirmed) {
-            await nftsAPI.gameDelete(nftId);
+            await nftsAPI.nftDelete(nftId);
 
             navigate(PATH.NFTs);
         }
@@ -116,7 +116,7 @@ const NFTDetails = () => {
                     {isGameOwner && (
                         <div className="buttons">
                             <Link to={pathToUrl(PATH.NFT_EDIT, { nftId })} className="button">Edit</Link>
-                            <button className="button" onClick={deleteGameButtonClickHandler}>Delete</button>
+                            <button className="button" onClick={deleteNFTButtonClickHandler}>Delete</button>
                         </div>
                     )}
                 </div>
@@ -210,7 +210,7 @@ const NFTDetails = () => {
                                         }
 
                                         <button
-                                            className="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                            className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                                             type="submit">
                                             Submit
                                         </button>
@@ -257,7 +257,7 @@ const NFTDetails = () => {
 
                                             <button
                                                 className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
-                                                onClick={deleteGameButtonClickHandler}>
+                                                onClick={deleteNFTButtonClickHandler}>
                                                 Delete NFT
                                             </button>
                                         </>
