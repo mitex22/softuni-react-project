@@ -11,7 +11,7 @@ const NFTList = () => {
 
     return (
         <>
-            <section className='bg-gray-50 dark:bg-gray-300 pt-20 px-4'>
+            <section className='bg-gray-50 dark:bg-gray-300 pt-20 pb-10 px-20'>
                 <div className='container-xl lg:container m-auto'>
                     <h1 className="mb-4 text-center text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-6xl dark:text-white">All NFTs</h1>
 
@@ -20,7 +20,7 @@ const NFTList = () => {
                     {loading ? (
                         <Spinner loading={loading} />
                     ) : (
-                        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center'>
                             {nfts.length > 0
                                 ? nfts.map((nft) => (
                                     <NFTListItem
@@ -34,9 +34,7 @@ const NFTList = () => {
                     )}
                 </div>
             </section>
-
         </>
-
     )
 }
 

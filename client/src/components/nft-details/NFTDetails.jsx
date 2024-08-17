@@ -79,78 +79,203 @@ const NFTDetails = () => {
     }
 
     return (
-        // <!--Details Page-->
-        <section id="game-details">
-            <h1>Game Details</h1>
-            <div className="info-section">
+        <>
+            {/* <section id="game-details">
+                <h1>Game Details</h1>
+                <div className="info-section">
 
-                <div className="game-header">
-                    <img className="game-img" src={nft.imageUrl} />
-                    <h1>{nft.title}</h1>
-                    <span className="levels">MaxLevel: {nft.maxLevel}</span>
-                    <p className="type">{nft.category}</p>
-                </div>
+                    <div className="game-header">
+                        <img className="game-img" src={nft.imageUrl} />
+                        <h1>{nft.title}</h1>
+                        <p className="type">{nft.category}</p>
+                    </div>
 
-                <p className="text">{nft.summary}</p>
+                    <p className="text">{nft.summary}</p>
 
-                {isAuthenticated && <button className="button" onClick={buyGameButtonClickHandler}>Buy Game</button>}
+                    {isAuthenticated && <button className="button" onClick={buyGameButtonClickHandler}>Buy Game</button>}
 
-                {/* <!-- Bonus ( for Guests and Users ) --> */}
-                <div className="details-comments">
-                    <h2>Comments:</h2>
-                    <ul>
-                        {comments.map((comment) => (
-                            <Comment
-                                key={comment._id}
-                                {...comment}
-                                userId={userId}
-                                isAuthenticated={isAuthenticated}
-                                nftId={nftId}
-                                delteCommentHandler={delteCommentHandler}
-                            />
-                        ))}
-                    </ul>
+                    <div className="details-comments">
+                        <h2>Comments:</h2>
+                        <ul>
+                            {comments.map((comment) => (
+                                <Comment
+                                    key={comment._id}
+                                    {...comment}
+                                    userId={userId}
+                                    isAuthenticated={isAuthenticated}
+                                    nftId={nftId}
+                                    delteCommentHandler={delteCommentHandler}
+                                />
+                            ))}
+                        </ul>
+                        {comments.length === 0 && (
+                            <p className="no-comment">No comments.</p>
+                        )}
+                    </div>
 
-                    {comments.length === 0 && (
-                        <p className="no-comment">No comments.</p>
+                    {isGameOwner && (
+                        <div className="buttons">
+                            <Link to={pathToUrl(PATH.NFT_EDIT, { nftId })} className="button">Edit</Link>
+                            <button className="button" onClick={deleteGameButtonClickHandler}>Delete</button>
+                        </div>
                     )}
                 </div>
 
-                {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
-                {isGameOwner && (
-                    <div className="buttons">
-                        <Link to={pathToUrl(PATH.GAME_EDIT, { nftId })} className="button">Edit</Link>
-                        <button className="button" onClick={deleteGameButtonClickHandler}>Delete</button>
-                    </div>
+                {isAuthenticated && (
+                    <article className="create-comment">
+                        <label>Add new comment:</label>
+                        <form className="form" onSubmit={onSubmit}>
+                            <textarea
+                                placeholder="Comment......"
+                                name="comment"
+                                onChange={onChange}
+                                value={values[CREATE_COMMENT_FORM_KEYS.COMMENT]}
+                            ></textarea>
+
+                            {error &&
+                                <p>
+                                    <span>{error}</span>
+                                </p>
+                            }
+
+                            <input className="btn submit" type="submit" value="Add Comment" />
+                        </form>
+                    </article>
                 )}
+            </section> */}
 
-            </div>
+            <section className='bg-indigo-50 pt-14'>
+                <div className='container m-auto py-10 px-6'>
+                    <div className='grid grid-cols-1 md:grid-cols-70/30 w-full gap-6'>
+                        <main>
+                            <div className='flex flex-col lg:flex-row bg-white p-6 rounded-lg shadow-md text-center md:text-left'>
+                                <img className="mx-auto mb-4 lg:mb-0 size-64 rounded" src={nft.imageUrl} alt="Sunset in the mountains" />
 
-            {/* <!-- Bonus --> */}
-            {/* <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) --> */}
-            {isAuthenticated && (
-                <article className="create-comment">
-                    <label>Add new comment:</label>
-                    <form className="form" onSubmit={onSubmit}>
-                        <textarea
-                            placeholder="Comment......"
-                            name="comment"
-                            onChange={onChange}
-                            value={values[CREATE_COMMENT_FORM_KEYS.COMMENT]}
-                        ></textarea>
+                                <div className="flex flex-col m-auto justify-center items-center">
+                                    <h1 className='text-3xl font-bold mb-4'>{nft.title}</h1>
 
-                        {error &&
-                            <p>
-                                <span>{error}</span>
-                            </p>
-                        }
+                                    <h3 className='text-indigo-800 text-lg font-bold mb-2'>
+                                        Price
+                                    </h3>
+                                    <p>{nft.maxLevel}</p>
+                                </div>
+                            </div>
 
-                        <input className="btn submit" type="submit" value="Add Comment" />
-                    </form>
-                </article>
-            )}
+                            <div className='bg-white p-6 rounded-lg shadow-md mt-6'>
+                                <h3 className='text-indigo-800 text-lg font-bold mb-6'>
+                                    NFT Description
+                                </h3>
 
-        </section>
+                                <p className='mb-4'>{nft.summary}</p>
+                            </div>
+
+                            <div className='bg-white p-6 rounded-lg shadow-md mt-6'>
+                                <h2 className="text-lg font-bold mb-4">Comments</h2>
+
+                                <ul>
+                                    {comments.map((comment) => (
+                                        <Comment
+                                            key={comment._id}
+                                            {...comment}
+                                            userId={userId}
+                                            isAuthenticated={isAuthenticated}
+                                            nftId={nftId}
+                                            delteCommentHandler={delteCommentHandler}
+                                        />
+                                    ))}
+                                </ul>
+
+                                {comments.length === 0 && (
+                                    <p>No comments.</p>
+                                )}
+
+                                {isAuthenticated && (
+                                    <form className="mt-4 bg-white p-4 rounded-lg shadow-md" onSubmit={onSubmit}>
+                                        <div className="mb-4">
+                                            <textarea
+                                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                id="comment" rows="3"
+                                                placeholder="Leave a comment..."
+                                                name="comment"
+                                                onChange={onChange}
+                                                value={values[CREATE_COMMENT_FORM_KEYS.COMMENT]}
+                                            >
+                                            </textarea>
+                                        </div>
+
+                                        {error &&
+                                            <p>
+                                                <span>{error}</span>
+                                            </p>
+                                        }
+
+                                        <button
+                                            className="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                            type="submit">
+                                            Submit
+                                        </button>
+                                    </form>
+                                )}
+                            </div>
+                        </main>
+
+                        <aside>
+                            <div className='bg-white p-6 rounded-lg shadow-md'>
+                                <h3 className='text-xl font-bold mb-6'>Company Info</h3>
+
+                                <h2 className='text-2xl'>{nft.title}</h2>
+
+                                <p className='my-2'>{nft.title}</p>
+
+                                <hr className='my-4' />
+
+                                <h3 className='text-xl'>Contact Email:</h3>
+
+                                <p className='my-2 bg-indigo-100 p-2 font-bold'>
+                                    {nft.title}
+                                </p>
+
+                                <h3 className='text-xl'>Contact Phone:</h3>
+
+                                <p className='my-2 bg-indigo-100 p-2 font-bold'>
+                                    {' '}
+                                    {nft.title}
+                                </p>
+                            </div>
+
+                            {isAuthenticated && (
+                                <div className='bg-white p-6 rounded-lg shadow-md mt-6'>
+                                    <h3 className='text-xl font-bold mb-6'>Manage NFT</h3>
+                                    {isGameOwner && (
+                                        <>
+                                            <Link
+                                                to={pathToUrl(PATH.NFT_EDIT, { nftId })}
+                                                className='bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
+                                            >
+                                                Edit NFT
+                                            </Link>
+
+                                            <button
+                                                className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
+                                                onClick={deleteGameButtonClickHandler}>
+                                                Delete NFT
+                                            </button>
+                                        </>
+                                    )}
+
+                                    {isAuthenticated &&
+                                        <button
+                                            className='bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
+                                            onClick={buyGameButtonClickHandler}>
+                                            Buy Game
+                                        </button>}
+                                </div>
+                            )}
+                        </aside>
+                    </div>
+                </div>
+            </section>
+        </>
     )
 }
 

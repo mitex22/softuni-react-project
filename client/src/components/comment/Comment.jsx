@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { FaRegThumbsDown, FaRegThumbsUp } from "react-icons/fa";
 
 import * as likesAPI from "../../api/likes-api";
 import AuthContext from '../../contexts/authContext';
@@ -48,12 +49,42 @@ const Comment = ({
     }
 
     return (
-        <li className="comment">
-            <p>{author.username}: {comment}</p>
-            {_ownerId === userId && <button className="button" onClick={() => deleteCommentButtonClickHandler(_id)}>Delete</button>}
-            {_ownerId !== userId && isAuthenticated && !likeItem &&<button className="button" onClick={() => likeCommentButtonClickHandler(_id)}>Like</button>}
-            {_ownerId !== userId && isAuthenticated && likeItem && <button className="button" onClick={() => dislikeCommentButtonClickHandler(likeItem)}>Dislike</button>}
-        </li>
+        <>
+            {/* <li className="comment">
+                <p>{author.username}: {comment}</p>
+                {_ownerId === userId && <button className="button" onClick={() => deleteCommentButtonClickHandler(_id)}>Delete</button>}
+                {_ownerId !== userId && isAuthenticated && !likeItem && <button className="button" onClick={() => likeCommentButtonClickHandler(_id)}>Like</button>}
+                {_ownerId !== userId && isAuthenticated && likeItem && <button className="button" onClick={() => dislikeCommentButtonClickHandler(likeItem)}>Dislike</button>}
+            </li> */}
+
+            <div className="bg-white p-4 rounded-lg shadow-md mb-2">
+                <h3 className="text-lg font-bold">{author.username}</h3>
+
+                <p className="text-gray-700 text-sm mb-2">Posted on April 16, 2023</p>
+
+                <p className="text-gray-700">{comment}</p>
+
+                {_ownerId === userId &&
+                    <button
+                        className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
+                        onClick={() => deleteCommentButtonClickHandler(_id)}>Delete
+                    </button>}
+
+                {_ownerId !== userId && isAuthenticated && !likeItem &&
+                    <button
+                        className='bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
+                        onClick={() => likeCommentButtonClickHandler(_id)}>
+                        <FaRegThumbsUp />
+                    </button>}
+
+                {_ownerId !== userId && isAuthenticated && likeItem &&
+                    <button
+                        className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
+                        onClick={() => dislikeCommentButtonClickHandler(likeItem)}>
+                        <FaRegThumbsDown />
+                    </button>}
+            </div>
+        </>
     )
 }
 
