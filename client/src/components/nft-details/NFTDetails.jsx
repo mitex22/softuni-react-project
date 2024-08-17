@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
 
-import { useGetOneGame } from "../../hooks/useGames";
+import { useGetOneNFT } from "../../hooks/useNFTs";
 import { useGetAllComments } from "../../hooks/useComments";
 import useForm from "../../hooks/useForm";
 
@@ -18,38 +18,38 @@ const CREATE_COMMENT_FORM_KEYS = {
     COMMENT: 'comment',
 }
 
-const GameDetails = () => {
+const NFTDetails = () => {
     const navigate = useNavigate();
 
     const { userId, username, isAuthenticated } = useContext(AuthContext);
 
-    const { gameId } = useParams();
+    const { nftId } = useParams();
 
-    const [game] = useGetOneGame(gameId);
+    const [nft] = useGetOneNFT(nftId);
 
-    const [comments, dispatch] = useGetAllComments(gameId);
+    const [comments, dispatch] = useGetAllComments(nftId);
 
-    const isGameOwner = userId === game._ownerId;
+    const isGameOwner = userId === nft._ownerId;
 
     const [error, setError] = useState('');
 
     const deleteGameButtonClickHandler = async () => {
-        const hasConfirmed = confirm(`Are you sure you want to delete ${game.title}?`);
+        const hasConfirmed = confirm(`Are you sure you want to delete ${nft.title}?`);
 
         if (hasConfirmed) {
-            await nftsAPI.gameDelete(gameId);
+            await nftsAPI.gameDelete(nftId);
 
-            navigate('/games');
+            navigate(PATH.NFTs);
         }
     }
 
     const buyGameButtonClickHandler = async () => {
-        const hasConfirmed = confirm(`Are you sure you want to buy ${game.title}?`);
+        const hasConfirmed = confirm(`Are you sure you want to buy ${nft.title}?`);
 
         if (hasConfirmed) {
-            await nftsAPI.gameBuy(gameId, userId, username);
+            await nftsAPI.gameBuy(nftId, userId, username);
 
-            navigate('/games/portfolio');
+            navigate(PATH.GAME_PORTFOLIO);
         }
     }
 
@@ -59,7 +59,7 @@ const GameDetails = () => {
             return setError('Cannot submit empty comment!');
         }
 
-        const newComment = await commentsAPI.commentCreate({ ...values, gameId });
+        const newComment = await commentsAPI.commentCreate({ ...values, nftId });
 
         dispatch({ type: 'ADD_COMMENT', payload: { ...newComment, author: { username } } });
 
@@ -85,13 +85,13 @@ const GameDetails = () => {
             <div className="info-section">
 
                 <div className="game-header">
-                    <img className="game-img" src={game.imageUrl} />
-                    <h1>{game.title}</h1>
-                    <span className="levels">MaxLevel: {game.maxLevel}</span>
-                    <p className="type">{game.category}</p>
+                    <img className="game-img" src={nft.imageUrl} />
+                    <h1>{nft.title}</h1>
+                    <span className="levels">MaxLevel: {nft.maxLevel}</span>
+                    <p className="type">{nft.category}</p>
                 </div>
 
-                <p className="text">{game.summary}</p>
+                <p className="text">{nft.summary}</p>
 
                 {isAuthenticated && <button className="button" onClick={buyGameButtonClickHandler}>Buy Game</button>}
 
@@ -105,7 +105,7 @@ const GameDetails = () => {
                                 {...comment}
                                 userId={userId}
                                 isAuthenticated={isAuthenticated}
-                                gameId={gameId}
+                                nftId={nftId}
                                 delteCommentHandler={delteCommentHandler}
                             />
                         ))}
@@ -119,7 +119,7 @@ const GameDetails = () => {
                 {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
                 {isGameOwner && (
                     <div className="buttons">
-                        <Link to={pathToUrl(PATH.GAME_EDIT, { gameId })} className="button">Edit</Link>
+                        <Link to={pathToUrl(PATH.GAME_EDIT, { nftId })} className="button">Edit</Link>
                         <button className="button" onClick={deleteGameButtonClickHandler}>Delete</button>
                     </div>
                 )}
@@ -154,4 +154,4 @@ const GameDetails = () => {
     )
 }
 
-export default GameDetails;
+export default NFTDetails;

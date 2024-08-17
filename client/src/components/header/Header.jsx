@@ -13,8 +13,8 @@ const Header = () => {
 
     const linkClass = ({ isActive }) =>
         isActive
-            ? 'block py-2 pr-4 pl-3 text-blue-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-gray-700 lg:p-0'
-            : 'block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0';
+            ? 'block py-2 pr-4 pl-3 text-blue-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-gray-700 lg:p-0 font-bold'
+            : 'block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 font-bold';
 
     return (
         <>
@@ -23,7 +23,7 @@ const Header = () => {
                     <div className="flex flex-wrap items-center justify-between mx-auto max-w-screen-xl">
                         <NavLink to={PATH.HOME} className="flex items-center">
                             <img src={nftLogo} className="mr-3 h-6 sm:h-9" alt="NFT Zoo Logo" />
-                            <span className="self-center text-xl font-semibold whitespace-nowrap">NFT Zoo</span>
+                            <span className="self-center text-xl text-gray-700 font-extrabold whitespace-nowrap">NFT Zoo</span>
                         </NavLink>
                         <div className="flex items-center">
                             <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="mobile-menu-2" aria-expanded="false">
@@ -39,7 +39,7 @@ const Header = () => {
                                 <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
 
                                     <li>
-                                        <NavLink to={PATH.GAMES} className={linkClass}>All NFTs</NavLink>
+                                        <NavLink to={PATH.NFTs} className={linkClass}>All NFTs</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to={PATH.GAME_CREATE} className={linkClass}>Create NFT</NavLink>
@@ -51,7 +51,7 @@ const Header = () => {
                                         <NavLink to={PATH.LOGOUT} className={linkClass}>Log Out</NavLink>
                                     </li>
                                     <li>
-                                        <span className='block py-2 px-3 text-indigo-500 rounded lg:border-0 lg:p-0'>| Welcome, {username}</span>
+                                        <span className='block py-2 px-3 text-indigo-500 rounded lg:border-0 lg:p-0'><span className='pr-4'>|</span>Welcome, {username}</span>
                                     </li>
                                 </ul>
                             )}
