@@ -47,9 +47,9 @@ const NFTDetails = () => {
         const hasConfirmed = confirm(`Are you sure you want to buy ${nft.title}?`);
 
         if (hasConfirmed) {
-            await nftsAPI.gameBuy(nftId, userId, username);
+            await nftsAPI.nftBuy(nftId, userId, username);
 
-            navigate(PATH.GAME_PORTFOLIO);
+            navigate(PATH.NFT_PORTFOLIO);
         }
     }
 
@@ -267,7 +267,7 @@ const NFTDetails = () => {
                                         <button
                                             className='bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
                                             onClick={buyGameButtonClickHandler}>
-                                            Buy Game
+                                            Buy NFT
                                         </button>}
                                 </div>
                             )}

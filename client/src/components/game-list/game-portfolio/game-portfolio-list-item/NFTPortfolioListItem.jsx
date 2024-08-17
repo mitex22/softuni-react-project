@@ -4,8 +4,8 @@ import PATH from '../../../../paths/paths'
 import { useContext } from 'react'
 import AuthContext from '../../../../contexts/authContext'
 
-const GamePortfolioListItem = ({
-    game,
+const NFTPortfolioListItem = ({
+    nft,
     _id: transactionId,
     _ownerId,
     deleteTransactionItem
@@ -13,12 +13,12 @@ const GamePortfolioListItem = ({
 
     const { userId, isAuthenticated } = useContext(AuthContext);
 
-    const gameId = game._id;
+    const nftId = nft._id;
 
-    const isGameOwner = userId === _ownerId;
+    const isNFTOwner = userId === _ownerId;
 
     const sellGameButtonClickHandler = async (transactionId) => {
-        const hasConfirmed = confirm(`Are you sure you want to sell ${game.title}?`);
+        const hasConfirmed = confirm(`Are you sure you want to sell ${nft.title}?`);
 
         if (hasConfirmed) {
             deleteTransactionItem(transactionId);
@@ -28,16 +28,16 @@ const GamePortfolioListItem = ({
     return (
         <div className="allGames">
             <div className="allGames-info">
-                <img src={game.imageUrl} />
-                <h6>{game.category}</h6>
-                <h2>{game.title}</h2>
-                <Link to={pathToUrl(PATH.GAME_DETAILS, { gameId })} className="details-button">Details</Link>
+                <img src={nft.imageUrl} />
+                <h6>{nft.category}</h6>
+                <h2>{nft.title}</h2>
+                <Link to={pathToUrl(PATH.NFT_DETAILS, { nftId })} className="details-button">Details</Link>
             </div>
 
-            {isAuthenticated && isGameOwner && <button className="button" onClick={() => sellGameButtonClickHandler(transactionId)}>Sell Game</button>}
+            {isAuthenticated && isNFTOwner && <button className="button" onClick={() => sellGameButtonClickHandler(transactionId)}>Sell NFT</button>}
 
         </div>
     )
 }
 
-export default GamePortfolioListItem;
+export default NFTPortfolioListItem;

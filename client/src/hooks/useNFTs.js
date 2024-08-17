@@ -36,16 +36,22 @@ export function useGetOneNFT(nftId) {
     return [nft, setNFT]
 }
 
-export function useGetPortfolioGames(username) {
-    const [games, setGames] = useState([]);
+export function useGetPortfolioNFTs(username, setLoading) {
+    const [nfts, setNFTs] = useState([]);
 
     useEffect(() => {
         (async () => {
-            const result = await nftsAPI.getPortfolio(username);
+            try {
+                const result = await nftsAPI.getPortfolio(username);
 
-            setGames(result);
+                setNFTs(result);
+            } catch (error) {
+                console.log('Error fetching data', error);
+            } finally {
+                setLoading(false);
+            }
         })();
     }, [username]);
 
-    return [games, setGames]
+    return [nfts, setNFTs]
 }

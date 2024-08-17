@@ -13,7 +13,7 @@ const Header = () => {
 
     const linkClass = ({ isActive }) =>
         isActive
-            ? 'block py-2 pr-4 pl-3 text-blue-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-gray-700 lg:p-0 font-bold'
+            ? 'block py-2 pr-4 pl-3 text-blue-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:p-0 font-bold'
             : 'block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 font-bold';
 
     return (
@@ -45,7 +45,7 @@ const Header = () => {
                                         <NavLink to={PATH.GAME_CREATE} className={linkClass}>Create NFT</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={PATH.GAME_PORTFOLIO} className={linkClass}>My Portfolio</NavLink>
+                                        <NavLink to={PATH.NFT_PORTFOLIO} className={linkClass}>My Portfolio</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to={PATH.LOGOUT} className={linkClass}>Log Out</NavLink>
