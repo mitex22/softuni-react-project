@@ -1,9 +1,9 @@
 const PATH = {
     HOME: '/',
-    GAMES: '/games',
+    NFTs: '/nfts',
     GAME_PORTFOLIO: '/games/portfolio',
     GAME_CREATE: '/games/create',
-    GAME_DETAILS: '/games/:gameId',
+    NFT_DETAILS: '/nfts/:nftId',
     GAME_EDIT: '/games/:gameId/edit',
     REGISTER: '/register',
     LOGIN: '/login',
