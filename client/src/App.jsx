@@ -14,25 +14,27 @@ import Login from "./components/login/Login"
 // import GameEdit from "./components/game-edit/GameEdit"
 import Logout from "./components/logout/Logout"
 import RouteGuard from "./components/common/RouteGuard"
+import Footer from "./components/footer/Footer"
 
 function App() {
 	return (
 		<>
 			<AuthProvider>
-					<Header />
-						<Routes>
-							<Route path={PATH.HOME} element={<Home />} />
-							<Route path={PATH.REGISTER} element={<Register />} />
-							<Route path={PATH.LOGIN} element={<Login />} />
-							{/* <Route path={PATH.GAMES} element={<GameList />} /> */}
-							{/* <Route path={PATH.GAME_DETAILS} element={<GameDetails />} /> */}
-							<Route element={<RouteGuard />}>
-								{/* <Route path={PATH.GAME_PORTFOLIO} element={<GamePortfolio />} /> */}
-								{/* <Route path={PATH.GAME_CREATE} element={<GameCreate />} /> */}
-								{/* <Route path={PATH.GAME_EDIT} element={<GameEdit />} /> */}
-								<Route path={PATH.LOGOUT} element={<Logout />} />
-							</Route>
-						</Routes>
+				<Header />
+				<Routes>
+					<Route path={PATH.HOME} element={<Home />} />
+					<Route path={PATH.REGISTER} element={<Register />} />
+					<Route path={PATH.LOGIN} element={<Login />} />
+					{/* <Route path={PATH.GAMES} element={<GameList />} /> */}
+					{/* <Route path={PATH.GAME_DETAILS} element={<GameDetails />} /> */}
+					<Route element={<RouteGuard />}>
+						{/* <Route path={PATH.GAME_PORTFOLIO} element={<GamePortfolio />} /> */}
+						{/* <Route path={PATH.GAME_CREATE} element={<GameCreate />} /> */}
+						{/* <Route path={PATH.GAME_EDIT} element={<GameEdit />} /> */}
+						<Route path={PATH.LOGOUT} element={<Logout />} />
+					</Route>
+				</Routes>
+				<Footer />
 			</AuthProvider>
 		</>
 	)

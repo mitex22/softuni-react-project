@@ -1358,12 +1358,39 @@
         nfts: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Counter Strike",
+    			title: "Counter Strike 1",
                 category: "Shooter",
-    			imageUrl: "https://media.steampowered.com/apps/csgo/blog/images/fb_image.png?v=6",
+    			imageUrl: "https://i.seadn.io/s/raw/files/a67a0ef276bb5cf853f84472d8123962.png?auto=format&dpr=1&w=384",
                 maxLevel: "2",
                 summary: "Mnogo zaribqva!",
-    			_createdOn: 1613551279012
+    			_createdOn: 1613551279018
+    		},
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b297": {
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			title: "Counter Strike 2",
+                category: "Shooters",
+    			imageUrl: "https://i.seadn.io/s/raw/files/080fe1c868d7f7dd28663327d1f21248.png?auto=format&dpr=1&w=384",
+                maxLevel: "2",
+                summary: "Mnogo zaribqvasss!",
+    			_createdOn: 1613551279017
+    		},
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b296": {
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			title: "Counter Strike 3",
+                category: "Shooters",
+    			imageUrl: "https://i.seadn.io/s/raw/files/19e8d1b1a79380bee3d661d032d7b3f2.png?auto=format&dpr=1&w=384",
+                maxLevel: "2",
+                summary: "Mnogo zaribqvasss!",
+    			_createdOn: 1613551279016
+    		},
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b295": {
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			title: "Counter Strike 4",
+                category: "Shooters",
+    			imageUrl: "https://i.seadn.io/s/raw/files/01c86ac23a56cbb5596e6b022bd19dc4.png?auto=format&dpr=1&w=384",
+                maxLevel: "2",
+                summary: "Mnogo zaribqvasss!",
+    			_createdOn: 1613551279015
     		},
     	},
         portfolio: {
