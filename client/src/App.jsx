@@ -8,7 +8,7 @@ import Home from "./components/home/Home"
 import Register from "./components/register/Register"
 import Login from "./components/login/Login"
 import NFTList from "./components/game-list/NFTList"
-// import GamePortfolio from "./components/game-list/game-portfolio/GamePortfolio"
+import NFTPortfolio from "./components/game-list/game-portfolio/NFTPortfolio"
 // import GameCreate from "./components/game-create/GameCreate"
 import NFTDetails from "./components/nft-details/NFTDetails"
 // import GameEdit from "./components/game-edit/GameEdit"
@@ -28,7 +28,7 @@ function App() {
 					<Route path={PATH.NFTs} element={<NFTList />} />
 					<Route path={PATH.NFT_DETAILS} element={<NFTDetails />} />
 					<Route element={<RouteGuard />}>
-						{/* <Route path={PATH.GAME_PORTFOLIO} element={<GamePortfolio />} /> */}
+						<Route path={PATH.NFT_PORTFOLIO} element={<NFTPortfolio />} />
 						{/* <Route path={PATH.GAME_CREATE} element={<GameCreate />} /> */}
 						{/* <Route path={PATH.GAME_EDIT} element={<GameEdit />} /> */}
 						<Route path={PATH.LOGOUT} element={<Logout />} />
