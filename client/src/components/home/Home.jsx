@@ -1,43 +1,41 @@
 import { useEffect, useState } from "react";
 import * as nftsAPI from "../../api/nfts-api";
 
-import LatestGame from "./latest-game/LatestGame";
+import LatestGame from "./latest-game/LatestNFT";
+import Hero from "../hero/Hero";
+import LatestNFT from "./latest-game/LatestNFT";
 
 const Home = () => {
 
-    const [latestGames, setLatestGames] = useState([]);
+    const [latestNFTs, setLatestNFTs] = useState([]);
 
     useEffect(() => {
         (async () => {
             const result = await nftsAPI.getLatest();
 
-            setLatestGames(result);
+            setLatestNFTs(result);
         })();
     }, []);
 
     return (
-        // <!--Home Page-->
-        <section id="welcome-world">
+        <>
+            <Hero />
 
-            <div className="welcome-message">
-                <h2>ALL new games are</h2>
-                <h3>Only in GamesPlay</h3>
-            </div>
-            <img src="./images/four_slider_img01.png" alt="hero" />
-
-            <div id="home-page">
-                <h1>Latest Games</h1>
-
-                {latestGames.length > 0
-                ? latestGames.map((game) => (
-                    <LatestGame 
-                        key={game._id}
-                        {...game} 
-                    />
-                ))
-                : <p className="no-articles">No games yet</p>}
-            </div>
-        </section>
+            <section className='py-10'>
+                <div className='container-xl lg:container m-auto'>
+                    <div className='flex flex-col md:flex-row items-center justify-center gap-10 p-4 rounded-lg'>
+                        {latestNFTs.length > 0
+                            ? latestNFTs.map((game) => (
+                                <LatestNFT
+                                    key={game._id}
+                                    {...game}
+                                />
+                            ))
+                            : <p className="no-articles">No games yet</p>}
+                    </div>
+                </div>
+            </section>
+        </>
     )
 }
 
