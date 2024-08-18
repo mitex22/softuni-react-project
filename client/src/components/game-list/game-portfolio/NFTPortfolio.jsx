@@ -38,7 +38,7 @@ const NFTPortfolio = () => {
 
             <section className='bg-gray-50 dark:bg-gray-300 pt-20 pb-10 px-20'>
                 <div className='container-xl lg:container m-auto'>
-                    <h1 className="mb-10 text-center text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-6xl dark:text-white">My NFT Collection</h1>
+                    <h1 className="mb-10 text-slate-700 text-center text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-6xl dark:text-white">My NFT Collection</h1>
 
                     {loading ? (
                         <Spinner loading={loading} />

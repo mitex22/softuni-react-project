@@ -23,7 +23,7 @@ const Header = () => {
                     <div className="flex flex-wrap items-center justify-between mx-auto max-w-screen-xl">
                         <NavLink to={PATH.HOME} className="flex items-center">
                             <img src={nftLogo} className="mr-3 h-6 sm:h-9" alt="NFT Zoo Logo" />
-                            <span className="self-center text-xl text-gray-700 font-extrabold whitespace-nowrap">NFT Zoo</span>
+                            <span className="text-slate-700 self-center text-xl text-gray-700 font-extrabold whitespace-nowrap">NFT Zoo</span>
                         </NavLink>
                         <div className="flex items-center">
                             <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="mobile-menu-2" aria-expanded="false">
