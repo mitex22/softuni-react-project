@@ -40,7 +40,7 @@ const Register = () => {
 
     return (
         <>
-            <section className="bg-gray-50 dark:bg-gray-300">
+            <section className="bg-gray-50 pb-12">
                 <div className="flex flex-col items-center justify-center px-6 py-6 mx-auto h-[100vh] lg:py-0">
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-20 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -109,7 +109,7 @@ const Register = () => {
                                 }
 
                                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                    Already registered? <Link className="font-medium text-purple-600 dark:text-purple-500 hover:text-purple-700 " to={PATH.LOGIN}>Log In</Link>
+                                    Already registered? <Link className="font-medium text-purple-600 hover:text-purple-700" to={PATH.LOGIN}>Log In</Link>
                                 </p>
                             </form>
                         </div>

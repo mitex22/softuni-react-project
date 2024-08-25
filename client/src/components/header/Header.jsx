@@ -28,8 +28,8 @@ const Header = () => {
                 <nav className="fixed top-0 left-0 right-0 bg-white shadow sm:shadow-none sm:fixed z-10 border-gray-900 px-5 md:px-14 lg:px-20 py-2.5">
                     <div className="flex flex-wrap items-center justify-between mx-auto max-w-screen-xl">
                         <NavLink to={PATH.HOME} className="flex items-center">
-                            <img src={nftLogo} className="mr-3 h-6 sm:h-9" alt="NFT Zoo Logo" />
-                            <span className="text-slate-700 self-center text-xl text-gray-700 font-extrabold whitespace-nowrap">NFT Zoo</span>
+                            <img src={nftLogo} className="h-6 sm:h-9" alt="NFT Zoo Logo" />
+                            {/* <span className="text-slate-700 self-center text-xl text-gray-700 font-extrabold whitespace-nowrap">NFT Zoo</span> */}
                         </NavLink>
                         <div className="flex items-center">
                             <button 

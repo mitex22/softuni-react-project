@@ -13,8 +13,8 @@ const Footer = () => {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto">
                     <Link to={PATH.HOME} className="flex justify-center items-center border-gray-200 pt-10">
-                        <img src={nftLogo} className="mr-3 h-6 sm:h-9" alt="NFT Zoo Logo" />
-                        <span className="text-slate-700 self-center text-xl font-semibold whitespace-nowrap">NFT Zoo</span>
+                        <img src={nftLogo} className="h-6 sm:h-9" alt="NFT Zoo Logo" />
+                        {/* <span className="text-slate-700 self-center text-xl font-semibold whitespace-nowrap">NFT Zoo</span> */}
                     </Link>
 
                     <ul className="text-lg flex items-center justify-center flex-col gap-7 md:flex-row md:gap-12 transition-all duration-500 py-10 mb-10 border-b border-gray-200">
@@ -35,7 +35,7 @@ const Footer = () => {
                             <img src={facebook} className="p-1 border-b-2 border-b-transparent mr-3 h-6 sm:h-9 hover:border-b-indigo-300" alt="Facebook Logo" />
                         </a>
                     </div>
-                    <span className="text-lg text-gray-500 text-center block">©<a href="https://pagedone.io/"> Dimitar Pavlov</a> | 2024 | All rights reserved.</span>
+                    <span className="text-md text-gray-500 text-center block">© <span className="text-lg text-purple-600">NFT Zoo</span> by Dimitar Pavlov | 2024 | All rights reserved.</span>
                 </div>
             </div>
         </footer>
