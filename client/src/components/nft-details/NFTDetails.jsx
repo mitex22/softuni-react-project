@@ -157,7 +157,7 @@ const NFTDetails = () => {
                                     <h3 className='text-indigo-800 text-lg font-bold mb-2'>
                                         Price
                                     </h3>
-                                    <p>{nft.maxLevel}</p>
+                                    <p>{nft.price}</p>
                                 </div>
                             </div>
 
@@ -221,21 +221,19 @@ const NFTDetails = () => {
 
                         <aside>
                             <div className='bg-white p-6 rounded-lg shadow-md'>
-                                <h3 className='text-xl font-bold mb-6'>Company Info</h3>
+                                <h3 className='text-xl font-bold mb-6'>Collection Name</h3>
 
-                                <h2 className='text-2xl'>{nft.title}</h2>
-
-                                <p className='my-2'>{nft.title}</p>
+                                <h2 className='text-2xl'>{nft.collectionName}</h2>
 
                                 <hr className='my-4' />
 
-                                <h3 className='text-xl'>Contact Email:</h3>
+                                <h3 className='text-xl'>Creator Name:</h3>
 
                                 <p className='my-2 bg-indigo-100 p-2 font-bold'>
                                     {nft.title}
                                 </p>
 
-                                <h3 className='text-xl'>Contact Phone:</h3>
+                                <h3 className='text-xl'>Creator Email:</h3>
 
                                 <p className='my-2 bg-indigo-100 p-2 font-bold'>
                                     {' '}
