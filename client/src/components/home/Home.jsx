@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import * as nftsAPI from "../../api/nfts-api";
 
 import Hero from "../hero/Hero";
-import NFTListItem from "../game-list/nft-list-item/NFTListItem";
+import NFTListItem from "../nft-list/nft-list-item/NFTListItem";
 
 const Home = () => {
 
