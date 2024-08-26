@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
+import { MdShoppingCart, MdDelete, MdEdit } from "react-icons/md";
 
 import { useGetOneNFT } from "../../hooks/useNFTs";
 import { useGetAllComments } from "../../hooks/useComments";
@@ -211,7 +212,7 @@ const NFTDetails = () => {
                                         }
 
                                         <button
-                                            className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                            className="bg-indigo-800 hover:bg-indigo-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                                             type="submit">
                                             Submit
                                         </button>
@@ -230,19 +231,19 @@ const NFTDetails = () => {
 
                                 <h3 className='text-xl font-bold'>Creator Name:</h3>
 
-                                <p className='my-2 bg-indigo-100 p-2'>
-                                    {nft.author.username}
+                                <p className='my-2 bg-indigo-100 rounded p-2'>
+                                    {nft?.author?.username}
                                 </p>
 
                                 <h3 className='text-xl font-bold'>Creator Email:</h3>
 
-                                <p className='my-2 bg-indigo-100 p-2'>
-                                    {nft.author.email}
+                                <p className='my-2 bg-indigo-100 rounded p-2'>
+                                    {nft?.author?.email}
                                 </p>
 
                                 <h3 className='text-xl font-bold'>Created On:</h3>
 
-                                <p className='my-2 bg-indigo-100 p-2'>
+                                <p className='my-2 bg-indigo-100 rounded p-2'>
                                     {' '}
                                     {formatDate(nft._createdOn)}
                                 </p>
@@ -255,24 +256,24 @@ const NFTDetails = () => {
                                         <>
                                             <Link
                                                 to={pathToUrl(PATH.NFT_EDIT, { nftId })}
-                                                className='bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
+                                                className='bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline block text-center inline-flex justify-center items-center gap-2 me-2'
                                             >
-                                                Edit NFT
+                                                <MdEdit /> <span>Edit NFT</span>
                                             </Link>
 
                                             <button
-                                                className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
+                                                className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
                                                 onClick={deleteNFTButtonClickHandler}>
-                                                Delete NFT
+                                                <MdDelete /> <span>Delete NFT</span>
                                             </button>
                                         </>
                                     )}
 
                                     {isAuthenticated &&
                                         <button
-                                            className='bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
+                                            className='bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
                                             onClick={buyGameButtonClickHandler}>
-                                            Buy NFT
+                                            <MdShoppingCart /> <span>Buy NFT</span>
                                         </button>}
                                 </div>
                             )}

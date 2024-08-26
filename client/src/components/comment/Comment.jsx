@@ -66,22 +66,24 @@ const Comment = ({
 
                 {_ownerId === userId &&
                     <button
-                        className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
+                        className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4 block'
                         onClick={() => deleteCommentButtonClickHandler(_id)}>Delete
                     </button>}
 
                 {_ownerId !== userId && isAuthenticated && !likeItem &&
                     <button
                         className='bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
-                        onClick={() => likeCommentButtonClickHandler(_id)}>
+                        onClick={() => likeCommentButtonClickHandler(_id)}
+                        title='Remove Like'>
                         <FaRegThumbsUp />
                     </button>}
 
                 {_ownerId !== userId && isAuthenticated && likeItem &&
                     <button
-                        className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
-                        onClick={() => dislikeCommentButtonClickHandler(likeItem)}>
-                        <FaRegThumbsDown />
+                        className='bg-slate-500 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
+                        onClick={() => dislikeCommentButtonClickHandler(likeItem)}
+                        title='Add Like'>
+                        <FaRegThumbsUp />
                     </button>}
             </div>
         </>

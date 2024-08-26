@@ -34,8 +34,6 @@ export const getOne = async (nftId) => {
 
     const nft = result;
 
-    console.log(nft)
-
     return nft;
 };
 
