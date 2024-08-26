@@ -23,7 +23,21 @@ export const getPortfolio = async (username) => {
     return nfts;
 };
 
-export const getOne = (nftId) => request.get(`${BASE_URL}/${nftId}`);
+// export const getOne = (nftId) => request.get(`${BASE_URL}/${nftId}`);
+
+export const getOne = async (nftId) => {
+    const query = new URLSearchParams({
+        load: `author=_ownerId:users`
+    });
+
+    const result = await request.get(`${BASE_URL}/${nftId}` + '?' + query);
+
+    const nft = result;
+
+    console.log(nft)
+
+    return nft;
+};
 
 export const getLatest = async () => {
     const result = await request.get(`${BASE_URL}?sortBy=_createdOn%20desc&pageSize=3`);

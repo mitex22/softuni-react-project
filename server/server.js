@@ -1362,7 +1362,7 @@
                 category: "Gaming",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/s/raw/files/a67a0ef276bb5cf853f84472d8123962.png?auto=format&dpr=1&w=384",
-                price: "2",
+                price: "2 ETH",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279018
     		},
@@ -1372,7 +1372,7 @@
                 category: "Gaming",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/s/raw/files/080fe1c868d7f7dd28663327d1f21248.png?auto=format&dpr=1&w=384",
-                price: "2",
+                price: "2 ETH",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279017
     		},
@@ -1382,7 +1382,7 @@
                 category: "Gaming",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/s/raw/files/19e8d1b1a79380bee3d661d032d7b3f2.png?auto=format&dpr=1&w=384",
-                price: "2",
+                price: "2 ETH",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279016
     		},
@@ -1392,7 +1392,7 @@
                 category: "Gaming",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/s/raw/files/01c86ac23a56cbb5596e6b022bd19dc4.png?auto=format&dpr=1&w=384",
-                price: "2",
+                price: "2 ETH",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279015
     		},

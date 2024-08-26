@@ -11,6 +11,7 @@ import * as nftsAPI from "../../api/nfts-api";
 import * as commentsAPI from "../../api/commnets-api";
 
 import { pathToUrl } from "../../utils/pathUtils";
+import { formatDate } from "../../utils/formatDate";
 import PATH from "../../paths/paths";
 import Comment from "../comment/Comment";
 
@@ -152,9 +153,9 @@ const NFTDetails = () => {
                                 <img className="mx-auto mb-4 lg:mb-0 size-64 rounded" src={nft.imageUrl} alt="Sunset in the mountains" />
 
                                 <div className="flex flex-col m-auto justify-center items-center">
-                                    <h1 className='text-3xl font-bold mb-4'>{nft.title}</h1>
+                                    <h1 className='text-3xl text-indigo-800 font-bold mb-4'>{nft.title}</h1>
 
-                                    <h3 className='text-indigo-800 text-lg font-bold mb-2'>
+                                    <h3 className='text-lg font-bold mb-2'>
                                         Price
                                     </h3>
                                     <p>{nft.price}</p>
@@ -170,7 +171,7 @@ const NFTDetails = () => {
                             </div>
 
                             <div className='bg-white p-6 rounded-lg shadow-md mt-6'>
-                                <h2 className="text-lg font-bold mb-4">Comments</h2>
+                                <h2 className="text-indigo-800 text-lg font-bold mb-4">Comments</h2>
 
                                 <ul>
                                     {comments.map((comment) => (
@@ -227,17 +228,23 @@ const NFTDetails = () => {
 
                                 <hr className='my-4' />
 
-                                <h3 className='text-xl'>Creator Name:</h3>
+                                <h3 className='text-xl font-bold'>Creator Name:</h3>
 
-                                <p className='my-2 bg-indigo-100 p-2 font-bold'>
-                                    {nft.title}
+                                <p className='my-2 bg-indigo-100 p-2'>
+                                    {nft.author.username}
                                 </p>
 
-                                <h3 className='text-xl'>Creator Email:</h3>
+                                <h3 className='text-xl font-bold'>Creator Email:</h3>
 
-                                <p className='my-2 bg-indigo-100 p-2 font-bold'>
+                                <p className='my-2 bg-indigo-100 p-2'>
+                                    {nft.author.email}
+                                </p>
+
+                                <h3 className='text-xl font-bold'>Created On:</h3>
+
+                                <p className='my-2 bg-indigo-100 p-2'>
                                     {' '}
-                                    {nft.title}
+                                    {formatDate(nft._createdOn)}
                                 </p>
                             </div>
 
