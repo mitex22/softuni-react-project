@@ -11,7 +11,7 @@ import NFTList from "./components/game-list/NFTList"
 import NFTPortfolio from "./components/game-list/game-portfolio/NFTPortfolio"
 import GameCreate from "./components/game-create/GameCreate"
 import NFTDetails from "./components/nft-details/NFTDetails"
-// import GameEdit from "./components/game-edit/GameEdit"
+import GameEdit from "./components/game-edit/GameEdit"
 import Logout from "./components/logout/Logout"
 import RouteGuard from "./components/common/RouteGuard"
 import Footer from "./components/footer/Footer"
@@ -29,8 +29,8 @@ function App() {
 					<Route path={PATH.NFT_DETAILS} element={<NFTDetails />} />
 					<Route element={<RouteGuard />}>
 						<Route path={PATH.NFT_PORTFOLIO} element={<NFTPortfolio />} />
-						<Route path={PATH.GAME_CREATE} element={<GameCreate />} />
-						{/* <Route path={PATH.GAME_EDIT} element={<GameEdit />} /> */}
+						<Route path={PATH.NFT_CREATE} element={<GameCreate />} />
+						<Route path={PATH.NFT_EDIT} element={<GameEdit />} />
 						<Route path={PATH.LOGOUT} element={<Logout />} />
 					</Route>
 				</Routes>
