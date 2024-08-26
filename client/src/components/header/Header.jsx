@@ -58,7 +58,7 @@ const Header = () => {
                                         <NavLink to={PATH.NFTs} className={linkClass}>All NFTs</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to={PATH.GAME_CREATE} className={linkClass}>Create NFT</NavLink>
+                                        <NavLink to={PATH.NFT_CREATE} className={linkClass}>Create NFT</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to={PATH.NFT_PORTFOLIO} className={linkClass}>My Portfolio</NavLink>

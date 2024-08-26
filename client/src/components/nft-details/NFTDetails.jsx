@@ -269,12 +269,11 @@ const NFTDetails = () => {
                                         </>
                                     )}
 
-                                    {isAuthenticated &&
-                                        <button
-                                            className='bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
-                                            onClick={buyGameButtonClickHandler}>
-                                            <MdShoppingCart /> <span>Buy NFT</span>
-                                        </button>}
+                                    <button
+                                        className='bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
+                                        onClick={buyGameButtonClickHandler}>
+                                        <MdShoppingCart /> <span>Buy NFT</span>
+                                    </button>
                                 </div>
                             )}
                         </aside>
