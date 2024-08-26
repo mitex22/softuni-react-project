@@ -146,7 +146,7 @@ const NFTDetails = () => {
                 )}
             </section> */}
 
-            <section className='bg-indigo-50 pt-14'>
+            <section className='bg-gray-50 pt-14'>
                 <div className='container m-auto py-10 px-6'>
                     <div className='grid grid-cols-1 md:grid-cols-70/30 w-full gap-6'>
                         <main>
@@ -223,7 +223,7 @@ const NFTDetails = () => {
 
                         <aside>
                             <div className='bg-white p-6 rounded-lg shadow-md'>
-                                <h3 className='text-xl font-bold mb-6'>Collection Name</h3>
+                                <h3 className='text-xl font-bold mb-4'>Collection Name:</h3>
 
                                 <h2 className='text-2xl'>{nft.collectionName}</h2>
 
@@ -231,19 +231,19 @@ const NFTDetails = () => {
 
                                 <h3 className='text-xl font-bold'>Creator Name:</h3>
 
-                                <p className='my-2 bg-indigo-100 rounded p-2'>
+                                <p className='my-2 border-b'>
                                     {nft?.author?.username}
                                 </p>
 
                                 <h3 className='text-xl font-bold'>Creator Email:</h3>
 
-                                <p className='my-2 bg-indigo-100 rounded p-2'>
+                                <p className='my-2 border-b'>
                                     {nft?.author?.email}
                                 </p>
 
                                 <h3 className='text-xl font-bold'>Created On:</h3>
 
-                                <p className='my-2 bg-indigo-100 rounded p-2'>
+                                <p className='my-2 border-b'>
                                     {' '}
                                     {formatDate(nft._createdOn)}
                                 </p>
