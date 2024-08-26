@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { useGetPortfolioNFTs } from '../../../hooks/useNFTs';
 import AuthContext from '../../../contexts/authContext';
-import NFTPortfolioListItem from './game-portfolio-list-item/NFTPortfolioListItem';
+import NFTPortfolioListItem from './nft-portfolio-list-item/NFTPortfolioListItem';
 import * as nftsAPI from "../../../api/nfts-api";
 import Spinner from '../../common/Spinner';
 

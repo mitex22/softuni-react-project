@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-
 import * as nftsAPI from "../../api/nfts-api";
+import { useNavigate } from "react-router-dom";
+import useForm from "../../hooks/useForm";
+import { useState } from "react";
 import PATH from "../../paths/paths"
 
-const EDIT_GAME_FORM_KEYS = {
+const CREATE_NFT_FORM_KEYS = {
     TITLE: 'title',
     CATEGORY: 'category',
     COLLECTION: 'collectionName',
@@ -13,121 +13,110 @@ const EDIT_GAME_FORM_KEYS = {
     SUMMARY: 'summary',
 }
 
-const GameEdit = () => {
-
+const NFTCreate = () => {
     const navigate = useNavigate();
-    const { nftId } = useParams();
-    const [nft, setNFT] = useState({
-        [EDIT_GAME_FORM_KEYS.TITLE]: '',
-        [EDIT_GAME_FORM_KEYS.CATEGORY]: '',
-        [EDIT_GAME_FORM_KEYS.COLLECTION]: '',
-        [EDIT_GAME_FORM_KEYS.PRICE]: '',
-        [EDIT_GAME_FORM_KEYS.IMAGE_URL]: '',
-        [EDIT_GAME_FORM_KEYS.SUMMARY]: '',
-    });
 
     const [error, setError] = useState('');
 
-    useEffect(() => {
-        nftsAPI.getOne(nftId)
-            .then(result => {
-                setNFT(result);
-            });
-    }, [nftId]);
+    const submitFormHandler = async (values) => {
 
-    const editNFTSubmitHandler = async (e) => {
-        e.preventDefault();
-
-        const values = Object.fromEntries(new FormData(e.currentTarget));
-
-        // TODO: Edit Game Form validation
-        if (values[EDIT_GAME_FORM_KEYS.TITLE] === '') {
+        // TODO: Create Game Form validation
+        if (values[CREATE_NFT_FORM_KEYS.TITLE] === '') {
             return setError('Title is missing!');
         }
 
-        if (values[EDIT_GAME_FORM_KEYS.CATEGORY] === '') {
+        if (values[CREATE_NFT_FORM_KEYS.CATEGORY] === '') {
             return setError('Category is missing!');
         }
 
-        if (values[EDIT_GAME_FORM_KEYS.MAX_LEVEL] === '') {
+        if (values[CREATE_NFT_FORM_KEYS.COLLECTION] === '') {
+            return setError('Collection is missing!');
+        }
+
+        if (values[CREATE_NFT_FORM_KEYS.PRICE] === '') {
             return setError('MaxLevel is missing!');
         }
 
-        if (values[EDIT_GAME_FORM_KEYS.IMAGE_URL] === '') {
+        if (values[CREATE_NFT_FORM_KEYS.IMAGE_URL] === '') {
             return setError('Image is missing!');
         }
 
-        if (values[EDIT_GAME_FORM_KEYS.SUMMARY] === '') {
+        if (values[CREATE_NFT_FORM_KEYS.SUMMARY] === '') {
             return setError('Summary is missing!');
         }
 
         try {
-            await nftsAPI.nftEdit(nftId, values);
+            await nftsAPI.nftCreate(values);
 
             navigate(PATH.NFTs);
-        } catch (err) {
-            // Error notification
-            console.log(err);
+        } catch (error) {
+            console.log(error)
         }
     }
 
-    const onChange = (e) => {
-        setNFT(state => ({
-            ...state,
-            [e.target.name]: e.target.value
-        }));
-    };
+    const { values, onChange, onSubmit } = useForm(submitFormHandler, {
+        [CREATE_NFT_FORM_KEYS.TITLE]: '',
+        [CREATE_NFT_FORM_KEYS.CATEGORY]: '',
+        [CREATE_NFT_FORM_KEYS.COLLECTION]: '',
+        [CREATE_NFT_FORM_KEYS.PRICE]: '',
+        [CREATE_NFT_FORM_KEYS.IMAGE_URL]: '',
+        [CREATE_NFT_FORM_KEYS.SUMMARY]: '',
+    });
 
     return (
         <>
-            {/* <section id="edit-page" className="auth">
-                <form id="edit" onSubmit={editNFTSubmitHandler}>
+            {/* <section id="create-page" className="auth">
+                <form id="create" onSubmit={onSubmit}>
                     <div className="container">
 
-                        <h1>Edit Game</h1>
-
+                        <h1>Create Game</h1>
                         <label htmlFor="leg-title">Legendary title:</label>
-                        <input 
-                            type="text" id="title" 
-                            name="title" 
-                            value={nft.title} 
-                            onChange={onChange} 
-                            placeholder="Enter nft title..." />
+                        <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            placeholder="Enter game title..."
+                            onChange={onChange}
+                            value={values[CREATE_NFT_FORM_KEYS.TITLE]}
+                        />
 
                         <label htmlFor="category">Category:</label>
-                        <input 
-                            type="text" 
-                            id="category" 
-                            name="category" 
-                            value={nft.category} 
-                            onChange={onChange} 
-                            placeholder="Enter nft category..." />
+                        <input
+                            type="text"
+                            id="category"
+                            name="category"
+                            placeholder="Enter game category..."
+                            onChange={onChange}
+                            value={values[CREATE_NFT_FORM_KEYS.CATEGORY]}
+                        />
 
                         <label htmlFor="levels">MaxLevel:</label>
-                        <input 
-                            type="number" 
-                            id="maxLevel" 
-                            name="maxLevel" 
-                            value={nft.maxLevel} 
-                            onChange={onChange} 
-                            min="1" 
-                            placeholder="1" />
+                        <input
+                            type="number"
+                            id="maxLevel"
+                            name="maxLevel"
+                            min="1"
+                            placeholder="1"
+                            onChange={onChange}
+                            value={values[CREATE_NFT_FORM_KEYS.PRICE]}
+                        />
 
-                        <label htmlFor="imageUrl">Image:</label>
-                        <input 
-                            type="text" 
-                            id="imageUrl" 
-                            name="imageUrl" 
-                            value={nft.imageUrl} 
-                            onChange={onChange} 
-                            placeholder="Upload a photo..." />
+                        <label htmlFor="game-img">Image:</label>
+                        <input
+                            type="text"
+                            id="imageUrl"
+                            name="imageUrl"
+                            placeholder="Upload a photo..."
+                            onChange={onChange}
+                            value={values[CREATE_NFT_FORM_KEYS.IMAGE_URL]}
+                        />
 
                         <label htmlFor="summary">Summary:</label>
-                        <textarea 
-                            name="summary" 
-                            value={nft.summary} 
-                            onChange={onChange} 
+                        <textarea
+                            name="summary"
                             id="summary"
+                            onChange={onChange}
+                            value={values[CREATE_NFT_FORM_KEYS.SUMMARY]}
                         >
                         </textarea>
 
@@ -137,20 +126,19 @@ const GameEdit = () => {
                             </p>
                         }
 
-                        <input className="btn submit" type="submit" value="Edit NFT" />
-
+                        <input className="btn submit" type="submit" value="Create Game" />
                     </div>
                 </form>
             </section> */}
 
-            <section className="bg-gray-50 pb-12">
+            <section className="bg-gray-50 bg-gray-50 pt-20 pb-10">
                 <div className="flex flex-col items-center justify-center px-6 py-6 mx-auto lg:py-0">
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-20 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-slate-700 md:text-2xl dark:text-white">
                                 Create NFT
                             </h1>
-                            <form className="space-y-4 md:space-y-6" action="#" onSubmit={editNFTSubmitHandler}>
+                            <form className="space-y-4 md:space-y-6" action="#" onSubmit={onSubmit}>
 
                                 <div>
                                     <label htmlFor="title" className="block mb-2 text-sm font-medium text-slate-700 dark:text-white">NFT Title</label>
@@ -161,7 +149,7 @@ const GameEdit = () => {
                                         name="title"
                                         placeholder="Enter NFT title..."
                                         onChange={onChange}
-                                        value={nft.title} 
+                                        value={values[CREATE_NFT_FORM_KEYS.TITLE]}
                                     />
                                 </div>
 
@@ -174,7 +162,7 @@ const GameEdit = () => {
                                         name="category"
                                         placeholder="Enter NFT category..."
                                         onChange={onChange}
-                                        value={nft.category}
+                                        value={values[CREATE_NFT_FORM_KEYS.CATEGORY]}
                                     />
                                 </div>
 
@@ -187,7 +175,7 @@ const GameEdit = () => {
                                         name="collectionName"
                                         placeholder="Enter NFT collection..."
                                         onChange={onChange}
-                                        value={nft.collectionName}
+                                        value={values[CREATE_NFT_FORM_KEYS.COLLECTION]}
                                     />
                                 </div>
 
@@ -200,7 +188,7 @@ const GameEdit = () => {
                                         name="price"
                                         placeholder="Enter NFT price (e.g. 3 ETH)..."
                                         onChange={onChange}
-                                        value={nft.price}
+                                        value={values[CREATE_NFT_FORM_KEYS.PRICE]}
                                     />
                                 </div>
 
@@ -213,7 +201,7 @@ const GameEdit = () => {
                                         name="imageUrl"
                                         placeholder="Upload a photo..."
                                         onChange={onChange}
-                                        value={nft.imageUrl}
+                                        value={values[CREATE_NFT_FORM_KEYS.IMAGE_URL]}
                                     />
                                 </div>
 
@@ -224,12 +212,12 @@ const GameEdit = () => {
                                         name="summary"
                                         id="summary"
                                         onChange={onChange}
-                                        value={nft.summary}
+                                        value={values[CREATE_NFT_FORM_KEYS.SUMMARY]}
                                     >
                                     </textarea>
                                 </div>
 
-                                <button type="submit" className="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Edit NFT</button>
+                                <button type="submit" className="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create NFT</button>
 
                                 {error &&
                                     <p>
@@ -245,4 +233,4 @@ const GameEdit = () => {
     )
 }
 
-export default GameEdit;
+export default NFTCreate;
