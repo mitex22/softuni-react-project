@@ -35,7 +35,7 @@ const Header = () => {
                             <button 
                                 data-collapse-toggle="mobile-menu-2" 
                                 type="button" 
-                                className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" 
+                                className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100" 
                                 aria-controls="mobile-menu-2" 
                                 aria-expanded="false"
                                 onClick={hamburgerHandler}>

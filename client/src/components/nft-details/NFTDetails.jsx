@@ -131,7 +131,7 @@ const NFTDetails = () => {
                                     <form className="mt-4 bg-white p-4 rounded-lg shadow-md" onSubmit={onSubmit}>
                                         <div className="mb-4">
                                             <textarea
-                                                className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                                                 id="comment" rows="3"
                                                 placeholder="Leave a comment..."
                                                 name="comment"

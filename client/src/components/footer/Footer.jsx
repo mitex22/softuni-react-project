@@ -21,8 +21,6 @@ const Footer = () => {
                         <li><a href="#" className="text-gray-800 hover:text-gray-900">Pagedone</a></li>
                         <li><a href="#" className=" text-gray-800 hover:text-gray-900">Products</a></li>
                         <li><a href="#" className=" text-gray-800 hover:text-gray-900">Resources</a></li>
-                        <li><a href="#" className=" text-gray-800 hover:text-gray-900">Blogs</a></li>
-                        <li><a href="#" className=" text-gray-800 hover:text-gray-900">Support</a></li>
                     </ul>
                     <div className="flex space-x-10 justify-center items-center mb-10">
                         <a href="#" className="block text-gray-900 transition-all duration-500 hover:text-indigo-600">
@@ -35,7 +33,7 @@ const Footer = () => {
                             <img src={facebook} className="p-1 border-b-2 border-b-transparent mr-3 h-6 sm:h-9 hover:border-b-indigo-300" alt="Facebook Logo" />
                         </a>
                     </div>
-                    <span className="text-md text-gray-500 text-center block">© <span className="text-lg text-purple-600">NFT Zoo</span> by Dimitar Pavlov | 2024 | All rights reserved.</span>
+                    <span className="text-md text-gray-500 text-center block"><img src={nftLogo} className="h-6 sm:h-9 inline-block" alt="NFT Zoo Logo" /> by Dimitar Pavlov | 2024 | © All rights reserved.</span>
                 </div>
             </div>
         </footer>
