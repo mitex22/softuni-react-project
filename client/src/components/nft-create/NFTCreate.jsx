@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import { useState } from "react";
 import PATH from "../../paths/paths"
+import { toast } from 'react-toastify';
 
 const CREATE_NFT_FORM_KEYS = {
     TITLE: 'title',
@@ -46,6 +47,8 @@ const NFTCreate = () => {
 
         try {
             await nftsAPI.nftCreate(values);
+
+            toast.success(`Successfully created NFT ${values.title}!`);
 
             navigate(PATH.NFTs);
         } catch (error) {
