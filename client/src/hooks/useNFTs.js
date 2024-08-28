@@ -22,14 +22,20 @@ export function useGetAllNFTs(setLoading) {
     return [nfts, setNFTs]
 }
 
-export function useGetOneNFT(nftId) {
+export function useGetOneNFT(nftId, setLoading) {
     const [nft, setNFT] = useState({});
 
     useEffect(() => {
         (async () => {
-            const result = await nftsAPI.getOne(nftId);
+            try {
+                const result = await nftsAPI.getOne(nftId);
 
-            setNFT(result);
+                setNFT(result);
+            } catch (error) {
+                console.log('Error fetching data', error);
+            } finally {
+                setLoading(false);
+            }
         })();
     }, [nftId]);
 

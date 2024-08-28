@@ -29,7 +29,6 @@ const Header = () => {
                     <div className="flex flex-wrap items-center justify-between mx-auto max-w-screen-xl">
                         <NavLink to={PATH.HOME} className="flex items-center">
                             <img src={nftLogo} className="h-6 sm:h-9" alt="NFT Zoo Logo" />
-                            {/* <span className="text-slate-700 self-center text-xl text-gray-700 font-extrabold whitespace-nowrap">NFT Zoo</span> */}
                         </NavLink>
                         <div className="flex items-center">
                             <button 

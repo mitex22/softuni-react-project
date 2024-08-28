@@ -21,21 +21,6 @@ const NFTPortfolio = () => {
 
     return (
         <>
-            {/* <section id="catalog-page">
-                <h1>My Portfolio</h1>
-
-                {transactions.length > 0
-                    ? transactions.map((transactionItem) => (
-                        <NFTPortfolioListItem
-                            key={transactionItem._id}
-                            {...transactionItem}
-                            deleteTransactionItem={deleteTransactionItem}
-                        />
-                    ))
-                    : <h3 className="no-articles">No NFTs yet</h3>
-                }
-            </section> */}
-
             <section className='bg-gray-50 pt-20 pb-10 px-20'>
                 <div className='container-xl lg:container m-auto'>
                     <h1 className="mb-10 text-slate-700 text-center text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-6xl">My NFT Collection</h1>
