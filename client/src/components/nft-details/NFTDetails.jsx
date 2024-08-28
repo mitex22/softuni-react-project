@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
 import { MdShoppingCart, MdDelete, MdEdit } from "react-icons/md";
 
+import { toast } from 'react-toastify';
+
 import { useGetOneNFT } from "../../hooks/useNFTs";
 import { useGetAllComments } from "../../hooks/useComments";
 import useForm from "../../hooks/useForm";
@@ -44,6 +46,8 @@ const NFTDetails = () => {
         if (hasConfirmed) {
             await nftsAPI.nftDelete(nftId);
 
+            toast.success(`Successfully deleted ${nft.title}!`);
+
             navigate(PATH.NFTs);
         }
     }
@@ -53,6 +57,8 @@ const NFTDetails = () => {
 
         if (hasConfirmed) {
             await nftsAPI.nftBuy(nftId, userId, username);
+
+            toast.success(`Successfully bought ${nft.title}!`);
 
             navigate(PATH.NFT_PORTFOLIO);
         }

@@ -6,6 +6,8 @@ import AuthContext from '../../../../contexts/authContext'
 import { FaArrowRight } from 'react-icons/fa';
 import { MdRemoveShoppingCart } from "react-icons/md";
 
+import { toast } from 'react-toastify';
+
 const NFTPortfolioListItem = ({
     nft,
     _id: transactionId,
@@ -24,6 +26,8 @@ const NFTPortfolioListItem = ({
 
         if (hasConfirmed) {
             deleteTransactionItem(transactionId);
+
+            toast.success(`Successfully sold ${nft.title}!`);
         }
     }
 

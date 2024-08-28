@@ -31,11 +31,11 @@ const Header = () => {
                             <img src={nftLogo} className="h-6 sm:h-9" alt="NFT Zoo Logo" />
                         </NavLink>
                         <div className="flex items-center">
-                            <button 
-                                data-collapse-toggle="mobile-menu-2" 
-                                type="button" 
-                                className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100" 
-                                aria-controls="mobile-menu-2" 
+                            <button
+                                data-collapse-toggle="mobile-menu-2"
+                                type="button"
+                                className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100"
+                                aria-controls="mobile-menu-2"
                                 aria-expanded="false"
                                 onClick={hamburgerHandler}>
                                 <span className="sr-only">Open main menu</span>
@@ -44,12 +44,12 @@ const Header = () => {
                             </button>
                         </div>
 
-                        <div 
-                            className={`${!isExpanded ? 'hidden ' : ''}justify-between items-center w-full lg:flex lg:w-auto lg:order-1`} 
+                        <div
+                            className={`${!isExpanded ? 'hidden ' : ''}justify-between items-center w-full lg:flex lg:w-auto lg:order-1`}
                             id="mobile-menu-2">
                             {/* User */}
                             {isAuthenticated && (
-                                <ul 
+                                <ul
                                     className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
                                     onClick={hamburgerHandler}>
 
@@ -73,10 +73,13 @@ const Header = () => {
 
                             {/* Guest */}
                             {!isAuthenticated && (
-                                <ul 
+                                <ul
                                     className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
                                     onClick={hamburgerHandler}
-                                    >
+                                >
+                                    <li>
+                                        <NavLink to={PATH.NFTs} className={linkClass}>All NFTs</NavLink>
+                                    </li>
                                     <li>
                                         <NavLink to={PATH.LOGIN} className={linkClass}>Login</NavLink>
                                     </li>
@@ -93,4 +96,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;
