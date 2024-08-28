@@ -19,13 +19,13 @@ const Header = () => {
 
     const linkClass = ({ isActive }) =>
         isActive
-            ? 'block py-2 pr-4 pl-3 text-indigo-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:p-0 font-bold'
-            : 'block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-indigo-700 lg:p-0 font-bold';
+            ? 'block py-2 pr-4 pl-3 text-indigo-700 border-b border-slate-100 hover:bg-slate-50 lg:hover:bg-transparent lg:border-0 lg:p-0 font-bold'
+            : 'block py-2 pr-4 pl-3 text-slate-700 border-b border-slate-100 hover:bg-slate-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-indigo-700 lg:p-0 font-bold';
 
     return (
         <>
             <header className='relative'>
-                <nav className="fixed top-0 left-0 right-0 bg-white shadow sm:shadow-none sm:fixed z-10 border-gray-900 px-5 md:px-14 lg:px-20 py-2.5">
+                <nav className="fixed top-0 left-0 right-0 bg-white shadow sm:shadow-none sm:fixed z-10 border-slate-900 px-5 md:px-14 lg:px-20 py-2.5">
                     <div className="flex flex-wrap items-center justify-between mx-auto max-w-screen-xl">
                         <NavLink to={PATH.HOME} className="flex items-center">
                             <img src={nftLogo} className="h-6 sm:h-9" alt="NFT Zoo Logo" />
@@ -34,7 +34,7 @@ const Header = () => {
                             <button
                                 data-collapse-toggle="mobile-menu-2"
                                 type="button"
-                                className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100"
+                                className="inline-flex items-center p-2 ml-1 text-sm text-slate-500 rounded-lg lg:hidden hover:bg-slate-100"
                                 aria-controls="mobile-menu-2"
                                 aria-expanded="false"
                                 onClick={hamburgerHandler}>
