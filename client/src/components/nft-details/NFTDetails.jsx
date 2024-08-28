@@ -31,7 +31,7 @@ const NFTDetails = () => {
 
     const [comments, dispatch] = useGetAllComments(nftId);
 
-    const isGameOwner = userId === nft._ownerId;
+    const isNFTowner = userId === nft._ownerId;
 
     const [error, setError] = useState('');
 
@@ -45,7 +45,7 @@ const NFTDetails = () => {
         }
     }
 
-    const buyGameButtonClickHandler = async () => {
+    const buyNFTbuttonClickHandler = async () => {
         const hasConfirmed = confirm(`Are you sure you want to buy ${nft.title}?`);
 
         if (hasConfirmed) {
@@ -82,70 +82,6 @@ const NFTDetails = () => {
 
     return (
         <>
-            {/* <section id="game-details">
-                <h1>Game Details</h1>
-                <div className="info-section">
-
-                    <div className="game-header">
-                        <img className="game-img" src={nft.imageUrl} />
-                        <h1>{nft.title}</h1>
-                        <p className="type">{nft.category}</p>
-                    </div>
-
-                    <p className="text">{nft.summary}</p>
-
-                    {isAuthenticated && <button className="button" onClick={buyGameButtonClickHandler}>Buy Game</button>}
-
-                    <div className="details-comments">
-                        <h2>Comments:</h2>
-                        <ul>
-                            {comments.map((comment) => (
-                                <Comment
-                                    key={comment._id}
-                                    {...comment}
-                                    userId={userId}
-                                    isAuthenticated={isAuthenticated}
-                                    nftId={nftId}
-                                    delteCommentHandler={delteCommentHandler}
-                                />
-                            ))}
-                        </ul>
-                        {comments.length === 0 && (
-                            <p className="no-comment">No comments.</p>
-                        )}
-                    </div>
-
-                    {isGameOwner && (
-                        <div className="buttons">
-                            <Link to={pathToUrl(PATH.NFT_EDIT, { nftId })} className="button">Edit</Link>
-                            <button className="button" onClick={deleteNFTButtonClickHandler}>Delete</button>
-                        </div>
-                    )}
-                </div>
-
-                {isAuthenticated && (
-                    <article className="create-comment">
-                        <label>Add new comment:</label>
-                        <form className="form" onSubmit={onSubmit}>
-                            <textarea
-                                placeholder="Comment......"
-                                name="comment"
-                                onChange={onChange}
-                                value={values[CREATE_COMMENT_FORM_KEYS.COMMENT]}
-                            ></textarea>
-
-                            {error &&
-                                <p>
-                                    <span>{error}</span>
-                                </p>
-                            }
-
-                            <input className="btn submit" type="submit" value="Add Comment" />
-                        </form>
-                    </article>
-                )}
-            </section> */}
-
             <section className='bg-gray-50 pt-14'>
                 <div className='container m-auto py-10 px-6'>
                     <div className='grid grid-cols-1 md:grid-cols-70/30 w-full gap-6'>
@@ -252,7 +188,7 @@ const NFTDetails = () => {
                             {isAuthenticated && (
                                 <div className='bg-white p-6 rounded-lg shadow-md mt-6'>
                                     <h3 className='text-xl font-bold mb-6'>Manage NFT</h3>
-                                    {isGameOwner && (
+                                    {isNFTowner && (
                                         <>
                                             <Link
                                                 to={pathToUrl(PATH.NFT_EDIT, { nftId })}
@@ -271,7 +207,7 @@ const NFTDetails = () => {
 
                                     <button
                                         className='bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
-                                        onClick={buyGameButtonClickHandler}>
+                                        onClick={buyNFTbuttonClickHandler}>
                                         <MdShoppingCart /> <span>Buy NFT</span>
                                     </button>
                                 </div>

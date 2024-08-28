@@ -40,7 +40,6 @@ const NFTEdit = () => {
 
         const values = Object.fromEntries(new FormData(e.currentTarget));
 
-        // TODO: Edit Game Form validation
         if (values[EDIT_NFT_FORM_KEYS.TITLE] === '') {
             return setError('Title is missing!');
         }
@@ -84,69 +83,6 @@ const NFTEdit = () => {
 
     return (
         <>
-            {/* <section id="edit-page" className="auth">
-                <form id="edit" onSubmit={editNFTSubmitHandler}>
-                    <div className="container">
-
-                        <h1>Edit Game</h1>
-
-                        <label htmlFor="leg-title">Legendary title:</label>
-                        <input 
-                            type="text" id="title" 
-                            name="title" 
-                            value={nft.title} 
-                            onChange={onChange} 
-                            placeholder="Enter nft title..." />
-
-                        <label htmlFor="category">Category:</label>
-                        <input 
-                            type="text" 
-                            id="category" 
-                            name="category" 
-                            value={nft.category} 
-                            onChange={onChange} 
-                            placeholder="Enter nft category..." />
-
-                        <label htmlFor="levels">MaxLevel:</label>
-                        <input 
-                            type="number" 
-                            id="maxLevel" 
-                            name="maxLevel" 
-                            value={nft.maxLevel} 
-                            onChange={onChange} 
-                            min="1" 
-                            placeholder="1" />
-
-                        <label htmlFor="imageUrl">Image:</label>
-                        <input 
-                            type="text" 
-                            id="imageUrl" 
-                            name="imageUrl" 
-                            value={nft.imageUrl} 
-                            onChange={onChange} 
-                            placeholder="Upload a photo..." />
-
-                        <label htmlFor="summary">Summary:</label>
-                        <textarea 
-                            name="summary" 
-                            value={nft.summary} 
-                            onChange={onChange} 
-                            id="summary"
-                        >
-                        </textarea>
-
-                        {error &&
-                            <p>
-                                <span>{error}</span>
-                            </p>
-                        }
-
-                        <input className="btn submit" type="submit" value="Edit NFT" />
-
-                    </div>
-                </form>
-            </section> */}
-
             <section className="bg-gray-50 bg-gray-50 pt-20 pb-10">
                 <div className="flex flex-col items-center justify-center px-6 py-6 mx-auto lg:py-0">
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-20 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">

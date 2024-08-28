@@ -19,7 +19,7 @@ const NFTPortfolioListItem = ({
 
     const isNFTOwner = userId === _ownerId;
 
-    const sellGameButtonClickHandler = async (transactionId) => {
+    const sellNFTbuttonClickHandler = async (transactionId) => {
         const hasConfirmed = confirm(`Are you sure you want to sell ${nft.title}?`);
 
         if (hasConfirmed) {
@@ -29,17 +29,6 @@ const NFTPortfolioListItem = ({
 
     return (
         <>
-            {/* <div className="allGames">
-                <div className="allGames-info">
-                    <img src={nft.imageUrl} />
-                    <h6>{nft.category}</h6>
-                    <h2>{nft.title}</h2>
-                    <Link to={pathToUrl(PATH.NFT_DETAILS, { nftId })} className="details-button">Details</Link>
-                </div>
-
-                {isAuthenticated && isNFTOwner && <button className="button" onClick={() => sellGameButtonClickHandler(transactionId)}>Sell NFT</button>}
-            </div> */}
-
             <div className="max-w-sm rounded overflow-hidden shadow-lg">
                 <Link to={pathToUrl(PATH.NFT_DETAILS, { nftId})}>
                     <img className="w-full" src={nft.imageUrl} alt="Sunset in the mountains" />
@@ -60,7 +49,7 @@ const NFTPortfolioListItem = ({
                         && isNFTOwner 
                         && <button 
                                 className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
-                                onClick={() => sellGameButtonClickHandler(transactionId)}
+                                onClick={() => sellNFTbuttonClickHandler(transactionId)}
                             ><MdRemoveShoppingCart />Sell NFT
                             </button>
                     }

@@ -32,7 +32,7 @@ const Home = () => {
                                     {...nft}
                                 />
                             ))
-                            : <p className="no-articles">No games yet</p>}
+                            : <p className="no-articles">No NFTs yet</p>}
                     </div>
                 </div>
             </section>

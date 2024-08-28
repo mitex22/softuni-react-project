@@ -15,16 +15,16 @@ function commentsReducer(state, action) {
     }
 }
 
-export function useGetAllComments(gameId) {
+export function useGetAllComments(nftId) {
     const [comments, dispatch] = useReducer(commentsReducer, []);
 
     useEffect(() => {
         (async () => {
-            const result = await commentsAPI.getAll(gameId);
+            const result = await commentsAPI.getAll(nftId);
 
             dispatch({ type: 'GET_ALL', payload: result });
         })();
-    }, [gameId]);
+    }, [nftId]);
 
     return [comments, dispatch]
 }

@@ -20,7 +20,6 @@ const NFTCreate = () => {
 
     const submitFormHandler = async (values) => {
 
-        // TODO: Create Game Form validation
         if (values[CREATE_NFT_FORM_KEYS.TITLE] === '') {
             return setError('Title is missing!');
         }
@@ -65,72 +64,6 @@ const NFTCreate = () => {
 
     return (
         <>
-            {/* <section id="create-page" className="auth">
-                <form id="create" onSubmit={onSubmit}>
-                    <div className="container">
-
-                        <h1>Create Game</h1>
-                        <label htmlFor="leg-title">Legendary title:</label>
-                        <input
-                            type="text"
-                            id="title"
-                            name="title"
-                            placeholder="Enter game title..."
-                            onChange={onChange}
-                            value={values[CREATE_NFT_FORM_KEYS.TITLE]}
-                        />
-
-                        <label htmlFor="category">Category:</label>
-                        <input
-                            type="text"
-                            id="category"
-                            name="category"
-                            placeholder="Enter game category..."
-                            onChange={onChange}
-                            value={values[CREATE_NFT_FORM_KEYS.CATEGORY]}
-                        />
-
-                        <label htmlFor="levels">MaxLevel:</label>
-                        <input
-                            type="number"
-                            id="maxLevel"
-                            name="maxLevel"
-                            min="1"
-                            placeholder="1"
-                            onChange={onChange}
-                            value={values[CREATE_NFT_FORM_KEYS.PRICE]}
-                        />
-
-                        <label htmlFor="game-img">Image:</label>
-                        <input
-                            type="text"
-                            id="imageUrl"
-                            name="imageUrl"
-                            placeholder="Upload a photo..."
-                            onChange={onChange}
-                            value={values[CREATE_NFT_FORM_KEYS.IMAGE_URL]}
-                        />
-
-                        <label htmlFor="summary">Summary:</label>
-                        <textarea
-                            name="summary"
-                            id="summary"
-                            onChange={onChange}
-                            value={values[CREATE_NFT_FORM_KEYS.SUMMARY]}
-                        >
-                        </textarea>
-
-                        {error &&
-                            <p>
-                                <span>{error}</span>
-                            </p>
-                        }
-
-                        <input className="btn submit" type="submit" value="Create Game" />
-                    </div>
-                </form>
-            </section> */}
-
             <section className="bg-gray-50 bg-gray-50 pt-20 pb-10">
                 <div className="flex flex-col items-center justify-center px-6 py-6 mx-auto lg:py-0">
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-20 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
