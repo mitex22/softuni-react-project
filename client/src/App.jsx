@@ -3,6 +3,9 @@ import { Routes, Route } from "react-router-dom"
 import { AuthProvider } from "./contexts/authContext"
 import PATH from "./paths/paths"
 
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/ReactToastify.css';
+
 import Header from "./components/header/Header"
 import Home from "./components/home/Home"
 import Register from "./components/register/Register"
@@ -21,6 +24,7 @@ function App() {
 		<>
 			<AuthProvider>
 				<Header />
+				<ToastContainer />
 				<Routes>
 					<Route path={PATH.HOME} element={<Home />} />
 					<Route path={PATH.REGISTER} element={<Register />} />
