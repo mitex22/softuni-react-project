@@ -15,9 +15,9 @@ const NFTPortfolio = () => {
     const { username } = useContext(AuthContext);
 
     const [open, setOpen] = useState(false);
-    
+
     const [loading, setLoading] = useState(true);
-    
+
     const [transactions, setTransactions] = useGetPortfolioNFTs(username, setLoading);
 
     const [currentTransaction, setCurrentTransaction] = useState('');
@@ -80,7 +80,7 @@ const NFTPortfolio = () => {
                                     onClick={() => confirmSellHandler(true)}
                                     className="inline-flex w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                                 >
-                                    Sell <MdRemoveShoppingCart className='ml-2'/>
+                                    Sell <MdRemoveShoppingCart className='ml-2' />
                                 </button>
                                 <button
                                     type="button"
@@ -102,20 +102,23 @@ const NFTPortfolio = () => {
 
                     {loading ? (
                         <Spinner loading={loading} />
-                    ) : (
-                        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center'>
-                            {transactions.length > 0
-                                ? transactions.map((transactionItem) => (
-                                    <NFTPortfolioListItem
-                                        key={transactionItem._id}
-                                        {...transactionItem}
-                                        deleteTransactionItem={deleteTransactionItem}
-                                    />
-                                ))
-                                : <h3 className="no-articles">No NFTs yet</h3>
-                            }
-                        </div>
-                    )}
+                    ) :
+                        transactions.length > 0
+                            ? (
+                                <div className='grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center'>
+                                    {transactions.map((transactionItem) => (
+                                        <NFTPortfolioListItem
+                                            key={transactionItem._id}
+                                            {...transactionItem}
+                                            deleteTransactionItem={deleteTransactionItem}
+                                        />
+                                    ))}
+                                </div>
+                            )
+                            : (
+                                <p className="mb-6 text-slate-600 text-center text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 py-10">No NFTs in your collection</p>
+                            )
+                    }
                 </div>
             </section>
         </>

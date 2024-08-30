@@ -19,19 +19,21 @@ const NFTList = () => {
 
                     {loading ? (
                         <Spinner loading={loading} />
-                    ) : (
-                        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center'>
-                            {nfts.length > 0
-                                ? nfts.map((nft) => (
+                    ) : nfts.length > 0
+                        ? <div className='grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center'>
+                            {
+                                nfts.map((nft) => (
                                     <NFTListItem
                                         key={nft._id}
                                         {...nft}
                                     />
                                 ))
-                                : <h3 className="no-articles">No NFTs yet</h3>
                             }
                         </div>
-                    )}
+                        : (
+                            <p className="mb-6 text-slate-600 text-center text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 py-6">No NFTs available</p>
+                        )
+                    }
                 </div>
             </section>
         </>

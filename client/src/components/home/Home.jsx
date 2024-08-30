@@ -45,7 +45,8 @@ const Home = () => {
                                         {...nft}
                                     />
                                 ))
-                                : <p className="no-articles">No NFTs yet</p>}
+                                : <p className="mb-6 text-slate-600 text-center text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48">No NFTs available</p>
+                            }
                         </div>)
                     }
                 </div>
