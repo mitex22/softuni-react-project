@@ -23,6 +23,14 @@ export const getPortfolio = async (username) => {
     return nfts;
 };
 
+export const getAllPortfolios = async () => {
+    const result = await request.get(`http://localhost:3030/data/portfolio?`);
+
+    const nfts = result;
+
+    return nfts;
+};
+
 // export const getOne = (nftId) => request.get(`${BASE_URL}/${nftId}`);
 
 export const getOne = async (nftId) => {

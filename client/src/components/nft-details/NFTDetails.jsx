@@ -1,4 +1,4 @@
-import { useContext, useState, useRef } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
 import { MdShoppingCart, MdDelete, MdEdit, MdOutlineWarningAmber  } from "react-icons/md";
@@ -29,9 +29,24 @@ const NFTDetails = () => {
 
     const [open, setOpen] = useState(false);
 
-    const { userId, username, isAuthenticated } = useContext(AuthContext);
-
     const { nftId } = useParams();
+
+    const [portfolio, setPortfolio] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            const result = await nftsAPI.getAllPortfolios();
+
+            setPortfolio(result);
+        })();
+    }, [nftId]);
+
+    const deleteBtnClass = () =>
+        portfolio.some(item => item['nftId'] === nftId) 
+            ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
+            : 'bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
+
+    const { userId, username, isAuthenticated } = useContext(AuthContext);
 
     const [loading, setLoading] = useState(true);
 
@@ -265,8 +280,10 @@ const NFTDetails = () => {
                                                     </Link>
 
                                                     <button
-                                                        className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
-                                                        onClick={deleteNFTButtonClickHandler}>
+                                                        className={deleteBtnClass()}
+                                                        onClick={deleteNFTButtonClickHandler}
+                                                        disabled={portfolio.some(item => item['nftId'] === nftId) ? 'disabled' : ''}
+                                                    >
                                                         <MdDelete /> <span>Delete NFT</span>
                                                     </button>
                                                 </>
