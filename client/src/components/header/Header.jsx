@@ -19,8 +19,8 @@ const Header = () => {
 
     const linkClass = ({ isActive }) =>
         isActive
-            ? 'block py-2 pr-4 pl-3 text-indigo-700 border-b border-slate-100 hover:bg-slate-50 lg:hover:bg-transparent lg:border-0 lg:p-0 font-bold'
-            : 'block py-2 pr-4 pl-3 text-slate-700 border-b border-slate-100 hover:bg-slate-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-indigo-700 lg:p-0 font-bold';
+            ? 'block py-2 pr-4 pl-3 text-indigo-700 border-b border-slate-100 hover:bg-slate-50 lg:hover:bg-transparent lg:border-0 lg:p-0 font-semi-bold'
+            : 'block py-2 pr-4 pl-3 text-slate-700 border-b border-slate-100 hover:bg-slate-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-indigo-700 lg:p-0 font-semi-bold';
 
     return (
         <>
@@ -66,7 +66,10 @@ const Header = () => {
                                         <NavLink to={PATH.LOGOUT} className={linkClass}>Log Out</NavLink>
                                     </li>
                                     <li>
-                                        <span className='block py-2 px-3 text-indigo-700 rounded lg:border-0 lg:p-0'><span className='pr-4'>|</span>Welcome, {username}</span>
+                                        <span className='block py-2 px-2 text-indigo-700 rounded lg:border-0 lg:p-0'>
+                                            <span className='pr-2'>|</span>
+                                            Welcome, {username}
+                                        </span>
                                     </li>
                                 </ul>
                             )}

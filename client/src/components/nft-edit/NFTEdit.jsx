@@ -82,9 +82,9 @@ const NFTEdit = () => {
             toast.success(`Successfully edited ${nft.title}!`);
 
             navigate(PATH.NFTs);
-        } catch (err) {
+        } catch (error) {
             // Error notification
-            console.log(err);
+            console.log('Error fetching data', error);
         }
     }
 

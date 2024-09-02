@@ -52,7 +52,7 @@ const NFTCreate = () => {
 
             navigate(PATH.NFTs);
         } catch (error) {
-            console.log(error)
+            console.log('Error fetching data', error);
         }
     }
 

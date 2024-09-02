@@ -48,40 +48,9 @@ const Comment = ({
         }
     }
 
-    // const listLikings = () => {
-    //     console.log(likes);
-    //     let likesUsernames = [];
-    //     let likesCount = likes.length;
-    //     console.log(likesCount);
-
-    //     for (const like of likes) {
-    //         likesUsernames.push(like._ownerUsername);
-    //     }
-    //     console.log(likesUsernames);
-    //     if (likesUsernames.includes(username)) {
-    //         let usernameIndex = likesUsernames.indexOf(username);
-
-    //         if (usernameIndex > -1) {
-    //             likesUsernames.splice(usernameIndex, 1);
-    //             likesUsernames.unshift('You');
-    //         }
-    //     }
-    //     console.log(likes);
-    //     console.log(likesUsernames);
-
-    //     return (
-    //         <div className='flex gap-2 flex-col sm:flex-row text-gray-700 text-sm my-2'>
-    //             <h6>Liked by:</h6>
-    //             <p>{likesUsernames.join(', ')}</p>
-    //         </div>
-    //     )
-    // }
-
     const listLikings = () => {
-        console.log(likes);
         let likesCount = likes.length;
         let likesAsString = '';
-        console.log(likesCount);
 
         if (likeItem) {
             if (likesCount === 1) {
@@ -96,8 +65,6 @@ const Comment = ({
                 likesAsString = `${likesCount} people.`
             }
         }
-
-        console.log(likesAsString);
 
         return (
             <div className='flex gap-2 flex-col sm:flex-row text-gray-700 text-sm my-2'>
