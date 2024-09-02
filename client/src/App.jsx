@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import { AuthProvider } from "./contexts/authContext"
 import PATH from "./paths/paths"
 
-import {ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
 
 import Header from "./components/header/Header"
@@ -18,11 +18,15 @@ import NFTEdit from "./components/nft-edit/NFTEdit"
 import Logout from "./components/logout/Logout"
 import RouteGuard from "./components/common/RouteGuard"
 import Footer from "./components/footer/Footer"
+import ScrollToTop from "./components/common/ScrollToTop"
 
 function App() {
+	
+
 	return (
 		<>
 			<AuthProvider>
+				<ScrollToTop />
 				<Header />
 				<ToastContainer />
 				<Routes>
