@@ -48,9 +48,10 @@ const Login = () => {
                                         id="email"
                                         className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-600 focus:border-indigo-700 block w-full p-2.5"
                                         placeholder="name@company.com"
-                                        required=""
+                                        required
                                         name={LOGIN_FORM_KEYS.EMAIL}
                                         onChange={onChange}
+                                        onInput={() => setError('')}
                                         value={values[LOGIN_FORM_KEYS.EMAIL]} />
                                 </div>
                                 <div>
@@ -60,9 +61,10 @@ const Login = () => {
                                         id="password"
                                         placeholder="••••••••"
                                         className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-600 focus:border-indigo-700 block w-full p-2.5"
-                                        required=""
+                                        required
                                         name={LOGIN_FORM_KEYS.PASSWORD}
                                         onChange={onChange}
+                                        onInput={() => setError('')}
                                         value={values[LOGIN_FORM_KEYS.PASSWORD]}
                                     />
                                 </div>
@@ -70,9 +72,7 @@ const Login = () => {
                                 <button type="submit" className="w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Log In</button>
 
                                 {error &&
-                                    <p>
-                                        <span>{error}</span>
-                                    </p>
+                                    <div className="text-sm text-red-600 animate-pulse">{error}</div>
                                 }
 
                                 <p className="text-sm font-light text-gray-500">
