@@ -20,7 +20,7 @@ const Header = () => {
     const linkClass = ({ isActive }) =>
         isActive
             ? 'block py-2 pr-4 pl-3 text-indigo-700 border-b border-slate-100 hover:bg-slate-50 lg:hover:bg-transparent lg:border-0 lg:p-0 font-semi-bold'
-            : 'block py-2 pr-4 pl-3 text-slate-700 border-b border-slate-100 hover:bg-slate-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-indigo-700 lg:p-0 font-semi-bold';
+            : 'block py-2 pr-4 pl-3 text-slate-700 border-b border-slate-100 hover:bg-slate-50 lg:hover:bg-transparent lg:border-b-1 lg:border-b-white lg:hover:border-b-indigo-700 lg:hover:text-indigo-700 lg:p-0 font-semi-bold';
 
     return (
         <>

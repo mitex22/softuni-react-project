@@ -44,7 +44,7 @@ const NFTDetails = () => {
     const deleteBtnClass = () =>
         portfolio.some(item => item['nftId'] === nftId) 
             ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
-            : 'bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
+            : 'bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
 
     const { userId, username, isAuthenticated } = useContext(AuthContext);
 
@@ -213,7 +213,7 @@ const NFTDetails = () => {
                                             <form className="mt-4 bg-white p-4 rounded-lg shadow-md" onSubmit={onSubmit}>
                                                 <div className="mb-4">
                                                     <textarea
-                                                        className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                                        className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-600 focus:border-indigo-700 block w-full p-2.5"
                                                         id="comment" rows="3"
                                                         placeholder="Leave a comment..."
                                                         name="comment"
@@ -230,7 +230,7 @@ const NFTDetails = () => {
                                                 }
 
                                                 <button
-                                                    className="bg-indigo-800 hover:bg-indigo-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                                    className="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                                                     type="submit">
                                                     Submit
                                                 </button>
@@ -274,7 +274,7 @@ const NFTDetails = () => {
                                                 <>
                                                     <Link
                                                         to={pathToUrl(PATH.NFT_EDIT, { nftId })}
-                                                        className='bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline block text-center inline-flex justify-center items-center gap-2 me-2'
+                                                        className='bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline block text-center inline-flex justify-center items-center gap-2 me-2'
                                                     >
                                                         <MdEdit /> <span>Edit NFT</span>
                                                     </Link>
@@ -290,7 +290,7 @@ const NFTDetails = () => {
                                             )}
 
                                             <button
-                                                className='bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
+                                                className='bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
                                                 onClick={buyNFTbuttonClickHandler}>
                                                 <MdShoppingCart /> <span>Buy NFT</span>
                                             </button>

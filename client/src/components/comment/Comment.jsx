@@ -153,7 +153,7 @@ const Comment = ({
 
                 {_ownerId === userId &&
                     <button
-                        className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4 block'
+                        className='bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4 block'
                         onClick={() => deleteCommentButtonClickHandler()}>Delete
                     </button>}
 

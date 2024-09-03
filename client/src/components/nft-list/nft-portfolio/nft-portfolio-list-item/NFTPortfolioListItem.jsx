@@ -44,7 +44,7 @@ const NFTPortfolioListItem = ({
                     {isAuthenticated 
                         && isNFTOwner 
                         && <button 
-                                className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
+                                className='bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
                                 onClick={() => sellNFTbuttonClickHandler(transactionId)}
                             ><MdRemoveShoppingCart />Sell NFT
                             </button>

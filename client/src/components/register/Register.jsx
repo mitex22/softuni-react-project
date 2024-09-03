@@ -54,7 +54,7 @@ const Register = () => {
                                         ref={inputRef}
                                         type="email"
                                         id="email"
-                                        className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                        className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-600 focus:border-indigo-700 block w-full p-2.5"
                                         placeholder="name@company.com"
                                         required=""
                                         name={REGISTER_FORM_KEYS.EMAIL}
@@ -66,7 +66,7 @@ const Register = () => {
                                     <input
                                         type="text"
                                         id="username"
-                                        className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                        className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-600 focus:border-indigo-700 block w-full p-2.5"
                                         placeholder="jorko0o0o"
                                         required=""
                                         name={REGISTER_FORM_KEYS.USERNAME}
@@ -79,7 +79,7 @@ const Register = () => {
                                         type="password"
                                         id="password"
                                         placeholder="••••••••"
-                                        className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                        className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-600 focus:border-indigo-700 block w-full p-2.5"
                                         required=""
                                         name={REGISTER_FORM_KEYS.PASSWORD}
                                         onChange={onChange}
@@ -92,7 +92,7 @@ const Register = () => {
                                         type="password"
                                         id="confirm-password"
                                         placeholder="••••••••"
-                                        className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                        className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-600 focus:border-indigo-700 block w-full p-2.5"
                                         required=""
                                         name={REGISTER_FORM_KEYS.CONFIRM_PASSWORD}
                                         onChange={onChange}
@@ -100,7 +100,7 @@ const Register = () => {
                                     />
                                 </div>
 
-                                <button type="submit" className="w-full text-white bg-purple-600 hover:bg-purple-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Register</button>
+                                <button type="submit" className="w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Register</button>
 
                                 {error &&
                                     <p>
@@ -109,7 +109,7 @@ const Register = () => {
                                 }
 
                                 <p className="text-sm font-light text-gray-500">
-                                    Already registered? <Link className="font-medium text-purple-600 hover:text-purple-700" to={PATH.LOGIN}>Log In</Link>
+                                    Already registered? <Link className="font-medium text-indigo-600 hover:text-indigo-800" to={PATH.LOGIN}>Log In</Link>
                                 </p>
                             </form>
                         </div>
