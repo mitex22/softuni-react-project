@@ -7,11 +7,13 @@ import { toast } from 'react-toastify';
 
 import * as likesAPI from "../../api/likes-api";
 import AuthContext from '../../contexts/authContext';
+import { formatDate } from '../../utils/formatDate';
 
 const Comment = ({
     _ownerId,
     _id,
     comment,
+    _createdOn,
     author,
     userId,
     isAuthenticated,
@@ -142,7 +144,7 @@ const Comment = ({
             <div className="bg-white p-4 rounded-lg shadow-md mb-2">
                 <h3 className="text-lg font-bold">{author.username}</h3>
 
-                <p className="text-gray-700 text-sm mb-2">Posted on April 16, 2023</p>
+                <p className="text-gray-700 text-sm mb-2">Posted on: {formatDate(_createdOn)}</p>
 
                 <p className="text-gray-700 italic">{comment}</p>
 
