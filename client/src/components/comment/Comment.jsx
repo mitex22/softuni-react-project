@@ -163,7 +163,7 @@ const Comment = ({
                     <button
                         className='bg-slate-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
                         onClick={() => likeCommentButtonClickHandler(_id)}
-                        title='Remove Like'>
+                        title='Add Like'>
                         <FaRegThumbsUp />
                     </button>}
 
@@ -171,7 +171,7 @@ const Comment = ({
                     <button
                         className='bg-green-500 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
                         onClick={() => dislikeCommentButtonClickHandler(likeItem)}
-                        title='Add Like'>
+                        title='Remove Like'>
                         <FaRegThumbsUp />
                     </button>}
             </div>

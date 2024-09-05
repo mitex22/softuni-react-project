@@ -1362,7 +1362,7 @@
                 category: "Gaming",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/gcs/files/ff8f1623c9e20d24103fdf26023c9460.png?auto=format&dpr=1&w=750",
-                price: "2 ETH",
+                price: "2",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279018
     		},
@@ -1372,7 +1372,7 @@
                 category: "Gaming",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/s/raw/files/e10e1c85adfbd9b12c4b41f0b8881b4d.png?auto=format&dpr=1&w=750",
-                price: "2 ETH",
+                price: "2",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279017
     		},
@@ -1382,7 +1382,7 @@
                 category: "Gaming",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/s/raw/files/48570637639647535c17bf87f1441ad9.png?auto=format&dpr=1&w=750",
-                price: "2 ETH",
+                price: "2",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279016
     		},
@@ -1392,7 +1392,7 @@
                 category: "Gaming",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/s/raw/files/40a3031ba4911bfcd60f9db86b5e9946.png?auto=format&dpr=1&w=750",
-                price: "2 ETH",
+                price: "2",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279015
     		},
@@ -1402,7 +1402,7 @@
                 category: "Gaming",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/s/raw/files/cdbdc41f4d4d369da10a09672cb761ec.png?auto=format&dpr=1&w=750",
-                price: "2 ETH",
+                price: "2",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279015
     		},
@@ -1412,7 +1412,7 @@
                 category: "Gaming",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://raw.seadn.io/files/7dc3b159725f90ade20493146d23f9b3.svg",
-                price: "2 ETH",
+                price: "2",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279015
     		},
@@ -1422,7 +1422,7 @@
                 category: "Gaming",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/s/raw/files/9d55302af6bf331687b95c9a9aefb16f.png?auto=format&dpr=1&w=750",
-                price: "2 ETH",
+                price: "2",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279015
     		},
