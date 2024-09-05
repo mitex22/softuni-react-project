@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link, useParams } from "react-router-dom";
-import { MdShoppingCart, MdDelete, MdEdit, MdOutlineWarningAmber  } from "react-icons/md";
+import { MdShoppingCart, MdDelete, MdEdit, MdOutlineWarningAmber } from "react-icons/md";
 
 import { toast } from 'react-toastify';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
@@ -13,6 +13,7 @@ import useForm from "../../hooks/useForm";
 import AuthContext from "../../contexts/authContext";
 import * as nftsAPI from "../../api/nfts-api";
 import * as commentsAPI from "../../api/commnets-api";
+import * as ethAPI from "../../api/eth-api";
 
 import { pathToUrl } from "../../utils/pathUtils";
 import { formatDate } from "../../utils/formatDate";
@@ -33,6 +34,8 @@ const NFTDetails = () => {
 
     const [portfolio, setPortfolio] = useState([]);
 
+    const [currentETHprice, setCurrentETHprice] = useState('');
+
     useEffect(() => {
         (async () => {
             const result = await nftsAPI.getAllPortfolios();
@@ -42,9 +45,14 @@ const NFTDetails = () => {
     }, [nftId]);
 
     const deleteBtnClass = () =>
-        portfolio.some(item => item['nftId'] === nftId) 
+        portfolio.some(item => item['nftId'] === nftId)
             ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
             : 'bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
+
+    const buyBtnClass = () =>
+        portfolio.some(item => item['nftId'] === nftId)
+            ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
+            : 'bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
 
     const { userId, username, isAuthenticated } = useContext(AuthContext);
 
@@ -75,11 +83,11 @@ const NFTDetails = () => {
     }
 
     const buyNFTbuttonClickHandler = async () => {
-            await nftsAPI.nftBuy(nftId, userId, username);
+        await nftsAPI.nftBuy(nftId, userId, username);
 
-            toast.success(`Successfully bought ${nft.title}!`);
+        toast.success(`Successfully bought ${nft.title} for ${nft.price} ETH!`);
 
-            navigate(PATH.NFT_PORTFOLIO);
+        navigate(PATH.NFT_PORTFOLIO);
     }
 
     const commentSubmitHandler = async (values) => {
@@ -106,6 +114,22 @@ const NFTDetails = () => {
 
         dispatch({ type: 'DELETE_COMMENT', payload: commentId });
     }
+
+    useEffect(() => {
+        const getCurrentPrice = async () => {
+            const result = await ethAPI.getETHcurrentPrice();
+            setCurrentETHprice(result);
+        }
+
+        getCurrentPrice();
+
+        const intervalId = setInterval(() => {
+            getCurrentPrice();
+        }, 10000);
+
+        return () => clearInterval(intervalId);
+
+    }, [nftId]);
 
     return (
         <>
@@ -175,9 +199,10 @@ const NFTDetails = () => {
                                             <h1 className='text-3xl text-indigo-800 font-bold mb-4'>{nft.title}</h1>
 
                                             <h3 className='text-lg font-bold mb-2'>
-                                                Price
+                                                Price: {nft.price} ETH
                                             </h3>
-                                            <p>{nft.price}</p>
+                                            <p>Current price: {Number(nft.price) * currentETHprice.EUR} EUR</p>
+                                            <p className="italic text-xs">(live rate from <a className="text-indigo-500 visited:text-indigo-800" target="blank" href="https://www.cryptocompare.com/">cryptocompare.com</a>)</p>
                                         </div>
                                     </div>
 
@@ -290,8 +315,10 @@ const NFTDetails = () => {
                                             )}
 
                                             <button
-                                                className='bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
-                                                onClick={buyNFTbuttonClickHandler}>
+                                                className={buyBtnClass()}
+                                                onClick={buyNFTbuttonClickHandler}
+                                                disabled={portfolio.some(item => item['nftId'] === nftId) ? 'disabled' : ''}
+                                            >
                                                 <MdShoppingCart /> <span>Buy NFT</span>
                                             </button>
                                         </div>

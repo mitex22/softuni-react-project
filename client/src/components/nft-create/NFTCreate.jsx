@@ -116,13 +116,14 @@ const NFTCreate = () => {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="price" className="block mb-2 text-sm font-medium text-slate-700">NFT Price</label>
+                                    <label htmlFor="price" className="block mb-2 text-sm font-medium text-slate-700">NFT Price (in ETH)</label>
                                     <input
                                         className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-600 focus:border-indigo-700 block w-full p-2.5"
-                                        type="text"
+                                        type="number"
                                         id="price"
                                         name="price"
-                                        placeholder="Enter NFT price (e.g. 3 ETH)..."
+                                        placeholder="Enter NFT price (e.g. 3)..."
+                                        min={0}
                                         onChange={onChange}
                                         value={values[CREATE_NFT_FORM_KEYS.PRICE]}
                                     />
