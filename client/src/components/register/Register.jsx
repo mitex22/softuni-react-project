@@ -56,7 +56,7 @@ const Register = () => {
                                         id="email"
                                         className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-600 focus:border-indigo-700 block w-full p-2.5"
                                         placeholder="name@company.com"
-                                        required=""
+                                        required
                                         name={REGISTER_FORM_KEYS.EMAIL}
                                         onChange={onChange}
                                         value={values[REGISTER_FORM_KEYS.EMAIL]} />
@@ -68,11 +68,15 @@ const Register = () => {
                                         id="username"
                                         className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-600 focus:border-indigo-700 block w-full p-2.5"
                                         placeholder="jorko0o0o"
-                                        required=""
+                                        required
                                         name={REGISTER_FORM_KEYS.USERNAME}
                                         onChange={onChange}
+                                        onInput={() => setError('')}
                                         value={values[REGISTER_FORM_KEYS.USERNAME]} />
                                 </div>
+                                {error.username &&
+                                    <span className="text-xs text-red-600 animate-pulse">{error.username}</span>
+                                }
                                 <div>
                                     <label htmlFor="password" className="block mb-2 text-sm font-medium text-slate-700">Password</label>
                                     <input
@@ -83,9 +87,13 @@ const Register = () => {
                                         required=""
                                         name={REGISTER_FORM_KEYS.PASSWORD}
                                         onChange={onChange}
+                                        onInput={() => setError('')}
                                         value={values[REGISTER_FORM_KEYS.PASSWORD]}
                                     />
                                 </div>
+                                {error.password &&
+                                    <span className="text-xs text-red-600 animate-pulse">{error.password}</span>
+                                }
                                 <div>
                                     <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-slate-700">Confirm Password</label>
                                     <input
@@ -96,17 +104,21 @@ const Register = () => {
                                         required=""
                                         name={REGISTER_FORM_KEYS.CONFIRM_PASSWORD}
                                         onChange={onChange}
+                                        onInput={() => setError('')}
                                         value={values[REGISTER_FORM_KEYS.CONFIRM_PASSWORD]}
                                     />
                                 </div>
+                                {error.confirmPassword &&
+                                    <span className="text-xs text-red-600 animate-pulse">{error.confirmPassword}</span>
+                                }
 
                                 <button type="submit" className="w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Register</button>
 
-                                {error &&
+                                {/* {error &&
                                     <p>
-                                        <span>{error}</span>
+                                        <span>{error.username}</span>
                                     </p>
-                                }
+                                } */}
 
                                 <p className="text-sm font-light text-gray-500">
                                     Already registered? <Link className="font-medium text-indigo-600 hover:text-indigo-800" to={PATH.LOGIN}>Log In</Link>

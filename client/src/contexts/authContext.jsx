@@ -38,13 +38,18 @@ export const AuthProvider = ({
 
     const registerSubmitHandler = async (values) => {
 
+        if (values.username.length < 3) {
+            setError({username: 'Username must be at least 3 characters!'});
+            return;
+        }
+
         if (values.password.length < 6) {
-            setError('Password must be at least 6 characters!');
+            setError({password: 'Password must be at least 6 characters!'});
             return;
         }
 
         if (values.password !== values['confirm-password']) {
-            setError('Password and Confirm Password must match!');
+            setError({confirmPassword: 'Password and Confirm Password must match!'});
             return;
         }
 
