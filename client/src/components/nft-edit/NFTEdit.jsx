@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import * as nftsAPI from "../../api/nfts-api";
 import PATH from "../../paths/paths"
 import Spinner from '../common/Spinner';
+import { isValidURL } from '../../utils/urlValidator';
 
 const EDIT_NFT_FORM_KEYS = {
     TITLE: 'title',
@@ -53,27 +54,47 @@ const NFTEdit = () => {
         const values = Object.fromEntries(new FormData(e.currentTarget));
 
         if (values[EDIT_NFT_FORM_KEYS.TITLE] === '') {
-            return setError('Title is missing!');
+            return setError({ title: 'Title is missing!' });
+        }
+
+        if (values[EDIT_NFT_FORM_KEYS.TITLE].trim() === '') {
+            return setError({ title: 'Title should contain characters or digits!' });
         }
 
         if (values[EDIT_NFT_FORM_KEYS.CATEGORY] === '') {
-            return setError('Category is missing!');
+            return setError({ category: 'Category is missing!' });
+        }
+
+        if (values[EDIT_NFT_FORM_KEYS.CATEGORY].trim() === '') {
+            return setError({ category: 'Category should contain characters or digits!' });
         }
 
         if (values[EDIT_NFT_FORM_KEYS.COLLECTION] === '') {
-            return setError('Collection is missing!');
+            return setError({ collection: 'Collection is missing!' });
+        }
+
+        if (values[EDIT_NFT_FORM_KEYS.COLLECTION].trim() === '') {
+            return setError({ collection: 'Collection should contain characters or digits!' });
         }
 
         if (values[EDIT_NFT_FORM_KEYS.PRICE] === '') {
-            return setError('Price is missing!');
+            return setError({ price: 'Price is missing!' });
         }
 
         if (values[EDIT_NFT_FORM_KEYS.IMAGE_URL] === '') {
-            return setError('Image is missing!');
+            return setError({ image: 'Image URL is missing!' });
+        }
+
+        if (!isValidURL(values[EDIT_NFT_FORM_KEYS.IMAGE_URL])) {
+            return setError({ image: 'Image URL must be in valid format!' });
         }
 
         if (values[EDIT_NFT_FORM_KEYS.SUMMARY] === '') {
-            return setError('Summary is missing!');
+            return setError({ summary: 'Summary is missing!' });
+        }
+
+        if (values[EDIT_NFT_FORM_KEYS.SUMMARY].trim() === '') {
+            return setError({ summary: 'Summary should contain characters or digits!' });
         }
 
         try {
@@ -118,9 +139,14 @@ const NFTEdit = () => {
                                                 name="title"
                                                 placeholder="Enter NFT title..."
                                                 onChange={onChange}
+                                                onInput={() => setError('')}
                                                 value={nft.title}
                                             />
                                         </div>
+
+                                        {error.title &&
+                                            <span className="text-xs text-red-600 animate-pulse">{error.title}</span>
+                                        }
 
                                         <div>
                                             <label htmlFor="category" className="block mb-2 text-sm font-medium text-slate-700">NFT Category</label>
@@ -131,9 +157,14 @@ const NFTEdit = () => {
                                                 name="category"
                                                 placeholder="Enter NFT category..."
                                                 onChange={onChange}
+                                                onInput={() => setError('')}
                                                 value={nft.category}
                                             />
                                         </div>
+
+                                        {error.category &&
+                                            <span className="text-xs text-red-600 animate-pulse">{error.category}</span>
+                                        }
 
                                         <div>
                                             <label htmlFor="collectionName" className="block mb-2 text-sm font-medium text-slate-700">NFT Collection</label>
@@ -144,22 +175,33 @@ const NFTEdit = () => {
                                                 name="collectionName"
                                                 placeholder="Enter NFT collection..."
                                                 onChange={onChange}
+                                                onInput={() => setError('')}
                                                 value={nft.collectionName}
                                             />
                                         </div>
+
+                                        {error.collection &&
+                                            <span className="text-xs text-red-600 animate-pulse">{error.collection}</span>
+                                        }
 
                                         <div>
                                             <label htmlFor="price" className="block mb-2 text-sm font-medium text-slate-700">NFT Price</label>
                                             <input
                                                 className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-700 focus:border-indigo-800 block w-full p-2.5"
-                                                type="text"
+                                                type="number"
                                                 id="price"
                                                 name="price"
+                                                min={0}
                                                 placeholder="Enter NFT price (e.g. 3 ETH)..."
                                                 onChange={onChange}
+                                                onInput={() => setError('')}
                                                 value={nft.price}
                                             />
                                         </div>
+
+                                        {error.price &&
+                                            <span className="text-xs text-red-600 animate-pulse">{error.price}</span>
+                                        }
 
                                         <div>
                                             <label htmlFor="imageUrl" className="block mb-2 text-sm font-medium text-slate-700">NFT Image URL</label>
@@ -170,9 +212,14 @@ const NFTEdit = () => {
                                                 name="imageUrl"
                                                 placeholder="Upload a photo..."
                                                 onChange={onChange}
+                                                onInput={() => setError('')}
                                                 value={nft.imageUrl}
                                             />
                                         </div>
+
+                                        {error.image &&
+                                            <span className="text-xs text-red-600 animate-pulse">{error.image}</span>
+                                        }
 
                                         <div>
                                             <label htmlFor="summary" className="block mb-2 text-sm font-medium text-slate-700">NFT Summary</label>
@@ -181,18 +228,17 @@ const NFTEdit = () => {
                                                 name="summary"
                                                 id="summary"
                                                 onChange={onChange}
+                                                onInput={() => setError('')}
                                                 value={nft.summary}
                                             >
                                             </textarea>
                                         </div>
 
-                                        <button type="submit" className="w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Edit NFT</button>
-
-                                        {error &&
-                                            <p>
-                                                <span>{error}</span>
-                                            </p>
+                                        {error.summary &&
+                                            <span className="text-xs text-red-600 animate-pulse">{error.summary}</span>
                                         }
+
+                                        <button type="submit" className="w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Edit NFT</button>
                                     </form>
                                 </div>
                             </div>
