@@ -93,7 +93,7 @@ const NFTDetails = () => {
     const commentSubmitHandler = async (values) => {
 
         if (values.comment.trim() === '') {
-            return setError('Cannot submit empty comment!');
+            return setError({ comment: 'Cannot submit empty comment!' });
         }
 
         const newComment = await commentsAPI.commentCreate({ ...values, nftId });
@@ -243,15 +243,14 @@ const NFTDetails = () => {
                                                         placeholder="Leave a comment..."
                                                         name="comment"
                                                         onChange={onChange}
+                                                        onInput={() => setError('')}
                                                         value={values[CREATE_COMMENT_FORM_KEYS.COMMENT]}
                                                     >
                                                     </textarea>
                                                 </div>
 
-                                                {error &&
-                                                    <p>
-                                                        <span>{error}</span>
-                                                    </p>
+                                                {error.comment &&
+                                                    <span className="block text-xs text-red-600 animate-pulse mb-4">{error.comment}</span>
                                                 }
 
                                                 <button
