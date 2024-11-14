@@ -63,6 +63,9 @@ const Header = () => {
                                         <NavLink to={PATH.NFT_PORTFOLIO} className={linkClass}>My Portfolio</NavLink>
                                     </li>
                                     <li>
+                                        <NavLink to={PATH.USERS} className={linkClass}>Other Portfolios</NavLink>
+                                    </li>
+                                    <li>
                                         <NavLink to={PATH.LOGOUT} className={linkClass}>Log Out</NavLink>
                                     </li>
                                     <li>
