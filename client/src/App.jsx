@@ -15,6 +15,8 @@ import NFTPortfolio from "./components/nft-list/nft-portfolio/NFTPortfolio"
 import NFTCreate from "./components/nft-create/NFTCreate"
 import NFTDetails from "./components/nft-details/NFTDetails"
 import NFTEdit from "./components/nft-edit/NFTEdit"
+import UserList from "./components/users-list/UserList";
+import UserPortfolio from "./components/users-list/user-portfolio/UserPortfolio";
 import Logout from "./components/logout/Logout"
 import RouteGuard from "./components/common/RouteGuard"
 import RouteGuardAuth from "./components/common/RouteGuardAuthenticated";
@@ -48,6 +50,8 @@ function App() {
 						<Route path={PATH.NFT_PORTFOLIO} element={<NFTPortfolio />} />
 						<Route path={PATH.NFT_CREATE} element={<NFTCreate />} />
 						<Route path={PATH.NFT_EDIT} element={<NFTEdit />} />
+						<Route path={PATH.USERS} element={<UserList />} />
+						<Route path={PATH.USER_PORTFOLIO} element={<UserPortfolio />} />
 						<Route path={PATH.LOGOUT} element={<Logout />} />
 					</Route>
 
