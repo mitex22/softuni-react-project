@@ -1378,8 +1378,8 @@
     		},
             "3987279d-0ad4-4afb-8ca9-5b256ae3b296": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Counter Strike 6",
-                category: "Gaming",
+    			title: "Kondyo",
+                category: "Music",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/s/raw/files/48570637639647535c17bf87f1441ad9.png?auto=format&dpr=1&w=750",
                 price: "2",
@@ -1398,8 +1398,8 @@
     		},
             "3987279d-0ad4-4afb-8ca9-5b256ae3b294": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Counter Strike 4",
-                category: "Gaming",
+    			title: "The Train",
+                category: "Travel",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://i.seadn.io/s/raw/files/cdbdc41f4d4d369da10a09672cb761ec.png?auto=format&dpr=1&w=750",
                 price: "2",
@@ -1408,8 +1408,8 @@
     		},
             "3987279d-0ad4-4afb-8ca9-5b256ae3b293": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Counter Strike 3",
-                category: "Gaming",
+    			title: "Coocker 1",
+                category: "Kitchen",
                 collectionName: "Seedworld Vanguards",
     			imageUrl: "https://raw.seadn.io/files/7dc3b159725f90ade20493146d23f9b3.svg",
                 price: "2",
