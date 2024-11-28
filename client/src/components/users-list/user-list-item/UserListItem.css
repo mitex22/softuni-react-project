@@ -1,0 +1,59 @@
+/* Card Container */
+.user-list-item-card {
+    max-width: 24rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to bottom right, #ffffff, #f9fafb);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect for Card */
+.user-list-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Inner Padding */
+.user-list-item-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Title Styling */
+.user-list-item-title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-transform: capitalize;
+    letter-spacing: -0.015em;
+}
+
+/* Link Button */
+.user-list-item-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, #4f46e5, #3b82f6);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+/* Hover and Focus States */
+.user-list-item-link:hover {
+    background: linear-gradient(to right, #4338ca, #2563eb);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.user-list-item-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.5);
+}
