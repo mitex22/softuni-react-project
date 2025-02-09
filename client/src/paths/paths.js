@@ -10,6 +10,7 @@ const PATH = {
     REGISTER: '/register',
     LOGIN: '/login',
     LOGOUT: '/logout',
+    NOT_FOUND: '/*',
 };
 
 export default PATH;

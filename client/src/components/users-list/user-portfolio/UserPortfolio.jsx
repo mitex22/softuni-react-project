@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useGetPortfolioNFTs } from '../../../hooks/useNFTs';
 import Spinner from '../../common/Spinner';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import NFTPortfolioListItem from '../../nft-list/nft-portfolio/nft-portfolio-list-item/NFTPortfolioListItem';
 
 const UserPortfolio = () => {
@@ -33,7 +33,7 @@ const UserPortfolio = () => {
                                 </div>
                             )
                             : (
-                                <p className="mb-6 text-slate-600 text-center text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 py-10">No NFTs in your collection</p>
+                                <Navigate to="/not-found" />
                             )
                     }
                 </div>

@@ -22,6 +22,7 @@ import RouteGuard from "./components/common/RouteGuard"
 import RouteGuardAuth from "./components/common/RouteGuardAuthenticated";
 import Footer from "./components/footer/Footer"
 import ScrollToTop from "./components/common/ScrollToTop"
+import NotFound from "./components/not-found/NotFound";
 
 function App() {
 	
@@ -33,6 +34,7 @@ function App() {
 				<Header />
 				<ToastContainer />
 				<Routes>
+					<Route path={PATH.NOT_FOUND} element={<NotFound />} />
 
 					<Route path={PATH.HOME} element={<Home />} />
 					
@@ -54,6 +56,7 @@ function App() {
 						<Route path={PATH.USER_PORTFOLIO} element={<UserPortfolio />} />
 						<Route path={PATH.LOGOUT} element={<Logout />} />
 					</Route>
+
 
 				</Routes>
 				<Footer />

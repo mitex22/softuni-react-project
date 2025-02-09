@@ -16,11 +16,8 @@ const Footer = () => {
                         <img src={nftLogo} className="h-6 sm:h-9" alt="NFT Zoo Logo" />
                     </Link>
 
-                    <ul className="text-lg flex items-center justify-center flex-col gap-7 md:flex-row md:gap-12 transition-all duration-500 py-10 mb-10 border-b border-gray-200">
-                        <li><a href="#" className="text-gray-800 hover:text-gray-900">Pagedone</a></li>
-                        <li><a href="#" className=" text-gray-800 hover:text-gray-900">Products</a></li>
-                        <li><a href="#" className=" text-gray-800 hover:text-gray-900">Resources</a></li>
-                    </ul>
+                    <div className="py-2 mb-2 border-b border-gray-200"></div>
+
                     <div className="flex space-x-10 justify-center items-center mb-10">
                         <a href="#" className="block text-gray-900 transition-all duration-500 hover:text-indigo-600">
                             <img src={twitter} className="p-1 border-b-2 border-b-transparent mr-3 h-6 sm:h-9 hover:border-b-indigo-300" alt="Twitter Logo" />
@@ -32,7 +29,7 @@ const Footer = () => {
                             <img src={facebook} className="p-1 border-b-2 border-b-transparent mr-3 h-6 sm:h-9 hover:border-b-indigo-300" alt="Facebook Logo" />
                         </a>
                     </div>
-                    <span className="text-md text-gray-500 text-center block"><img src={nftLogo} className="h-6 sm:h-9 inline-block" alt="NFT Zoo Logo" /> by Dimitar Pavlov | 2024 | © All rights reserved.</span>
+                    <span className="text-md text-gray-500 text-center block"><img src={nftLogo} className="h-6 sm:h-9 inline-block" alt="NFT Zoo Logo" /> by Dimitar Pavlov | 2025 | © All rights reserved.</span>
                 </div>
             </div>
         </footer>

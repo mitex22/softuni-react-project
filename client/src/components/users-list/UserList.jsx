@@ -21,7 +21,7 @@ const UserList = () => {
                 <div className="user-list-container">
                     <h1 className="user-list-title">Users Portfolios</h1>
 
-                    <p className="user-list-subtitle">Take e look at what other users own</p>
+                    <p className="user-list-subtitle">Take a look at what other users own</p>
 
                     {loading ? (
                         <Spinner loading={loading} />

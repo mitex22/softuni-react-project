@@ -1,0 +1,34 @@
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    height: 20rem;
+}
+
+.not-found-title {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.not-found-message {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.not-found-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.not-found-link:hover {
+    background-color: #0056b3;
+}

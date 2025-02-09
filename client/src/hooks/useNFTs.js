@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 
 import * as nftsAPI from "../api/nfts-api";
+import PATH from "../paths/paths";
+import { useNavigate } from "react-router-dom";
+
 
 export function useGetAllNFTs(setLoading) {
     const [nfts, setNFTs] = useState([]);
-
+    
+    
     useEffect(() => {
         (async () => {
             try {
                 const result = await nftsAPI.getAll();
-
+                
                 setNFTs(result);
             } catch (error) {
                 console.log('Error fetching data', error);
@@ -18,12 +22,14 @@ export function useGetAllNFTs(setLoading) {
             }
         })();
     }, []);
-
+    
     return [nfts, setNFTs]
 }
 
 export function useGetOneNFT(nftId, setLoading) {
     const [nft, setNFT] = useState({});
+    
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -32,7 +38,8 @@ export function useGetOneNFT(nftId, setLoading) {
 
                 setNFT(result);
             } catch (error) {
-                console.log('Error fetching data', error);
+                navigate("/not-found");
+                // console.log('Error fetching data', error);
             } finally {
                 setLoading(false);
             }
@@ -44,15 +51,22 @@ export function useGetOneNFT(nftId, setLoading) {
 
 export function useGetPortfolioNFTs(username, setLoading) {
     const [nfts, setNFTs] = useState([]);
+    
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
             try {
                 const result = await nftsAPI.getPortfolio(username);
 
-                setNFTs(result);
+                if (!result) {
+                    navigate(PATH.NOT_FOUND);
+                } else {
+                    setNFTs(result);
+                }
             } catch (error) {
-                console.log('Error fetching data', error);
+                navigate("/not-found");
+                // console.log('Error fetching data', error);
             } finally {
                 setLoading(false);
             }
