@@ -116,7 +116,7 @@ const NFTPortfolio = () => {
                                 </div>
                             )
                             : (
-                                <p className="mb-28 text-slate-600 text-center text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 py-10">No NFTs in your collection</p>
+                                <p className="mb-80 text-slate-600 text-center text-lg font-normal lg:text-xl sm:px-16 xl:px-48 py-10">No NFTs in your collection</p>
                             )
                     }
                 </div>
