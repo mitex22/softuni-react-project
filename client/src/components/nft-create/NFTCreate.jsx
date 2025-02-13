@@ -88,7 +88,7 @@ const NFTCreate = () => {
 
     return (
         <>
-            <section className="bg-gray-50 bg-gray-50 pt-20 pb-10">
+            <section className="bg-gray-50 pt-20 pb-10">
                 <div className="flex flex-col items-center justify-center px-6 py-6 mx-auto lg:py-0">
                     <div className="w-full bg-white rounded-lg shadow md:mt-10 sm:max-w-md xl:p-0">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">

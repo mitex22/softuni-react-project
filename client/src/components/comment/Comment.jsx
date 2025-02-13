@@ -69,7 +69,7 @@ const Comment = ({
         }
 
         return (
-            <div className='flex gap-2 flex-col sm:flex-row text-gray-700 text-sm my-2'>
+            <div className='flex gap-2 flex-col sm:flex-row text-slate-500 text-sm my-2'>
                 <h6>Liked by:</h6>
                 <p>{likesAsString}</p>
             </div>
@@ -108,11 +108,11 @@ const Comment = ({
                                         <MdOutlineWarningAmber aria-hidden="true" className="h-6 w-6 text-red-600" />
                                     </div>
                                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                        <DialogTitle as="h3" className="text-base font-semibold leading-6 text-gray-900">
+                                        <DialogTitle as="h3" className="text-base font-semibold leading-6 text-slate-700">
                                             Delete comment
                                         </DialogTitle>
                                         <div className="mt-2">
-                                            <p className="text-sm text-gray-500">
+                                            <p className="text-sm text-slate-500">
                                                 Are you sure you want to delete this comment?
                                             </p>
                                         </div>
@@ -131,7 +131,7 @@ const Comment = ({
                                     type="button"
                                     data-autofocus
                                     onClick={() => confirmDeleteHandler(false)}
-                                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                                 >
                                     Cancel
                                 </button>
@@ -142,11 +142,11 @@ const Comment = ({
             </Dialog>
 
             <div className="bg-white p-4 rounded-lg shadow-md mb-2">
-                <h3 className="text-lg font-bold">{author.username}</h3>
+                <h3 className="text-lg text-slate-900 font-bold">{author.username}</h3>
 
-                <p className="text-gray-700 text-sm mb-2">Posted on: {formatDate(_createdOn)}</p>
+                <p className="text-slate-500 text-sm mb-2">Posted on: {formatDate(_createdOn)}</p>
 
-                <p className="text-gray-700 italic">{comment}</p>
+                <p className="text-slate-700 italic">{comment}</p>
 
                 {isAuthenticated && likes.length > 0
                     ? (listLikings())
@@ -161,7 +161,7 @@ const Comment = ({
 
                 {_ownerId !== userId && isAuthenticated && !likeItem &&
                     <button
-                        className='bg-slate-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
+                        className='bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
                         onClick={() => likeCommentButtonClickHandler(_id)}
                         title='Add Like'>
                         <FaRegThumbsUp />
@@ -169,7 +169,7 @@ const Comment = ({
 
                 {_ownerId !== userId && isAuthenticated && likeItem &&
                     <button
-                        className='bg-green-500 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
+                        className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
                         onClick={() => dislikeCommentButtonClickHandler(likeItem)}
                         title='Remove Like'>
                         <FaRegThumbsUp />

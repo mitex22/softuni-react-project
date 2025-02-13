@@ -63,11 +63,11 @@ const NFTPortfolio = () => {
                                         <MdOutlineWarningAmber aria-hidden="true" className="h-6 w-6 text-red-600" />
                                     </div>
                                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                        <DialogTitle as="h3" className="text-base font-semibold leading-6 text-gray-900">
+                                        <DialogTitle as="h3" className="text-base font-semibold leading-6 text-slate-900">
                                             Sell NFT
                                         </DialogTitle>
                                         <div className="mt-2">
-                                            <p className="text-sm text-gray-500">
+                                            <p className="text-sm text-slate-500">
                                                 Are you sure you want to sell <span className="font-bold">{currentNft.title}</span>?
                                             </p>
                                         </div>
@@ -86,7 +86,7 @@ const NFTPortfolio = () => {
                                     type="button"
                                     data-autofocus
                                     onClick={() => confirmSellHandler(false)}
-                                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                                 >
                                     Cancel
                                 </button>
@@ -97,7 +97,7 @@ const NFTPortfolio = () => {
             </Dialog>
 
             <section className='bg-gray-50 pt-20 pb-10 px-20'>
-                <div className='container-xl lg:container m-auto'>
+                <div className='container-xl lg:container h-[100vh]'>
                     <h1 className="mb-10 text-slate-700 text-center text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-6xl">My NFT Collection</h1>
 
                     {loading ? (
@@ -116,7 +116,7 @@ const NFTPortfolio = () => {
                                 </div>
                             )
                             : (
-                                <p className="mb-80 text-slate-600 text-center text-lg font-normal lg:text-xl sm:px-16 xl:px-48 py-10">No NFTs in your collection</p>
+                                <p className="text-slate-600 text-center text-lg font-normal lg:text-xl sm:px-16 xl:px-48 py-10">No NFTs in your collection</p>
                             )
                     }
                 </div>

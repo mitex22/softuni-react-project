@@ -118,7 +118,7 @@ const NFTEdit = () => {
 
     return (
         <>
-            <section className="bg-gray-50 bg-gray-50 pt-20 pb-10">
+            <section className="bg-gray-50 pt-20 pb-10">
                 <div className="flex flex-col items-center justify-center px-6 py-6 mx-auto lg:py-0">
                     {loading
                         ? (<Spinner loading={loading} />)

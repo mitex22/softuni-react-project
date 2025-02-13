@@ -24,7 +24,7 @@ const Header = () => {
 
     return (
         <>
-            <header className='relative'>
+            <header>
                 <nav className="fixed top-0 left-0 right-0 bg-white shadow sm:shadow-none sm:fixed z-10 border-slate-900 px-5 md:px-14 lg:px-20 py-2.5">
                     <div className="flex flex-wrap items-center justify-between mx-auto max-w-screen-xl">
                         <NavLink to={PATH.HOME} className="flex items-center">

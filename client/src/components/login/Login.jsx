@@ -33,7 +33,7 @@ const Login = () => {
     return (
         <>
             <section className="bg-gray-50">
-                <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-[100vh] lg:py-0">
+                <div className="flex flex-col items-center justify-center px-6 py-6 mx-auto h-[100vh] lg:py-0">
                     <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-slate-700 md:text-2xl">
@@ -75,7 +75,7 @@ const Login = () => {
                                     <div className="text-sm text-red-600 animate-pulse">{error}</div>
                                 }
 
-                                <p className="text-sm font-light text-gray-500">
+                                <p className="text-sm font-light text-slate-500">
                                     Don’t have an account yet? <Link className="font-medium text-indigo-600 hover:text-indigo-800 " to={PATH.REGISTER}>Register</Link>
                                 </p>
                             </form>

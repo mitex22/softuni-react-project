@@ -44,6 +44,16 @@ const NFTDetails = () => {
         })();
     }, [nftId]);
 
+    const editBtnClass = () =>
+        portfolio.some(item => item['nftId'] === nftId)
+            ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
+            : 'bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
+
+    const editLinkClass = () =>
+        portfolio.some(item => item['nftId'] === nftId)
+            ? 'display: inline-flex justify-center items-center gap-2 pointer-events-none cursor-default'
+            : 'display: inline-flex justify-center items-center gap-2';
+
     const deleteBtnClass = () =>
         portfolio.some(item => item['nftId'] === nftId)
             ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
@@ -151,11 +161,11 @@ const NFTDetails = () => {
                                         <MdOutlineWarningAmber aria-hidden="true" className="h-6 w-6 text-red-600" />
                                     </div>
                                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                        <DialogTitle as="h3" className="text-base font-semibold leading-6 text-gray-900">
+                                        <DialogTitle as="h3" className="text-base font-semibold leading-6 text-slate-900">
                                             Delete NFT
                                         </DialogTitle>
                                         <div className="mt-2">
-                                            <p className="text-sm text-gray-500">
+                                            <p className="text-sm text-slate-500">
                                                 Are you sure you want to delete <span className="font-bold">{nft.title}</span>? All of your data will be permanently removed.
                                                 This action cannot be undone.
                                             </p>
@@ -175,7 +185,7 @@ const NFTDetails = () => {
                                     type="button"
                                     data-autofocus
                                     onClick={() => confirmDeleteHandler(false)}
-                                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                                 >
                                     Cancel
                                 </button>
@@ -296,12 +306,18 @@ const NFTDetails = () => {
                                             <h3 className='text-xl font-bold mb-6'>Manage NFT</h3>
                                             {isNFTowner && (
                                                 <>
+                                                        <button
+                                                            className={editBtnClass()}
+                                                            disabled={portfolio.some(item => item['nftId'] === nftId) ? 'disabled' : ''}
+                                                        >
+
                                                     <Link
                                                         to={pathToUrl(PATH.NFT_EDIT, { nftId })}
-                                                        className='bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline block text-center inline-flex justify-center items-center gap-2 me-2'
-                                                    >
+                                                        className={editLinkClass()}
+                                                        >
                                                         <MdEdit /> <span>Edit NFT</span>
                                                     </Link>
+                                                            </button>
 
                                                     <button
                                                         className={deleteBtnClass()}

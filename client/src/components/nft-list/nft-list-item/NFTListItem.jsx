@@ -20,11 +20,11 @@ const NFTListItem = (
 
                 <div className="px-6 pt-4 pb-4">
 
-                    <h5 className="mb-3 text-2xl font-bold tracking-tight text-gray-900">{title}</h5>
+                    <h5 className="mb-3 text-2xl font-bold tracking-tight text-salte-900">{title}</h5>
 
-                    <h6 className='mb-3 text-gray-900'>{category}</h6>
+                    <h6 className='mb-3 text-slate-900'>{category}</h6>
 
-                    <Link to={pathToUrl(PATH.NFT_DETAILS, { nftId})} className="bg-indigo-800 hover:bg-indigo-900 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2">
+                    <Link to={pathToUrl(PATH.NFT_DETAILS, { nftId})} className="bg-indigo-800 hover:bg-indigo-900 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 text-center inline-flex justify-center items-center gap-2 me-2">
                         Details
                         <FaArrowRight className='ml-2' />
                     </Link>

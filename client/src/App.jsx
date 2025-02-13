@@ -25,44 +25,42 @@ import ScrollToTop from "./components/common/ScrollToTop"
 import NotFound from "./components/not-found/NotFound";
 
 function App() {
-	
+    return (
+        <>
+            <AuthProvider>
+                <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+                    <ScrollToTop />
+                    <Header />
+                    <ToastContainer />
+                    <Routes>
+                        <Route path={PATH.NOT_FOUND} element={<NotFound />} />
 
-	return (
-		<>
-			<AuthProvider>
-				<ScrollToTop />
-				<Header />
-				<ToastContainer />
-				<Routes>
-					<Route path={PATH.NOT_FOUND} element={<NotFound />} />
+                        <Route path={PATH.HOME} element={<Home />} />
 
-					<Route path={PATH.HOME} element={<Home />} />
-					
-					{/* cannot be accessed by authenticated users */}
-					<Route element={<RouteGuardAuth />}>
-						<Route path={PATH.REGISTER} element={<Register />} />
-						<Route path={PATH.LOGIN} element={<Login />} />
-					</Route>
+                        {/* cannot be accessed by authenticated users */}
+                        <Route element={<RouteGuardAuth />}>
+                            <Route path={PATH.REGISTER} element={<Register />} />
+                            <Route path={PATH.LOGIN} element={<Login />} />
+                        </Route>
 
-					<Route path={PATH.NFTs} element={<NFTList />} />
-					<Route path={PATH.NFT_DETAILS} element={<NFTDetails />} />
+                        <Route path={PATH.NFTs} element={<NFTList />} />
+                        <Route path={PATH.NFT_DETAILS} element={<NFTDetails />} />
 
-					{/* cannot be accessed by unauthenticated users */}
-					<Route element={<RouteGuard />}>
-						<Route path={PATH.NFT_PORTFOLIO} element={<NFTPortfolio />} />
-						<Route path={PATH.NFT_CREATE} element={<NFTCreate />} />
-						<Route path={PATH.NFT_EDIT} element={<NFTEdit />} />
-						<Route path={PATH.USERS} element={<UserList />} />
-						<Route path={PATH.USER_PORTFOLIO} element={<UserPortfolio />} />
-						<Route path={PATH.LOGOUT} element={<Logout />} />
-					</Route>
-
-
-				</Routes>
-				<Footer />
-			</AuthProvider>
-		</>
-	)
+                        {/* cannot be accessed by unauthenticated users */}
+                        <Route element={<RouteGuard />}>
+                            <Route path={PATH.NFT_PORTFOLIO} element={<NFTPortfolio />} />
+                            <Route path={PATH.NFT_CREATE} element={<NFTCreate />} />
+                            <Route path={PATH.NFT_EDIT} element={<NFTEdit />} />
+                            <Route path={PATH.USERS} element={<UserList />} />
+                            <Route path={PATH.USER_PORTFOLIO} element={<UserPortfolio />} />
+                            <Route path={PATH.LOGOUT} element={<Logout />} />
+                        </Route>
+                    </Routes>
+                    <Footer />
+                </div>
+            </AuthProvider>
+        </>
+    )
 }
 
 export default App;

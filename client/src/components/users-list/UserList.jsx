@@ -17,7 +17,7 @@ const UserList = () => {
 
     return (
         <>
-            <section className="user-list-section">
+            <section className="user-list-section h-[100vh]">
                 <div className="user-list-container">
                     <h1 className="user-list-title">Users Portfolios</h1>
 

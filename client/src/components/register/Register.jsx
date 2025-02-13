@@ -120,7 +120,7 @@ const Register = () => {
                                     </p>
                                 } */}
 
-                                <p className="text-sm font-light text-gray-500">
+                                <p className="text-sm font-light text-slate-500">
                                     Already registered? <Link className="font-medium text-indigo-600 hover:text-indigo-800" to={PATH.LOGIN}>Log In</Link>
                                 </p>
                             </form>
