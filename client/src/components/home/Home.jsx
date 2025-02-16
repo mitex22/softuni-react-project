@@ -28,9 +28,9 @@ const Home = () => {
     return (
         <>
             <Hero />
-            <section className='py-10'>
+            <section id="latest-nfts" className='py-10'>
 
-                <h1 className="mb-4 text-slate-700 text-center text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-6xl">Latest NFTs</h1>
+                <h2 className="mb-4 text-slate-700 text-center text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-6xl">Latest NFTs</h2>
 
                 <div className='container-xl lg:container m-auto'>
                     {loading
