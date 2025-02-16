@@ -59,7 +59,7 @@ const NFTList = () => {
 
     return (
         <>
-            <section className="bg-gray-50 pt-20 pb-10 px-20">
+            <section className="bg-gray-50 pt-20 pb-12 px-20">
                 <div className="container-xl lg:container m-auto">
                     <h1 className="mb-4 text-slate-700 text-center text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-6xl">
                         All NFTs
@@ -98,7 +98,7 @@ const NFTList = () => {
                         <Spinner loading={loading} />
                     ) : sortedNFTs.length > 0 ? (
                         <>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
+                            <div id="all-nfts" className="grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
                                 {paginatedNFTs.map((nft) => (
                                     <NFTListItem key={nft._id} {...nft} />
                                 ))}
@@ -106,6 +106,7 @@ const NFTList = () => {
 
                             <div className="flex justify-center mt-6 space-x-4">
                                 <button
+                                    id="prev-btn"
                                     className={`px-4 py-2 bg-gray-300 rounded ${
                                         currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
                                     }`}
@@ -116,6 +117,7 @@ const NFTList = () => {
                                 </button>
                                 <span className="px-4 py-2">{`Page ${currentPage} of ${totalPages}`}</span>
                                 <button
+                                    id="next-btn"
                                     className={`px-4 py-2 bg-gray-300 rounded ${
                                         currentPage === totalPages
                                             ? "opacity-50 cursor-not-allowed"

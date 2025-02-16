@@ -20,6 +20,7 @@ describe("Landing Page Tests Suite", () => {
 
         cy.get("#latest-nfts")
             .find(".max-w-sm", ".rounded", ".overflow-hidden", ".shadow-lg")
+            .should("have.length", 3)
             .each(($el) => {
                 cy.wrap($el).find("img").should("exist");
                 cy.wrap($el).find("h5").should("exist");
