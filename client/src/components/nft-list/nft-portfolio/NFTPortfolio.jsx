@@ -97,7 +97,7 @@ const NFTPortfolio = () => {
             </Dialog>
 
             <section className='bg-gray-50 pt-20 pb-10 px-20'>
-                <div className='container-xl lg:container h-[100vh]'>
+                <div className='container-xl mx-auto lg:container min-h-[100vh]'>
                     <h1 className="mb-10 text-slate-700 text-center text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-6xl">My NFT Collection</h1>
 
                     {loading ? (

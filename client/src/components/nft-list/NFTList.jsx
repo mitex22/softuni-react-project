@@ -59,7 +59,7 @@ const NFTList = () => {
 
     return (
         <>
-            <section className="bg-gray-50 pt-20 pb-12 px-20">
+            <section className="bg-gray-50 pt-20 pb-10 px-20 min-h-[100vh]">
                 <div className="container-xl lg:container m-auto">
                     <h1 className="mb-4 text-slate-700 text-center text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-6xl">
                         All NFTs
