@@ -59,8 +59,12 @@ const Register = () => {
                                         required
                                         name={REGISTER_FORM_KEYS.EMAIL}
                                         onChange={onChange}
+                                        onInput={() => setError('')}
                                         value={values[REGISTER_FORM_KEYS.EMAIL]} />
                                 </div>
+                                {error.email &&
+                                    <span className="text-xs text-red-600 animate-pulse">{error.email}</span>
+                                }
                                 <div>
                                     <label htmlFor="username" className="block mb-2 text-sm font-medium text-slate-700">Your username</label>
                                     <input
@@ -95,7 +99,7 @@ const Register = () => {
                                     <span className="text-xs text-red-600 animate-pulse">{error.password}</span>
                                 }
                                 <div>
-                                    <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-slate-700">Confirm Password</label>
+                                    <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-slate-700">Confirm password</label>
                                     <input
                                         type="password"
                                         id="confirm-password"

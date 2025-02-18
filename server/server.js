@@ -1125,10 +1125,10 @@
 
                         return result;
                     } else {
-                        throw new CredentialError$1('Login or password don\'t match');
+                        throw new CredentialError$1('Email or password don\'t match');
                     }
                 } else {
-                    throw new CredentialError$1('Login or password don\'t match');
+                    throw new CredentialError$1('Email or password don\'t match');
                 }
             }
 

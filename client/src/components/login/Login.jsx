@@ -76,7 +76,7 @@ const Login = () => {
                                 }
 
                                 <p className="text-sm font-light text-slate-500">
-                                    Don’t have an account yet? <Link className="font-medium text-indigo-600 hover:text-indigo-800 " to={PATH.REGISTER}>Register</Link>
+                                    Don't have an account yet? <Link className="font-medium text-indigo-600 hover:text-indigo-800 " to={PATH.REGISTER}>Register</Link>
                                 </p>
                             </form>
                         </div>

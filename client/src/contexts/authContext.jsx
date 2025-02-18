@@ -39,17 +39,17 @@ export const AuthProvider = ({
     const registerSubmitHandler = async (values) => {
 
         if (values.username.length < 3) {
-            setError({username: 'Username must be at least 3 characters!'});
+            setError({ username: 'Username must be at least 3 characters!' });
             return;
         }
 
         if (values.password.length < 6) {
-            setError({password: 'Password must be at least 6 characters!'});
+            setError({ password: 'Password must be at least 6 characters!' });
             return;
         }
 
         if (values.password !== values['confirm-password']) {
-            setError({confirmPassword: 'Password and Confirm Password must match!'});
+            setError({ confirmPassword: 'Password and Confirm Password must match!' });
             return;
         }
 
@@ -64,6 +64,10 @@ export const AuthProvider = ({
 
             setError('');
         } catch (error) {
+            if (error.message === 'A user with the same email already exists') {
+                setError({ email: 'A user with the same email already exists!' });
+                return;
+            }
             setError(error.message);
         }
     }
