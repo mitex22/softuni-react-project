@@ -195,7 +195,7 @@ const NFTDetails = () => {
                 </div>
             </Dialog>
 
-            <section className='bg-gray-50 pt-14'>
+            <section className='bg-gray-50 pt-14 min-h-[100vh]'>
                 <div className='container m-auto py-10 px-6'>
                     {loading
                         ? <Spinner loading={loading} />

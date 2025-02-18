@@ -1,19 +1,15 @@
-/* General Section Styling */
 .user-list-section {
     background-color: #f9fafb;
     padding: 5rem 1.25rem;
 }
 
-/* Container */
 .user-list-container {
     margin: 0 auto;
     max-width: 1280px;
 }
 
-/* Heading Styles */
 .user-list-title {
     margin-bottom: 1rem;
-    color: #1e293b;
     text-align: center;
     font-size: 1.5rem;
     font-weight: 800;
@@ -21,7 +17,6 @@
     letter-spacing: -0.02em;
 }
 
-/* Responsive */
 @media (min-width: 768px) {
     .user-list-title {
         font-size: 2.25rem;
@@ -34,7 +29,6 @@
     }
 }
 
-/* Subheading Styles */
 .user-list-subtitle {
     margin-bottom: 1.5rem;
     color: #475569;
@@ -44,14 +38,12 @@
     line-height: 1.5;
 }
 
-/* Responsive */
 @media (min-width: 1024px) {
     .user-list-subtitle {
         font-size: 1.25rem;
     }
 }
 
-/* Grid container */
 .user-list-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -65,7 +57,6 @@
     }
 }
 
-/* Paragraph container */
 .user-list-empty {
     margin-bottom: 1.5rem;
     color: #475569;
@@ -78,7 +69,6 @@
     padding-right: 4rem;
 }
 
-/* Larger screens: lg breakpoint */
 @media (min-width: 1024px) {
     .user-list-empty {
         font-size: 1.25rem;
