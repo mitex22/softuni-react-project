@@ -1,0 +1,69 @@
+1. **Create NFT form UI:**
+   - Navigate to the homepage.
+   - Log in with the email "peter@abv.bg" and the password "123456".
+   - Click the "Create NFT" link in the navigation bar.
+   - Verify the presence of the "Create NFT" heading.
+   - Verify the presence of the "NFT Title" label and input field with the placeholder "Enter NFT title...".
+   - Verify the presence of the "NFT Category" label and input field with the placeholder "Enter NFT category...".
+   - Verify the presence of the "NFT Collection" label and input field with the placeholder "Enter NFT collection...".
+   - Verify the presence of the "NFT Price (in ETH)" label and input field with the placeholder "Enter NFT price (e.g. 3)...".
+   - Verify the presence of the "NFT Image URL" label and input field with the placeholder "Enter NFT image url address...".
+   - Verify the presence of the "NFT Summary" label and textarea.
+   - Verify the presence of the "Create NFT" button.
+
+2. **Create NFT form submitted with invalid credentials:**
+   - Navigate to the homepage.
+   - Log in with the email "peter@abv.bg" and the password "123456".
+   - Click the "Create NFT" link in the navigation bar.
+   - Click the "Create NFT" button without filling in any fields.
+   - Verify the presence of the error message "Title is missing!".
+   - Fill in the title field with spaces and click the "Create NFT" button.
+   - Verify the presence of the error message "Title should contain characters or digits!".
+   - Fill in the title field with "Ko" and click the "Create NFT" button.
+   - Verify the presence of the error message "Title should be at least 3 characters long!".
+   - Fill in the title field with "Kondyo".
+   - Click the "Create NFT" button without filling in the category field.
+   - Verify the presence of the error message "Category is missing!".
+   - Fill in the category field with spaces and click the "Create NFT" button.
+   - Verify the presence of the error message "Category should contain characters or digits!".
+   - Fill in the category field with "Ca" and click the "Create NFT" button.
+   - Verify the presence of the error message "Category should be at least 3 characters long!".
+   - Fill in the category field with "Category".
+   - Click the "Create NFT" button without filling in the collection field.
+   - Verify the presence of the error message "Collection is missing!".
+   - Fill in the collection field with spaces and click the "Create NFT" button.
+   - Verify the presence of the error message "Collection should contain characters or digits!".
+   - Fill in the collection field with "Co" and click the "Create NFT" button.
+   - Verify the presence of the error message "Collection should be at least 3 characters long!".
+   - Fill in the collection field with "Collection".
+   - Click the "Create NFT" button without filling in the price field.
+   - Verify the presence of the error message "Price is missing!".
+   - Fill in the price field with "123".
+   - Click the "Create NFT" button without filling in the image URL field.
+   - Verify the presence of the error message "Image URL is missing!".
+   - Fill in the image URL field with spaces and click the "Create NFT" button.
+   - Verify the presence of the error message "Image URL must be in valid format!".
+   - Fill in the image URL field with "https://i.seadn.io/s".
+   - Click the "Create NFT" button without filling in the summary field.
+   - Verify the presence of the error message "Summary is missing!".
+   - Fill in the summary field with spaces and click the "Create NFT" button.
+   - Verify the presence of the error message "Summary should contain characters or digits!".
+   - Fill in the summary field with "Summary12" and click the "Create NFT" button.
+   - Verify the presence of the error message "Summary should be at least 10 characters long!".
+   - Fill in the summary field with "Summary123".
+   - Click the "Create NFT" button.
+   - Verify the presence of the error message "NFT with this title already exists!".
+   - Verify that no new NFT is created by checking the total number of NFTs remains 7.
+
+3. **Create NFT form submitted with valid credentials:**
+   - Navigate to the homepage.
+   - Log in with the email "peter@abv.bg" and the password "123456".
+   - Click the "Create NFT" link in the navigation bar.
+   - Fill in the title field with "Gonzo".
+   - Fill in the category field with "Category".
+   - Fill in the collection field with "Collection".
+   - Fill in the price field with "123".
+   - Fill in the image URL field with "https://i.seadn.io/s".
+   - Fill in the summary field with "Summary123".
+   - Click the "Create NFT" button.
+   - Verify that a new NFT is created by checking the total number of NFTs is now 8 and the new NFT with the title "Gonzo" exists.
