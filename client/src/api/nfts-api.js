@@ -54,6 +54,13 @@ export const getLatest = async () => {
 }
 
 export const nftCreate = async (nftData) => {
+
+    const currentNFTs = await getAll();
+
+    if (currentNFTs.some(nft => nft.title === nftData.title)) {
+        throw new Error('NFT with this title already exists!');
+    }
+
     const result = await request.post(BASE_URL, nftData);
 
     return result;

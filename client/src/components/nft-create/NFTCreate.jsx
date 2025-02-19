@@ -30,6 +30,10 @@ const NFTCreate = () => {
             return setError({ title: 'Title should contain characters or digits!' });
         }
 
+        if (values[CREATE_NFT_FORM_KEYS.TITLE].length < 3) {
+            return setError({ title: 'Title should be at least 3 characters long!' });
+        }
+
         if (values[CREATE_NFT_FORM_KEYS.CATEGORY] === '') {
             return setError({ category: 'Category is missing!' });
         }
@@ -38,12 +42,20 @@ const NFTCreate = () => {
             return setError({ category: 'Category should contain characters or digits!' });
         }
 
+        if (values[CREATE_NFT_FORM_KEYS.CATEGORY].length < 3) {
+            return setError({ category: 'Category should be at least 3 characters long!' });
+        }
+
         if (values[CREATE_NFT_FORM_KEYS.COLLECTION] === '') {
             return setError({ collection: 'Collection is missing!' });
         }
 
         if (values[CREATE_NFT_FORM_KEYS.COLLECTION].trim() === '') {
             return setError({ collection: 'Collection should contain characters or digits!' });
+        }
+
+        if (values[CREATE_NFT_FORM_KEYS.COLLECTION].length < 3) {
+            return setError({ collection: 'Collection should be at least 3 characters long!' });
         }
 
         if (values[CREATE_NFT_FORM_KEYS.PRICE] === '') {
@@ -66,6 +78,10 @@ const NFTCreate = () => {
             return setError({ summary: 'Summary should contain characters or digits!' });
         }
 
+        if (values[CREATE_NFT_FORM_KEYS.SUMMARY].length < 10) {
+            return setError({ summary: 'Summary should be at least 10 characters long!' });
+        }
+
         try {
             await nftsAPI.nftCreate(values);
 
@@ -73,6 +89,12 @@ const NFTCreate = () => {
 
             navigate(PATH.NFTs);
         } catch (error) {
+
+            if (error.message === 'NFT with this title already exists!') {
+                setError({ title: 'NFT with this title already exists!' });
+                return;
+            }
+
             console.log('Error fetching data', error);
         }
     }
@@ -177,7 +199,7 @@ const NFTCreate = () => {
                                         type="text"
                                         id="imageUrl"
                                         name="imageUrl"
-                                        placeholder="Upload a photo..."
+                                        placeholder="Enter NFT image url address..."
                                         onChange={onChange}
                                         onInput={() => setError('')}
                                         value={values[CREATE_NFT_FORM_KEYS.IMAGE_URL]}
