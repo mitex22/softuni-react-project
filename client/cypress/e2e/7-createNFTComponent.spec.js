@@ -148,7 +148,7 @@ describe("Create NFT Component Tests Suite", () => {
         
     });
 
-    it("create nft form submitted with valid credentials", () => {
+    it.only("create nft form submitted with valid credentials", () => {
 
         cy.get('nav').contains('Create NFT').click();
 
@@ -156,10 +156,26 @@ describe("Create NFT Component Tests Suite", () => {
         cy.get('form input[placeholder="Enter NFT category..."]').type('Category', {delay: 100});
         cy.get('form input[placeholder="Enter NFT collection..."]').type('Collection', {delay: 100});
         cy.get('form input[placeholder="Enter NFT price (e.g. 3)..."]').type('123', {delay: 100});
-        cy.get('form input[placeholder="Enter NFT image url address..."]').type('https://i.seadn.io/s', {delay: 100});
+        cy.get('form input[placeholder="Enter NFT image url address..."]').type('https://i.seadn.io/s/raw/files/6f46fcbdc5042a2c45d313ebce93ced3.webp?auto=format&dpr=1&w=384', {delay: 10});
         cy.get('form textarea').type('Summary123', {delay: 100});
 
         cy.get('form button').contains('Create NFT').click();
+
+        // navigate to All NFTs page
+        cy.get('div').contains('Successfully created NFT Gonzo').should('exist');
+
+        cy.get('h1').contains('All NFTs').should('exist');
+        cy.get('input[placeholder="Search by NFT title..."]').type('Gonzo', { delay: 100 });
+        cy.get("#all-nfts")
+            .find(".max-w-sm", ".rounded", ".overflow-hidden", ".shadow-lg")
+            .should("have.length", 1)
+            .each(($el) => {
+                cy.wrap($el).find("img").should("exist");
+                cy.wrap($el).find("h5").should("contain.text", "Gonzo");
+                cy.wrap($el).find("h6").should("contain.text", "Category");
+                cy.wrap($el).contains("Details").should("exist");
+            });
+
 
         // check NFT is created
         cy.request('GET', 'http://localhost:3030/data/nfts').then((response) => {
