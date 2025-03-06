@@ -1,105 +1,69 @@
-1. **All NFTs UI when NOT authenticated:**
-   - Navigate to the All NFTs page.
-   - Verify the presence of the "All NFTs" heading.
-   - Verify the presence of the text "Discover and Collect Exclusive NFTs".
-   - Verify the presence of the filter dropdown.
-   - Verify the presence of the search input field with the placeholder "Search by NFT title...".
-   - Verify that there are 3 NFT cards displayed.
-   - For each NFT card, verify the presence of an image, a title, a category, and a "Details" button.
+1. **All NFTs UI when NOT authenticated**:
+   - Navigate to the "All NFTs" page.
+   - Verify that the "All NFTs" heading is displayed.
+   - Verify that the description "Discover and Collect Exclusive NFTs" is displayed.
+   - Verify that the filter dropdown and search input are displayed.
+   - Verify that the NFTs are displayed with images, titles, categories, and "Details" buttons.
 
-2. **All NFTs pagination when NOT authenticated:**
-   - Navigate to the All NFTs page.
-   - Verify the presence of the text "Page 1 of 3".
-   - Verify that the previous button is disabled.
-   - Verify that the next button is enabled.
-   - Click the next button.
-   - Verify that the previous button is enabled.
-   - Verify that there are 3 NFT cards displayed.
-   - For each NFT card, verify the presence of an image, a title, a category, and a "Details" button.
-   - Click the next button.
-   - Verify that the previous button is enabled.
-   - Verify that the next button is disabled.
-   - Verify that there is 1 NFT card displayed.
-   - For the NFT card, verify the presence of an image, a title, a category, and a "Details" button.
+2. **All NFTs pagination when NOT authenticated**:
+   - Navigate to the "All NFTs" page.
+   - Verify that the pagination shows "Page 1 of 4".
+   - Verify that the "Previous" button is disabled and the "Next" button is enabled.
+   - Click the "Next" button and verify that the "Previous" button is enabled.
+   - Verify that the NFTs are displayed with images, titles, categories, and "Details" buttons.
+   - Click the "Next" button twice and verify that the "Next" button is disabled on the last page.
+   - Verify that the NFTs are displayed with images, titles, categories, and "Details" buttons.
 
-3. **All NFTs filtering when NOT authenticated:**
-   - Navigate to the All NFTs page.
-   - Select "Music" from the filter dropdown.
-   - Verify that there is 1 NFT card displayed.
-   - For the NFT card, verify the presence of an image, a title containing "Kondyo", a category containing "Music", and a "Details" button.
-   - Verify the presence of the text "Page 1 of 1".
-   - Verify that the previous button is disabled.
-   - Verify that the next button is disabled.
+3. **All NFTs filtering when NOT authenticated**:
+   - Navigate to the "All NFTs" page.
+   - Select the "Music" category from the filter dropdown.
+   - Verify that only NFTs in the "Music" category are displayed with images, titles, categories, and "Details" buttons.
+   - Verify that the pagination shows "Page 1 of 1" and both "Previous" and "Next" buttons are disabled.
 
-4. **All NFTs search when NOT authenticated:**
-   - Navigate to the All NFTs page.
-   - Type "Kondyo" in the search input field.
-   - Verify that there is 1 NFT card displayed.
-   - For the NFT card, verify the presence of an image, a title containing "Kondyo", a category containing "Music", and a "Details" button.
-   - Verify the presence of the text "Page 1 of 1".
-   - Verify that the previous button is disabled.
-   - Verify that the next button is disabled.
-   - Navigate back to the All NFTs page.
-   - Type "asdasd" in the search input field.
-   - Verify that no NFT cards are displayed.
-   - Verify the presence of the text "No NFTs match your search.".
-   - Verify the absence of the text "Page 1 of 1".
-   - Verify that the previous button is not displayed.
-   - Verify that the next button is not displayed.
+4. **All NFTs search when NOT authenticated**:
+   - Navigate to the "All NFTs" page.
+   - Search for an NFT by typing "Kondyo" in the search input.
+   - Verify that the NFT with the title "Kondyo" is displayed with images, titles, categories, and "Details" buttons.
+   - Verify that the pagination shows "Page 1 of 1" and both "Previous" and "Next" buttons are disabled.
+   - Clear the search input and search for a non-existent NFT by typing "asdasd".
+   - Verify that no NFTs are displayed and the message "No NFTs match your search." is shown.
+   - Verify that the pagination and navigation buttons are not displayed.
 
-5. **All NFTs UI when authenticated:**
-   - Log in with the email "peter@abv.bg" and the password "123456".
-   - Navigate to the All NFTs page.
-   - Verify the presence of the "All NFTs" heading.
-   - Verify the presence of the text "Discover and Collect Exclusive NFTs".
-   - Verify the presence of the filter dropdown.
-   - Verify the presence of the search input field with the placeholder "Search by NFT title...".
-   - Verify that there are 3 NFT cards displayed.
-   - For each NFT card, verify the presence of an image, a title, a category, and a "Details" button.
+5. **All NFTs UI when authenticated**:
+   - Log in with valid credentials.
+   - Navigate to the "All NFTs" page.
+   - Verify that the "All NFTs" heading is displayed.
+   - Verify that the description "Discover and Collect Exclusive NFTs" is displayed.
+   - Verify that the filter dropdown and search input are displayed.
+   - Verify that the NFTs are displayed with images, titles, categories, and "Details" buttons.
    - Log out.
 
-6. **All NFTs pagination when authenticated:**
-   - Log in with the email "peter@abv.bg" and the password "123456".
-   - Navigate to the All NFTs page.
-   - Verify the presence of the text "Page 1 of 3".
-   - Verify that the previous button is disabled.
-   - Verify that the next button is enabled.
-   - Click the next button.
-   - Verify that the previous button is enabled.
-   - Verify that there are 3 NFT cards displayed.
-   - For each NFT card, verify the presence of an image, a title, a category, and a "Details" button.
-   - Click the next button.
-   - Verify that the previous button is enabled.
-   - Verify that the next button is disabled.
-   - Verify that there is 1 NFT card displayed.
-   - For the NFT card, verify the presence of an image, a title, a category, and a "Details" button.
+6. **All NFTs pagination when authenticated**:
+   - Log in with valid credentials.
+   - Navigate to the "All NFTs" page.
+   - Verify that the pagination shows "Page 1 of 4".
+   - Verify that the "Previous" button is disabled and the "Next" button is enabled.
+   - Click the "Next" button and verify that the "Previous" button is enabled.
+   - Verify that the NFTs are displayed with images, titles, categories, and "Details" buttons.
+   - Click the "Next" button twice and verify that the "Next" button is disabled on the last page.
+   - Verify that the NFTs are displayed with images, titles, categories, and "Details" buttons.
    - Log out.
 
-7. **All NFTs filtering when authenticated:**
-   - Log in with the email "peter@abv.bg" and the password "123456".
-   - Navigate to the All NFTs page.
-   - Select "Music" from the filter dropdown.
-   - Verify that there is 1 NFT card displayed.
-   - For the NFT card, verify the presence of an image, a title containing "Kondyo", a category containing "Music", and a "Details" button.
-   - Verify the presence of the text "Page 1 of 1".
-   - Verify that the previous button is disabled.
-   - Verify that the next button is disabled.
+7. **All NFTs filtering when authenticated**:
+   - Log in with valid credentials.
+   - Navigate to the "All NFTs" page.
+   - Select the "Music" category from the filter dropdown.
+   - Verify that only NFTs in the "Music" category are displayed with images, titles, categories, and "Details" buttons.
+   - Verify that the pagination shows "Page 1 of 1" and both "Previous" and "Next" buttons are disabled.
    - Log out.
 
-8. **All NFTs search when authenticated:**
-   - Log in with the email "peter@abv.bg" and the password "123456".
-   - Navigate to the All NFTs page.
-   - Type "Kondyo" in the search input field.
-   - Verify that there is 1 NFT card displayed.
-   - For the NFT card, verify the presence of an image, a title containing "Kondyo", a category containing "Music", and a "Details" button.
-   - Verify the presence of the text "Page 1 of 1".
-   - Verify that the previous button is disabled.
-   - Verify that the next button is disabled.
-   - Navigate back to the All NFTs page.
-   - Type "asdasd" in the search input field.
-   - Verify that no NFT cards are displayed.
-   - Verify the presence of the text "No NFTs match your search.".
-   - Verify the absence of the text "Page 1 of 1".
-   - Verify that the previous button is not displayed.
-   - Verify that the next button is not displayed.
+8. **All NFTs search when authenticated**:
+   - Log in with valid credentials.
+   - Navigate to the "All NFTs" page.
+   - Search for an NFT by typing "Kondyo" in the search input.
+   - Verify that the NFT with the title "Kondyo" is displayed with images, titles, categories, and "Details" buttons.
+   - Verify that the pagination shows "Page 1 of 1" and both "Previous" and "Next" buttons are disabled.
+   - Clear the search input and search for a non-existent NFT by typing "asdasd".
+   - Verify that no NFTs are displayed and the message "No NFTs match your search." is shown.
+   - Verify that the pagination and navigation buttons are not displayed.
    - Log out.

@@ -61,6 +61,10 @@ const NFTEdit = () => {
             return setError({ title: 'Title should contain characters or digits!' });
         }
 
+        if (values[EDIT_NFT_FORM_KEYS.TITLE].length < 3) {
+            return setError({ title: 'Title should be at least 3 characters long!' });
+        }
+
         if (values[EDIT_NFT_FORM_KEYS.CATEGORY] === '') {
             return setError({ category: 'Category is missing!' });
         }
@@ -69,12 +73,20 @@ const NFTEdit = () => {
             return setError({ category: 'Category should contain characters or digits!' });
         }
 
+        if (values[EDIT_NFT_FORM_KEYS.CATEGORY].length < 3) {
+            return setError({ category: 'Category should be at least 3 characters long!' });
+        }
+
         if (values[EDIT_NFT_FORM_KEYS.COLLECTION] === '') {
             return setError({ collection: 'Collection is missing!' });
         }
 
         if (values[EDIT_NFT_FORM_KEYS.COLLECTION].trim() === '') {
             return setError({ collection: 'Collection should contain characters or digits!' });
+        }
+
+        if (values[EDIT_NFT_FORM_KEYS.COLLECTION].length < 3) {
+            return setError({ collection: 'Collection should be at least 3 characters long!' });
         }
 
         if (values[EDIT_NFT_FORM_KEYS.PRICE] === '') {
@@ -95,6 +107,10 @@ const NFTEdit = () => {
 
         if (values[EDIT_NFT_FORM_KEYS.SUMMARY].trim() === '') {
             return setError({ summary: 'Summary should contain characters or digits!' });
+        }
+
+        if (values[EDIT_NFT_FORM_KEYS.SUMMARY].length < 10) {
+            return setError({ summary: 'Summary should be at least 10 characters long!' });
         }
 
         try {
@@ -185,14 +201,14 @@ const NFTEdit = () => {
                                         }
 
                                         <div>
-                                            <label htmlFor="price" className="block mb-2 text-sm font-medium text-slate-700">NFT Price</label>
+                                            <label htmlFor="price" className="block mb-2 text-sm font-medium text-slate-700">NFT Price (in ETH)</label>
                                             <input
                                                 className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-700 focus:border-indigo-800 block w-full p-2.5"
                                                 type="number"
                                                 id="price"
                                                 name="price"
                                                 min={0}
-                                                placeholder="Enter NFT price (e.g. 3 ETH)..."
+                                                placeholder="Enter NFT price (e.g. 3)..."
                                                 onChange={onChange}
                                                 onInput={() => setError('')}
                                                 value={nft.price}
@@ -210,7 +226,7 @@ const NFTEdit = () => {
                                                 type="text"
                                                 id="imageUrl"
                                                 name="imageUrl"
-                                                placeholder="Upload a photo..."
+                                                placeholder="Enter NFT image url address..."
                                                 onChange={onChange}
                                                 onInput={() => setError('')}
                                                 value={nft.imageUrl}

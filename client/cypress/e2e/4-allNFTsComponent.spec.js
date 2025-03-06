@@ -26,7 +26,7 @@ describe("All NFTs Component Tests Suite", () => {
     it("All NFTs pagination when NOT auth", () => {
         cy.get('nav').contains('All NFTs').click();
 
-        cy.get('span').contains('Page 1 of 3').should('exist');
+        cy.get('span').contains('Page 1 of 4').should('exist');
         cy.get('#prev-btn').should('have.attr', 'disabled');
         cy.get('#next-btn').should('not.have.attr', 'disabled');
 
@@ -44,12 +44,13 @@ describe("All NFTs Component Tests Suite", () => {
             });
 
         cy.get('#next-btn').click();
+        cy.get('#next-btn').click();
         cy.get('#prev-btn').should('not.have.attr', 'disabled');
         cy.get('#next-btn').should('have.attr', 'disabled');
 
         cy.get("#all-nfts")
             .find(".max-w-sm", ".rounded", ".overflow-hidden", ".shadow-lg")
-            .should("have.length", 1)
+            .should("have.length", 3)
             .each(($el) => {
                 cy.wrap($el).find("img").should("exist");
                 cy.wrap($el).find("h5").should("exist");
@@ -150,7 +151,7 @@ describe("All NFTs Component Tests Suite", () => {
 
         cy.get('nav').contains('All NFTs').click();
 
-        cy.get('span').contains('Page 1 of 3').should('exist');
+        cy.get('span').contains('Page 1 of 4').should('exist');
         cy.get('#prev-btn').should('have.attr', 'disabled');
         cy.get('#next-btn').should('not.have.attr', 'disabled');
 
@@ -168,12 +169,13 @@ describe("All NFTs Component Tests Suite", () => {
             });
 
         cy.get('#next-btn').click();
+        cy.get('#next-btn').click();
         cy.get('#prev-btn').should('not.have.attr', 'disabled');
         cy.get('#next-btn').should('have.attr', 'disabled');
 
         cy.get("#all-nfts")
             .find(".max-w-sm", ".rounded", ".overflow-hidden", ".shadow-lg")
-            .should("have.length", 1)
+            .should("have.length", 3)
             .each(($el) => {
                 cy.wrap($el).find("img").should("exist");
                 cy.wrap($el).find("h5").should("exist");

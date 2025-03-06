@@ -111,7 +111,7 @@ describe("Create NFT Component Tests Suite", () => {
         cy.get('form button').contains('Create NFT').click();
         cy.get('form input[placeholder="Enter NFT image url address..."]').parent().siblings('span').contains('Image URL must be in valid format!').should('exist');
 
-        cy.get('form input[placeholder="Enter NFT image url address..."]').clear().type('https://i.seadn.io/s', {delay: 100});
+        cy.get('form input[placeholder="Enter NFT image url address..."]').clear().type('https://i.seadn.io/s/raw/files/bd4df9a94fbb5709e5eb1b5d42949985.png?auto=format&dpr=1&w=750', {delay: 20});
         cy.get('form input[placeholder="Enter NFT image url address..."]').parent().siblings('span').should('not.exist');
 
         // summary
@@ -136,7 +136,7 @@ describe("Create NFT Component Tests Suite", () => {
 
         // check no NFT is created
         cy.request('GET', 'http://localhost:3030/data/nfts').then((response) => {
-            expect(response.body).to.have.length(7);
+            expect(response.body).to.have.length(12);
             let isFound = false;
             response.body.forEach((nft) => {
                 if (nft.title === 'Kondyo') {
@@ -148,7 +148,7 @@ describe("Create NFT Component Tests Suite", () => {
         
     });
 
-    it.only("create nft form submitted with valid credentials", () => {
+    it("create nft form submitted with valid credentials", () => {
 
         cy.get('nav').contains('Create NFT').click();
 
@@ -179,7 +179,7 @@ describe("Create NFT Component Tests Suite", () => {
 
         // check NFT is created
         cy.request('GET', 'http://localhost:3030/data/nfts').then((response) => {
-            expect(response.body).to.have.length(8);
+            expect(response.body).to.have.length(13);
             let isFound = false;
             response.body.forEach((nft) => {
                 if (nft.title === 'Gonzo') {
