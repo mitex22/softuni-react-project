@@ -1342,7 +1342,7 @@
     	comments: {
     		"0a272c58-b7ea-4e09-a000-7ec988248f66": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			comment: "Top igra ti kaaam!",
+    			comment: "This one is very rare!",
     			nftId: "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
     			_createdOn: 1614260681375,
     		}
@@ -1358,73 +1358,123 @@
         nfts: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Counter Strike 8",
-                category: "Gaming",
+    			title: "Green-eyed Knight",
+                category: "Battle",
                 collectionName: "Seedworld Vanguards",
-    			imageUrl: "https://i.seadn.io/gcs/files/ff8f1623c9e20d24103fdf26023c9460.png?auto=format&dpr=1&w=750",
-                price: "2",
+    			imageUrl: "https://i.seadn.io/s/raw/files/7275f40cd4eeaee266a466dca3fd76d0.webp?auto=format&dpr=1&w=750",
+                price: "1",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279018
     		},
             "3987279d-0ad4-4afb-8ca9-5b256ae3b297": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Counter Strike 7",
-                category: "Gaming",
+    			title: "Angry Scientist",
+                category: "Science",
                 collectionName: "Seedworld Vanguards",
-    			imageUrl: "https://i.seadn.io/s/raw/files/e10e1c85adfbd9b12c4b41f0b8881b4d.png?auto=format&dpr=1&w=750",
+    			imageUrl: "https://i.seadn.io/s/raw/files/0a90b3b527f00e165204fcfb5aa3709e.webp?auto=format&dpr=1&w=750",
                 price: "2",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279017
     		},
             "3987279d-0ad4-4afb-8ca9-5b256ae3b296": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Kondyo",
-                category: "Music",
+    			title: "Girl Scientist",
+                category: "Science",
                 collectionName: "Seedworld Vanguards",
-    			imageUrl: "https://i.seadn.io/s/raw/files/48570637639647535c17bf87f1441ad9.png?auto=format&dpr=1&w=750",
-                price: "2",
+    			imageUrl: "https://i.seadn.io/s/raw/files/c210dbb0c0b197e0891adae88a51f9da.webp?auto=format&dpr=1&w=750",
+                price: "3",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
-    			_createdOn: 1613551279016
+    			_createdOn: 1613551229017
     		},
             "3987279d-0ad4-4afb-8ca9-5b256ae3b295": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Counter Strike 5",
-                category: "Gaming",
+    			title: "Kondyo",
+                category: "Music",
                 collectionName: "Seedworld Vanguards",
-    			imageUrl: "https://i.seadn.io/s/raw/files/40a3031ba4911bfcd60f9db86b5e9946.png?auto=format&dpr=1&w=750",
-                price: "2",
+    			imageUrl: "https://i.seadn.io/s/raw/files/384f8c8d5f709a2bc2ced2aa67d33179.webp?auto=format&dpr=1&w=750",
+                price: "4",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
-    			_createdOn: 1613551279015
+    			_createdOn: 1613551379016
     		},
             "3987279d-0ad4-4afb-8ca9-5b256ae3b294": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "The Train",
-                category: "Travel",
+    			title: "Apprentice",
+                category: "Science",
                 collectionName: "Seedworld Vanguards",
-    			imageUrl: "https://i.seadn.io/s/raw/files/cdbdc41f4d4d369da10a09672cb761ec.png?auto=format&dpr=1&w=750",
-                price: "2",
+    			imageUrl: "https://i.seadn.io/s/raw/files/4513c43eec90461a23bf13922966e6e2.webp?auto=format&dpr=1&w=750",
+                price: "5",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
-    			_createdOn: 1613551279015
+    			_createdOn: 1613541279015
     		},
             "3987279d-0ad4-4afb-8ca9-5b256ae3b293": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Coocker 1",
-                category: "Kitchen",
+    			title: "Long-haired Knight",
+                category: "Battle",
                 collectionName: "Seedworld Vanguards",
-    			imageUrl: "https://raw.seadn.io/files/7dc3b159725f90ade20493146d23f9b3.svg",
-                price: "2",
+    			imageUrl: "https://i.seadn.io/s/raw/files/426e433a37a36341ec7e8522bad4c0dc.webp?auto=format&dpr=1&w=750",
+                price: "6",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
     			_createdOn: 1613551279015
     		},
             "3987279d-0ad4-4afb-8ca9-5b256ae3b292": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Counter Strike 2",
-                category: "Gaming",
+    			title: "Pirate",
+                category: "Battle",
                 collectionName: "Seedworld Vanguards",
-    			imageUrl: "https://i.seadn.io/s/raw/files/9d55302af6bf331687b95c9a9aefb16f.png?auto=format&dpr=1&w=750",
-                price: "2",
+    			imageUrl: "https://i.seadn.io/s/raw/files/847ef807b9d27ea2b6831eba9ce57ee5.webp?auto=format&dpr=1&w=750",
+                price: "7",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
-    			_createdOn: 1613551279015
+    			_createdOn: 1613551659015
+    		},
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b291": {
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			title: "Elf",
+                category: "Battle",
+                collectionName: "Seedworld Vanguards",
+    			imageUrl: "https://i.seadn.io/s/raw/files/24f7344afa4b00ccf74287594a1d5cd1.webp?auto=format&dpr=1&w=750",
+                price: "8",
+                summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
+    			_createdOn: 1613551276015
+    		},
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b290": {
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			title: "Girl Knight",
+                category: "Battle",
+                collectionName: "Seedworld Vanguards",
+    			imageUrl: "https://i.seadn.io/s/raw/files/bf0cd2e9fb3718194a794f1cb0df4d04.webp?auto=format&dpr=1&w=750",
+                price: "9",
+                summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
+    			_createdOn: 1613551229015
+    		},
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b289": {
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			title: "Girl Magician",
+                category: "Battle",
+                collectionName: "Seedworld Vanguards",
+    			imageUrl: "https://i.seadn.io/s/raw/files/3988fc587c3400f19089c82867dcffa2.webp?auto=format&dpr=1&w=750",
+                price: "10",
+                summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
+    			_createdOn: 1613551279065
+    		},
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b288": {
+    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+    			title: "Lollipop Penguin",
+                category: "Kawaii",
+                collectionName: "Lil Pudgys",
+    			imageUrl: "https://i.seadn.io/gcs/files/dd568e7f8fb3c0cb8b35063dea1e77c9.png?auto=format&dpr=1&w=750",
+                price: "11",
+                summary: "Lil Pudgys is a collection of 22,222 NFTs originating from Pudgy Penguins. Don’t let their small stature fool you, Lil Pudgys are an integral piece of the Pudgy Penguins history. Their story began during the most frigid of winters. In the midst of adversity, the birth of the Lil Pudgys helped spark new-life into the Pudgy Penguins community.",
+    			_createdOn: 1613251279015
+    		},
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b287": {
+    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+    			title: "Circus Penguin",
+                category: "Kawaii",
+                collectionName: "Lil Pudgys",
+    			imageUrl: "https://i.seadn.io/gcs/files/5bfaf03370f8ca95fac83d92ceaf5504.png?auto=format&dpr=1&w=750",
+                price: "12",
+                summary: "Lil Pudgys is a collection of 22,222 NFTs originating from Pudgy Penguins. Don’t let their small stature fool you, Lil Pudgys are an integral piece of the Pudgy Penguins history. Their story began during the most frigid of winters. In the midst of adversity, the birth of the Lil Pudgys helped spark new-life into the Pudgy Penguins community.",
+    			_createdOn: 1613541279015
     		},
     	},
         portfolio: {
@@ -1435,8 +1485,8 @@
     			_createdOn: 1614260681376,
     		},
             "0a272c58-b7ea-4e09-a000-7ec98sd48f22": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			_ownerUsername: "George",
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			_ownerUsername: "Peter",
     			nftId: "3987279d-0ad4-4afb-8ca9-5b256ae3b297",
     			_createdOn: 1614280681376,
     		},
