@@ -37,8 +37,6 @@ describe("Create NFT Component Tests Suite", () => {
         cy.get('form textarea[name="summary"]').should('exist');
 
         cy.get('form button').contains('Create NFT').should('exist');
-
-        
     });
 
     it("create nft form submitted with invalid credentials", () => {
@@ -176,7 +174,6 @@ describe("Create NFT Component Tests Suite", () => {
                 cy.wrap($el).contains("Details").should("exist");
             });
 
-
         // check NFT is created
         cy.request('GET', 'http://localhost:3030/data/nfts').then((response) => {
             expect(response.body).to.have.length(13);
@@ -188,6 +185,5 @@ describe("Create NFT Component Tests Suite", () => {
             });
             expect(isFound).to.be.true;
         });
-        
     });
 });

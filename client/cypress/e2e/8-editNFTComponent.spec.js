@@ -44,7 +44,7 @@ describe("Edit NFT Component Tests Suite", () => {
         cy.get('form button').contains('Edit NFT').should('exist');
     });
 
-    it("edit nft form submitted with invalid credentials", () => {
+    it("edit nft form validations and submit", () => {
         cy.get('nav').contains('All NFTs').click();
 
         cy.get('input[placeholder="Search by NFT title..."]').type('Kondyo', { delay: 100 });
@@ -150,7 +150,7 @@ describe("Edit NFT Component Tests Suite", () => {
         cy.get('form textarea').parent().siblings('span').should('not.exist');
 
         cy.get('form button').contains('Edit NFT').click();
-        cy.get('div').contains('Successfully edited Milko!').click();
+        cy.get('div').contains('Successfully edited Milko!').should('exist');
 
         // check NFT count remians the same
         cy.request('GET', 'http://localhost:3030/data/nfts').then((response) => {
