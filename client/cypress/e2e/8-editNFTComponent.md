@@ -1,5 +1,3 @@
-Sure, here are the plain text descriptions for the test scenarios in the provided test script:
-
 1. **Edit NFT Form UI**:
    - Log in with valid credentials.
    - Navigate to the "All NFTs" page.

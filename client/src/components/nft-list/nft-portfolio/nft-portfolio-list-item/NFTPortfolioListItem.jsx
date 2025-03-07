@@ -26,8 +26,8 @@ const NFTPortfolioListItem = ({
     return (
         <>
             <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                <Link to={pathToUrl(PATH.NFT_DETAILS, { nftId})}>
-                    <img className="w-full" src={nft.imageUrl} alt="Sunset in the mountains" />
+                <Link to={pathToUrl(PATH.NFT_DETAILS, { nftId })}>
+                    <img className="w-full" src={nft.imageUrl} alt={`${nft.title}'s pic`} />
                 </Link>
 
                 <div className="px-6 pt-4 pb-4">
@@ -41,13 +41,13 @@ const NFTPortfolioListItem = ({
                         <FaArrowRight className='ml-2' />
                     </Link>
 
-                    {isAuthenticated 
-                        && isNFTOwner 
-                        && <button 
-                                className='bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 text-center inline-flex justify-center items-center gap-2 me-2'
-                                onClick={() => sellNFTbuttonClickHandler(transactionId)}
-                            ><MdRemoveShoppingCart />Sell NFT
-                            </button>
+                    {isAuthenticated
+                        && isNFTOwner
+                        && <button
+                            className='bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 text-center inline-flex justify-center items-center gap-2 me-2'
+                            onClick={() => sellNFTbuttonClickHandler(transactionId)}
+                        ><MdRemoveShoppingCart />Sell NFT
+                        </button>
                     }
                 </div>
             </div>

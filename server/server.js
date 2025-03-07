@@ -1345,6 +1345,12 @@
     			comment: "This one is very rare!",
     			nftId: "3987279d-0ad4-4afb-8ca9-5b256ae3b298",
     			_createdOn: 1614260681375,
+    		},
+            "0a272c58-b7ea-4e09-a000-7ec988248f65": {
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			comment: "Kondyo is the best!",
+    			nftId: "3987279d-0ad4-4afb-8ca9-5b256ae3b295",
+    			_createdOn: 1614260181375,
     		}
     	},
     	likes: {
@@ -1353,6 +1359,12 @@
     			_ownerUsername: "George",
     			commentId: "0a272c58-b7ea-4e09-a000-7ec988248f66",
     			_createdOn: 1614260681374,
+    		},
+            "0a272c58-b7ea-4e09-a000-7ec988248f22": {
+    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+    			_ownerUsername: "George",
+    			commentId: "0a272c58-b7ea-4e09-a000-7ec988248f65",
+    			_createdOn: 1614260682374,
     		},
     	},
         nfts: {
@@ -1394,7 +1406,7 @@
     			imageUrl: "https://i.seadn.io/s/raw/files/384f8c8d5f709a2bc2ced2aa67d33179.webp?auto=format&dpr=1&w=750",
                 price: "4",
                 summary: "Seedworld Vanguards is the PFP collection of Seedworld, a UGC gaming platform with a Real World Economy. Expect an art upgrade called Rebirth, and races like Orcs, Goblins, Elves, Dwarves, and Immortals to join the story soon.",
-    			_createdOn: 1613551379016
+    			_createdOn: 1738454400000
     		},
             "3987279d-0ad4-4afb-8ca9-5b256ae3b294": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",

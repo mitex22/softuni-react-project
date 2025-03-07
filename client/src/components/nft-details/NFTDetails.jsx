@@ -203,7 +203,7 @@ const NFTDetails = () => {
                             <div className='grid grid-cols-1 md:grid-cols-70/30 w-full gap-6'>
                                 <main>
                                     <div className='flex flex-col lg:flex-row bg-white p-6 rounded-lg shadow-md text-center md:text-left'>
-                                        <img className="mx-auto mb-4 lg:mb-0 size-64 rounded" src={nft.imageUrl} alt="Sunset in the mountains" />
+                                        <img className="mx-auto mb-4 lg:mb-0 size-64 rounded" src={nft.imageUrl} alt={`${nft.title}'s pic`} />
 
                                         <div className="flex flex-col m-auto justify-center items-center">
                                             <h1 className='text-3xl text-indigo-800 font-bold mb-4'>{nft.title}</h1>
@@ -277,7 +277,7 @@ const NFTDetails = () => {
                                     <div className='bg-white p-6 rounded-lg shadow-md'>
                                         <h3 className='text-xl font-bold mb-4'>Collection Name:</h3>
 
-                                        <h2 className='text-2xl'>{nft.collectionName}</h2>
+                                        <h2 className='text-lg'>{nft.collectionName}</h2>
 
                                         <hr className='my-4' />
 
@@ -306,18 +306,18 @@ const NFTDetails = () => {
                                             <h3 className='text-xl font-bold mb-6'>Manage NFT</h3>
                                             {isNFTowner && (
                                                 <>
-                                                        <button
-                                                            className={editBtnClass()}
-                                                            disabled={portfolio.some(item => item['nftId'] === nftId) ? 'disabled' : ''}
-                                                        >
+                                                    <button
+                                                        className={editBtnClass()}
+                                                        disabled={portfolio.some(item => item['nftId'] === nftId) ? 'disabled' : ''}
+                                                    >
 
-                                                    <Link
-                                                        to={pathToUrl(PATH.NFT_EDIT, { nftId })}
-                                                        className={editLinkClass()}
+                                                        <Link
+                                                            to={pathToUrl(PATH.NFT_EDIT, { nftId })}
+                                                            className={editLinkClass()}
                                                         >
-                                                        <MdEdit /> <span>Edit NFT</span>
-                                                    </Link>
-                                                            </button>
+                                                            <MdEdit /> <span>Edit NFT</span>
+                                                        </Link>
+                                                    </button>
 
                                                     <button
                                                         className={deleteBtnClass()}
