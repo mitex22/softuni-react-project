@@ -71,7 +71,7 @@ const Login = () => {
 
                                 <button type="submit" className="w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Log In</button>
 
-                                {error &&
+                                {error && typeof error === 'string' && 
                                     <div className="text-sm text-red-600 animate-pulse">{error}</div>
                                 }
 
