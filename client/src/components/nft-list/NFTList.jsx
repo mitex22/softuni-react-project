@@ -1,36 +1,35 @@
 import NFTListItem from "./nft-list-item/NFTListItem";
 import { useGetAllNFTs } from "../../hooks/useNFTs";
 import Spinner from "../common/Spinner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const NFTList = () => {
     const [loading, setLoading] = useState(true);
     const [nfts] = useGetAllNFTs(setLoading);
 
-    // Search, Pagination, and Sorting States
-    const [searchTerm, setSearchTerm] = useState(""); // To track user input for search
+    const [searchTerm, setSearchTerm] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const [selectedCategory, setSelectedCategory] = useState(""); // For category sorting
-    const itemsPerPage = 3;
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const itemsPerPage = 6;
 
-    // Filter NFTs based on the search term
     const filteredNFTs = nfts.filter((nft) =>
         nft.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    // Sort NFTs by category if selected
     const sortedNFTs = selectedCategory
         ? filteredNFTs.filter((nft) => nft.category === selectedCategory)
         : filteredNFTs;
 
-    // Calculate paginated NFTs
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const paginatedNFTs = sortedNFTs.slice(startIndex, endIndex);
 
-    // Total pages for filtered results
     const totalPages = Math.ceil(sortedNFTs.length / itemsPerPage);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [currentPage]);
 
     const handleNext = () => {
         if (currentPage < totalPages) {
@@ -46,15 +45,14 @@ const NFTList = () => {
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
-        setCurrentPage(1); // Reset to the first page when search term changes
+        setCurrentPage(1);
     };
 
     const handleCategoryChange = (e) => {
         setSelectedCategory(e.target.value);
-        setCurrentPage(1); // Reset to the first page when category changes
+        setCurrentPage(1);
     };
 
-    // Get unique categories for the dropdown (optional based on the data)
     const categories = Array.from(new Set(nfts.map((nft) => nft.category)));
 
     return (
