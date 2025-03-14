@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import AuthContext from '../../contexts/authContext';
 import PATH from '../../paths/paths';
@@ -10,7 +10,20 @@ const Header = () => {
 
     const hamburgerHandler = () => {
         setIsExpanded(!isExpanded);
-    }
+    };
+
+    const handleResize = () => {
+        if (window.innerWidth >= 1024) {
+            setIsExpanded(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const {
         isAuthenticated,
