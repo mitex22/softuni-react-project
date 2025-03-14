@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("NFT Comments Component Tests Suite", () => {
+describe("NFT Actions Tests Suite", () => {
     beforeEach(() => {
         cy.visit('/');
     });

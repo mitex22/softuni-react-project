@@ -105,7 +105,7 @@ const NFTPortfolio = () => {
                     ) :
                         transactions.length > 0
                             ? (
-                                <div className='grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center'>
+                                <div id='my-portfolio' className='grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center'>
                                     {transactions.map((transactionItem) => (
                                         <NFTPortfolioListItem
                                             key={transactionItem._id}

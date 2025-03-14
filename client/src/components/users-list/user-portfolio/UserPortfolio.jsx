@@ -23,7 +23,7 @@ const UserPortfolio = () => {
                     ) :
                         nfts.length > 0
                             ? (
-                                <div className='grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center'>
+                                <div id='other-user-portfolio' className='grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center'>
                                     {nfts.map((nft) => (
                                         <NFTPortfolioListItem
                                             key={nft._id}
