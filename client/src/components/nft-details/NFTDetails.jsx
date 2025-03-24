@@ -47,12 +47,12 @@ const NFTDetails = () => {
     const editBtnClass = () =>
         portfolio.some(item => item['nftId'] === nftId)
             ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
-            : 'bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
+            : 'bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
 
     const editLinkClass = () =>
         portfolio.some(item => item['nftId'] === nftId)
             ? 'display: inline-flex justify-center items-center gap-2 pointer-events-none cursor-default'
-            : 'display: inline-flex justify-center items-center gap-2';
+            : 'w-full display: inline-flex justify-center items-center gap-2';
 
     const deleteBtnClass = () =>
         portfolio.some(item => item['nftId'] === nftId)
