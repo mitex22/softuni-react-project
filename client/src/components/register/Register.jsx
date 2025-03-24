@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import AuthContext from "../../contexts/authContext";
@@ -16,6 +16,13 @@ const Register = () => {
 
     const { registerSubmitHandler, error, setError } = useContext(AuthContext);
 
+    const [loading, setLoading] = useState(false);
+
+    const registerBtnClass = () =>
+        loading
+            ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+            : 'w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center';
+
     // cleanup 
     useEffect(() => {
 
@@ -25,7 +32,11 @@ const Register = () => {
 
     }, []);
 
-    const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
+    const { values, onChange, onSubmit } = useForm(async (formData) => {
+        setLoading(true);
+        await registerSubmitHandler(formData);
+        setLoading(false);
+    }, {
         [REGISTER_FORM_KEYS.EMAIL]: '',
         [REGISTER_FORM_KEYS.USERNAME]: '',
         [REGISTER_FORM_KEYS.PASSWORD]: '',
@@ -116,13 +127,13 @@ const Register = () => {
                                     <span className="text-xs text-red-600 animate-pulse">{error.confirmPassword}</span>
                                 }
 
-                                <button type="submit" className="w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Register</button>
-
-                                {/* {error &&
-                                    <p>
-                                        <span>{error.username}</span>
-                                    </p>
-                                } */}
+                                <button
+                                    type="submit"
+                                    className={registerBtnClass()}
+                                    disabled={loading}
+                                >
+                                    {loading ? 'Registering...' : 'Register'}
+                                </button>
 
                                 <p className="text-sm font-light text-slate-500">
                                     Already registered? <Link className="font-medium text-indigo-600 hover:text-indigo-800" to={PATH.LOGIN}>Log In</Link>
