@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import useForm from "../../hooks/useForm";
@@ -13,6 +13,13 @@ const LOGIN_FORM_KEYS = {
 const Login = () => {
     const { loginSubmitHandler, error, setError } = useContext(AuthContext);
 
+    const [loading, setLoading] = useState(false);
+
+    const loginBtnClass = () =>
+        loading
+            ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+            : 'w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center';
+
     // cleanup 
     useEffect(() => {
 
@@ -22,7 +29,14 @@ const Login = () => {
 
     }, []);
 
-    const { values, onChange, onSubmit } = useForm(loginSubmitHandler, { [LOGIN_FORM_KEYS.EMAIL]: '', [LOGIN_FORM_KEYS.PASSWORD]: '' });
+    const { values, onChange, onSubmit } = useForm(async (formData) => {
+        setLoading(true);
+        await loginSubmitHandler(formData);
+        setLoading(false);
+    }, {
+        [LOGIN_FORM_KEYS.EMAIL]: '',
+        [LOGIN_FORM_KEYS.PASSWORD]: ''
+    });
 
     const inputRef = useRef();
 
@@ -69,9 +83,15 @@ const Login = () => {
                                     />
                                 </div>
 
-                                <button type="submit" className="w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Log In</button>
+                                <button
+                                    type="submit"
+                                    className={loginBtnClass()}
+                                    disabled={loading}
+                                >
+                                    {loading ? 'Logging...' : 'Log In'}
+                                </button>
 
-                                {error && typeof error === 'string' && 
+                                {error && typeof error === 'string' &&
                                     <div className="text-sm text-red-600 animate-pulse">{error}</div>
                                 }
 
