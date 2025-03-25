@@ -32,6 +32,9 @@ const NFTEdit = () => {
 
     const [loading, setLoading] = useState(true);
 
+    const [submitting, setSubmitting] = useState(false);
+    const [initialNFT, setInitialNFT] = useState(null);
+
     const [error, setError] = useState('');
 
     useEffect(() => {
@@ -40,6 +43,8 @@ const NFTEdit = () => {
                 const result = await nftsAPI.getOne(nftId);
 
                 setNFT(result);
+
+                setInitialNFT(result);
             } catch (error) {
                 console.log('Error fetching data', error);
             } finally {
@@ -114,14 +119,17 @@ const NFTEdit = () => {
         }
 
         try {
+            setSubmitting(true);
+
             await nftsAPI.nftEdit(nftId, values);
 
             toast.success(`Successfully edited ${nft.title}!`);
 
             navigate(PATH.NFTs);
         } catch (error) {
-            // Error notification
             console.log('Error fetching data', error);
+        } finally {
+            setSubmitting(false);
         }
     }
 
@@ -130,6 +138,10 @@ const NFTEdit = () => {
             ...state,
             [e.target.name]: e.target.value
         }));
+    };
+
+    const isFormDirty = () => {
+        return JSON.stringify(nft) !== JSON.stringify(initialNFT);
     };
 
     return (
@@ -149,7 +161,7 @@ const NFTEdit = () => {
                                         <div>
                                             <label htmlFor="title" className="block mb-2 text-sm font-medium text-slate-700">NFT Title</label>
                                             <input
-                                                className="bg-gray-50 border border-gray-300 text-slate-700 rounded-lg focus:ring-indigo-700 focus:border-indigo-800 block w-full p-2.5"
+                                                className="bg-gray-100 border border-gray-300 text-gray-500 cursor-not-allowed rounded-lg focus:ring-0 focus:border-gray-300 block w-full p-2.5"
                                                 type="text"
                                                 id="title"
                                                 name="title"
@@ -157,6 +169,7 @@ const NFTEdit = () => {
                                                 onChange={onChange}
                                                 onInput={() => setError('')}
                                                 value={nft.title}
+                                                disabled
                                             />
                                         </div>
 
@@ -254,7 +267,16 @@ const NFTEdit = () => {
                                             <span className="text-xs text-red-600 animate-pulse">{error.summary}</span>
                                         }
 
-                                        <button type="submit" className="w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Edit NFT</button>
+                                        <button
+                                            type="submit"
+                                            className={`w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center ${submitting || !isFormDirty()
+                                                    ? 'bg-gray-300 cursor-not-allowed'
+                                                    : 'bg-indigo-700 hover:bg-indigo-800'
+                                                }`}
+                                            disabled={submitting || !isFormDirty()}
+                                        >
+                                            {submitting ? 'Editing...' : 'Edit NFT'}
+                                        </button>
                                     </form>
                                 </div>
                             </div>
