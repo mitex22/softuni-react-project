@@ -169,7 +169,7 @@ const NFTEdit = () => {
                                                 onChange={onChange}
                                                 onInput={() => setError('')}
                                                 value={nft.title}
-                                                disabled
+                                                readOnly={true}
                                             />
                                         </div>
 

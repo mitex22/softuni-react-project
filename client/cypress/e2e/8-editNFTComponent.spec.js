@@ -53,23 +53,7 @@ describe("Edit NFT Component Tests Suite", () => {
         cy.get('a').contains('Edit NFT').click();
 
         // title
-        cy.get('form input[placeholder="Enter NFT title..."]').clear();
-        cy.get('form button').contains('Edit NFT').click();
-        cy.get('form input[placeholder="Enter NFT title..."]').parent().siblings('span').contains('Title is missing!').should('exist');
-
-        cy.get('form input[placeholder="Enter NFT title..."]').should('be.enabled');
-        cy.get('form input[placeholder="Enter NFT title..."]').type('   ', { delay: 100 });
-        cy.get('form input[placeholder="Enter NFT title..."]').parent().siblings('span').should('not.exist');
-        cy.get('form button').contains('Edit NFT').click();
-        cy.get('form input[placeholder="Enter NFT title..."]').parent().siblings('span').contains('Title should contain characters or digits!').should('exist');
-
-        cy.get('form input[placeholder="Enter NFT title..."]').clear().type('Ko', { delay: 100 });
-        cy.get('form input[placeholder="Enter NFT title..."]').parent().siblings('span').should('not.exist');
-        cy.get('form button').contains('Edit NFT').click();
-        cy.get('form input[placeholder="Enter NFT title..."]').parent().siblings('span').contains('Title should be at least 3 characters long!').should('exist');
-
-        cy.get('form input[placeholder="Enter NFT title..."]').clear().type('Milko', { delay: 100 });
-        cy.get('form input[placeholder="Enter NFT title..."]').parent().siblings('span').should('not.exist');
+        cy.get('form input[placeholder="Enter NFT title..."]').should('have.attr', 'readonly');
 
         // category
         cy.get('form input[placeholder="Enter NFT category..."]').clear();
@@ -150,7 +134,7 @@ describe("Edit NFT Component Tests Suite", () => {
         cy.get('form textarea').parent().siblings('span').should('not.exist');
 
         cy.get('form button').contains('Edit NFT').click();
-        cy.get('div').contains('Successfully edited Milko!').should('exist');
+        cy.get('div').contains('Successfully edited Kondyo!').should('exist');
 
         // check NFT count remians the same
         cy.request('GET', 'http://localhost:3030/data/nfts').then((response) => {
