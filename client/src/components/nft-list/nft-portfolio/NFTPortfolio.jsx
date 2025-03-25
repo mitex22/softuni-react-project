@@ -18,6 +18,8 @@ const NFTPortfolio = () => {
 
     const [loading, setLoading] = useState(true);
 
+    const [selling, setSelling] = useState(false);
+
     const [transactions, setTransactions] = useGetPortfolioNFTs(username, setLoading);
 
     const [currentTransaction, setCurrentTransaction] = useState('');
@@ -35,13 +37,23 @@ const NFTPortfolio = () => {
         setOpen(false);
 
         if (confirmed) {
-            await nftsAPI.nftSell(currentTransaction);
+            setSelling(true);
 
-            setTransactions((currTransactions) => [...currTransactions].filter((transaction) => transaction._id !== currentTransaction));
+            try {
+                await nftsAPI.nftSell(currentTransaction);
 
-            toast.success(`Successfully sold ${currentNft.title}!`);
+                setTransactions((currTransactions) =>
+                    [...currTransactions].filter((transaction) => transaction._id !== currentTransaction)
+                );
+
+                toast.success(`Successfully sold ${currentNft.title}!`);
+            } catch (error) {
+                toast.error('Failed to sell NFT. Please try again.');
+            } finally {
+                setSelling(false);
+            }
         }
-    }
+    };
 
     return (
         <>
@@ -111,6 +123,7 @@ const NFTPortfolio = () => {
                                             key={transactionItem._id}
                                             {...transactionItem}
                                             deleteTransactionItem={deleteTransactionItem}
+                                            selling={selling}
                                         />
                                     ))}
                                 </div>

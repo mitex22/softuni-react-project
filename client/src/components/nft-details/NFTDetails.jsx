@@ -342,7 +342,9 @@ const NFTDetails = () => {
                                                 onClick={buyNFTbuttonClickHandler}
                                                 disabled={portfolio.some(item => item['nftId'] === nftId) || buying}
                                             >
-                                                <MdShoppingCart /> <span>Buy NFT</span>
+                                                {buying 
+                                                    ? 'Processing...' 
+                                                    : <><MdShoppingCart /> <span>Buy NFT</span></>}
                                             </button>
                                         </div>
                                     )}
