@@ -20,6 +20,8 @@ const NFTCreate = () => {
 
     const [error, setError] = useState('');
 
+    const [loading, setLoading] = useState(false);
+
     const submitFormHandler = async (values) => {
 
         if (values[CREATE_NFT_FORM_KEYS.TITLE] === '') {
@@ -83,19 +85,24 @@ const NFTCreate = () => {
         }
 
         try {
+            setLoading(true);
+
             await nftsAPI.nftCreate(values);
 
             toast.success(`Successfully created NFT ${values.title}!`);
 
             navigate(PATH.NFTs);
         } catch (error) {
-
             if (error.message === 'NFT with this title already exists!') {
+
                 setError({ title: 'NFT with this title already exists!' });
+
                 return;
             }
 
             console.log('Error fetching data', error);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -227,7 +234,17 @@ const NFTCreate = () => {
                                     <span className="text-xs text-red-600 animate-pulse">{error.summary}</span>
                                 }
 
-                                <button type="submit" className="w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create NFT</button>
+                                <button
+                                    type="submit"
+                                    className={`w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center ${
+                                        loading
+                                            ? 'bg-gray-300 cursor-not-allowed'
+                                            : 'bg-indigo-700 hover:bg-indigo-800'
+                                    }`}
+                                    disabled={loading}
+                                >
+                                    {loading ? 'Creating...' : 'Create NFT'}
+                                </button>
                             </form>
                         </div>
                     </div>
