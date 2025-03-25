@@ -54,8 +54,10 @@ const NFTDetails = () => {
             ? 'display: inline-flex justify-center items-center gap-2 pointer-events-none cursor-default'
             : 'w-full display: inline-flex justify-center items-center gap-2';
 
+    const [deleting, setDeleting] = useState(false);
+
     const deleteBtnClass = () =>
-        portfolio.some(item => item['nftId'] === nftId)
+        portfolio.some(item => item['nftId'] === nftId) || deleting
             ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
             : 'bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
 
@@ -86,13 +88,21 @@ const NFTDetails = () => {
         setOpen(false);
 
         if (confirmed) {
-            await nftsAPI.nftDelete(nftId);
+            setDeleting(true);
 
-            toast.success(`Successfully deleted ${nft.title}!`);
+            try {
+                await nftsAPI.nftDelete(nftId);
 
-            navigate(PATH.NFTs);
+                toast.success(`Successfully deleted ${nft.title}!`);
+
+                navigate(PATH.NFTs);
+            } catch (error) {
+                toast.error('Failed to delete NFT. Please try again.');
+            } finally {
+                setDeleting(false);
+            }
         }
-    }
+    };
 
     const buyNFTbuttonClickHandler = async () => {
         setBuying(true);
@@ -330,9 +340,9 @@ const NFTDetails = () => {
                                                     <button
                                                         className={deleteBtnClass()}
                                                         onClick={deleteNFTButtonClickHandler}
-                                                        disabled={portfolio.some(item => item['nftId'] === nftId) ? 'disabled' : ''}
+                                                        disabled={portfolio.some(item => item['nftId'] === nftId) || deleting}
                                                     >
-                                                        <MdDelete /> <span>Delete NFT</span>
+                                                        {deleting ? 'Deleting...' : <><MdDelete /> <span>Delete NFT</span></>}
                                                     </button>
                                                 </>
                                             )}
@@ -342,8 +352,8 @@ const NFTDetails = () => {
                                                 onClick={buyNFTbuttonClickHandler}
                                                 disabled={portfolio.some(item => item['nftId'] === nftId) || buying}
                                             >
-                                                {buying 
-                                                    ? 'Processing...' 
+                                                {buying
+                                                    ? 'Processing...'
                                                     : <><MdShoppingCart /> <span>Buy NFT</span></>}
                                             </button>
                                         </div>
