@@ -59,8 +59,10 @@ const NFTDetails = () => {
             ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
             : 'bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
 
+    const [buying, setBuying] = useState(false);
+
     const buyBtnClass = () =>
-        portfolio.some(item => item['nftId'] === nftId)
+        portfolio.some(item => item['nftId'] === nftId) || buying
             ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
             : 'bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
 
@@ -93,12 +95,18 @@ const NFTDetails = () => {
     }
 
     const buyNFTbuttonClickHandler = async () => {
-        await nftsAPI.nftBuy(nftId, userId, username);
+        setBuying(true);
 
-        toast.success(`Successfully bought ${nft.title} for ${nft.price} ETH!`);
-
-        navigate(PATH.NFT_PORTFOLIO);
-    }
+        try {
+            await nftsAPI.nftBuy(nftId, userId, username);
+            toast.success(`Successfully bought ${nft.title} for ${nft.price} ETH!`);
+            navigate(PATH.NFT_PORTFOLIO);
+        } catch (error) {
+            toast.error('Failed to buy NFT. Please try again.');
+        } finally {
+            setBuying(false);
+        }
+    };
 
     const commentSubmitHandler = async (values) => {
 
@@ -332,7 +340,7 @@ const NFTDetails = () => {
                                             <button
                                                 className={buyBtnClass()}
                                                 onClick={buyNFTbuttonClickHandler}
-                                                disabled={portfolio.some(item => item['nftId'] === nftId) ? 'disabled' : ''}
+                                                disabled={portfolio.some(item => item['nftId'] === nftId) || buying}
                                             >
                                                 <MdShoppingCart /> <span>Buy NFT</span>
                                             </button>
