@@ -25,6 +25,7 @@ const Comment = ({
     const [open, setOpen] = useState(false);
 
     const [likes, setLikes] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         likesAPI.getAll(_id)
@@ -77,16 +78,32 @@ const Comment = ({
     }
 
     const likeCommentButtonClickHandler = async (commentId) => {
-        const newLike = await likesAPI.likeCreate(commentId, userId, username);
+        setLoading(true);
 
-        setLikes(likes => [...likes, newLike]);
-    }
+        try {
+            const newLike = await likesAPI.likeCreate(commentId, userId, username);
+
+            setLikes((likes) => [...likes, newLike]);
+        } catch (error) {
+            console.error('Error adding like:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const dislikeCommentButtonClickHandler = async (likeItem) => {
-        await likesAPI.likeRemove(likeItem._id);
+        setLoading(true);
 
-        setLikes(likes => [...likes].filter((like) => (like._id !== likeItem._id)));
-    }
+        try {
+            await likesAPI.likeRemove(likeItem._id);
+
+            setLikes((likes) => [...likes].filter((like) => like._id !== likeItem._id));
+        } catch (error) {
+            console.error('Error removing like:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <>
@@ -159,21 +176,29 @@ const Comment = ({
                         onClick={() => deleteCommentButtonClickHandler()}>Delete
                     </button>}
 
-                {_ownerId !== userId && isAuthenticated && !likeItem &&
+                {_ownerId !== userId && isAuthenticated && !likeItem && (
                     <button
-                        className='bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
+                        className={`bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block ${loading ? 'cursor-not-allowed opacity-50' : ''
+                            }`}
                         onClick={() => likeCommentButtonClickHandler(_id)}
-                        title='Add Like'>
+                        title="Add Like"
+                        disabled={loading}
+                    >
                         <FaRegThumbsUp />
-                    </button>}
+                    </button>
+                )}
 
-                {_ownerId !== userId && isAuthenticated && likeItem &&
+                {_ownerId !== userId && isAuthenticated && likeItem && (
                     <button
-                        className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block'
+                        className={`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4 block ${loading ? 'cursor-not-allowed opacity-50' : ''
+                            }`}
                         onClick={() => dislikeCommentButtonClickHandler(likeItem)}
-                        title='Remove Like'>
+                        title="Remove Like"
+                        disabled={loading}
+                    >
                         <FaRegThumbsUp />
-                    </button>}
+                    </button>
+                )}
             </div>
         </>
     )
