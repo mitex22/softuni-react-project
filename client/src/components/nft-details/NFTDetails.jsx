@@ -36,6 +36,9 @@ const NFTDetails = () => {
 
     const [currentETHprice, setCurrentETHprice] = useState('');
 
+    const [deleting, setDeleting] = useState(false);
+    const [buying, setBuying] = useState(false);
+
     useEffect(() => {
         (async () => {
             const result = await nftsAPI.getAllPortfolios();
@@ -45,26 +48,22 @@ const NFTDetails = () => {
     }, [nftId]);
 
     const editBtnClass = () =>
-        portfolio.some(item => item['nftId'] === nftId)
+        portfolio.some(item => item['nftId'] === nftId || buying || deleting)
             ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
             : 'bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
 
     const editLinkClass = () =>
-        portfolio.some(item => item['nftId'] === nftId)
+        portfolio.some(item => item['nftId'] === nftId || buying || deleting)
             ? 'display: inline-flex justify-center items-center gap-2 pointer-events-none cursor-default'
             : 'w-full display: inline-flex justify-center items-center gap-2';
 
-    const [deleting, setDeleting] = useState(false);
-
     const deleteBtnClass = () =>
-        portfolio.some(item => item['nftId'] === nftId) || deleting
+        portfolio.some(item => item['nftId'] === nftId) || buying || deleting
             ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
             : 'bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
 
-    const [buying, setBuying] = useState(false);
-
     const buyBtnClass = () =>
-        portfolio.some(item => item['nftId'] === nftId) || buying
+        portfolio.some(item => item['nftId'] === nftId) || buying || deleting
             ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
             : 'bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2';
 
@@ -326,7 +325,7 @@ const NFTDetails = () => {
                                                 <>
                                                     <button
                                                         className={editBtnClass()}
-                                                        disabled={portfolio.some(item => item['nftId'] === nftId) ? 'disabled' : ''}
+                                                        disabled={portfolio.some(item => item['nftId'] === nftId) || buying || deleting}
                                                     >
 
                                                         <Link
@@ -340,7 +339,7 @@ const NFTDetails = () => {
                                                     <button
                                                         className={deleteBtnClass()}
                                                         onClick={deleteNFTButtonClickHandler}
-                                                        disabled={portfolio.some(item => item['nftId'] === nftId) || deleting}
+                                                        disabled={portfolio.some(item => item['nftId'] === nftId) || deleting || buying}
                                                     >
                                                         {deleting ? 'Deleting...' : <><MdDelete /> <span>Delete NFT</span></>}
                                                     </button>
@@ -350,7 +349,7 @@ const NFTDetails = () => {
                                             <button
                                                 className={buyBtnClass()}
                                                 onClick={buyNFTbuttonClickHandler}
-                                                disabled={portfolio.some(item => item['nftId'] === nftId) || buying}
+                                                disabled={portfolio.some(item => item['nftId'] === nftId) || buying || deleting}
                                             >
                                                 {buying
                                                     ? 'Processing...'
