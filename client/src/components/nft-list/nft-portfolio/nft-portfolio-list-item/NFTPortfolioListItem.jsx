@@ -10,7 +10,8 @@ const NFTPortfolioListItem = ({
     nft,
     _id: transactionId,
     _ownerId,
-    deleteTransactionItem
+    deleteTransactionItem,
+    selling
 }) => {
 
     const { userId, isAuthenticated } = useContext(AuthContext);
@@ -19,9 +20,18 @@ const NFTPortfolioListItem = ({
 
     const isNFTOwner = userId === _ownerId;
 
+    const sellBtnClass = () =>
+        selling
+            ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 block text-center inline-flex justify-center items-center gap-2 me-2'
+            : 'bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 text-center inline-flex justify-center items-center gap-2 me-2';
+
     const sellNFTbuttonClickHandler = async (transactionId) => {
-        deleteTransactionItem(transactionId, nft);
-    }
+        try {
+            await deleteTransactionItem(transactionId, nft);
+        } catch (error) {
+            console.error('Failed to sell NFT:', error);
+        }
+    };
 
     return (
         <>
@@ -44,9 +54,11 @@ const NFTPortfolioListItem = ({
                     {isAuthenticated
                         && isNFTOwner
                         && <button
-                            className='bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline mt-4 text-center inline-flex justify-center items-center gap-2 me-2'
+                            className={sellBtnClass()}
                             onClick={() => sellNFTbuttonClickHandler(transactionId)}
-                        ><MdRemoveShoppingCart />Sell NFT
+                            disabled={selling}
+                        >
+                            {selling ? 'Processing...' : <><MdRemoveShoppingCart /> Sell NFT</>}
                         </button>
                     }
                 </div>
