@@ -154,4 +154,5 @@ This project uses Cypress for end-to-end testing. Cypress is a powerful testing 
     npx cypress run --spec ".\cypress\e2e\11-NFT-actions.spec.js" --browser chrome --headed
     ```
 *NOTE: All http requests are going to be executed using the data stored in the server whether that be a POST/PUT/DELETE request this will actually change the data on the server so you might need to restart it before actually executing a test suite just to revert the initial state of the server data*
+
 *TODO: Try to mock (stubs/fixtures) the data used in the tests so it will not require restariting of the server in between suites execution*

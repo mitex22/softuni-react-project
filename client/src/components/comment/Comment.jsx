@@ -17,7 +17,8 @@ const Comment = ({
     author,
     userId,
     isAuthenticated,
-    delteCommentHandler
+    delteCommentHandler,
+    isDeleting,
 }) => {
 
     const { username } = useContext(AuthContext);
@@ -170,11 +171,16 @@ const Comment = ({
                     : (null)
                 }
 
-                {_ownerId === userId &&
+                {_ownerId === userId && (
                     <button
-                        className='bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4 block'
-                        onClick={() => deleteCommentButtonClickHandler()}>Delete
-                    </button>}
+                        className={`bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4 block ${isDeleting ? 'cursor-not-allowed opacity-50' : ''
+                            }`}
+                        onClick={deleteCommentButtonClickHandler}
+                        disabled={isDeleting}
+                    >
+                        {isDeleting ? 'Deleting...' : 'Delete'}
+                    </button>
+                )}
 
                 {_ownerId !== userId && isAuthenticated && !likeItem && (
                     <button

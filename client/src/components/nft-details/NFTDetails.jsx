@@ -38,6 +38,8 @@ const NFTDetails = () => {
 
     const [deleting, setDeleting] = useState(false);
     const [buying, setBuying] = useState(false);
+    const [loadingComments, setLoadingComments] = useState({});
+    const [submittingComment, setSubmittingComment] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -118,29 +120,43 @@ const NFTDetails = () => {
     };
 
     const commentSubmitHandler = async (values) => {
-
         if (values.comment.trim() === '') {
-            return setError({ comment: 'Cannot submit empty comment!' });
+            return setError({ comment: 'Cannot submit an empty comment!' });
         }
 
-        const newComment = await commentsAPI.commentCreate({ ...values, nftId });
+        setSubmittingComment(true);
 
-        dispatch({ type: 'ADD_COMMENT', payload: { ...newComment, author: { username } } });
+        try {
+            const newComment = await commentsAPI.commentCreate({ ...values, nftId });
 
-        setError('');
+            dispatch({ type: 'ADD_COMMENT', payload: { ...newComment, author: { username } } });
 
-        values.comment = '';
-    }
+            setError('');
+            values.comment = '';
+        } catch (error) {
+            toast.error('Failed to submit comment. Please try again.');
+        } finally {
+            setSubmittingComment(false);
+        }
+    };
 
     const { values, onChange, onSubmit } = useForm(commentSubmitHandler, {
         [CREATE_COMMENT_FORM_KEYS.COMMENT]: '',
     });
 
     const delteCommentHandler = async (commentId) => {
-        await commentsAPI.commentDelete(commentId);
+        setLoadingComments((prev) => ({ ...prev, [commentId]: true }));
 
-        dispatch({ type: 'DELETE_COMMENT', payload: commentId });
-    }
+        try {
+            await commentsAPI.commentDelete(commentId);
+
+            dispatch({ type: 'DELETE_COMMENT', payload: commentId });
+        } catch (error) {
+            toast.error('Failed to delete comment. Please try again.');
+        } finally {
+            setLoadingComments((prev) => ({ ...prev, [commentId]: false }));
+        }
+    };
 
     useEffect(() => {
         const getCurrentPrice = async () => {
@@ -253,6 +269,7 @@ const NFTDetails = () => {
                                                     isAuthenticated={isAuthenticated}
                                                     nftId={nftId}
                                                     delteCommentHandler={delteCommentHandler}
+                                                    isDeleting={loadingComments[comment._id]}
                                                 />
                                             ))}
                                         </ul>
@@ -281,9 +298,12 @@ const NFTDetails = () => {
                                                 }
 
                                                 <button
-                                                    className="bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                                    type="submit">
-                                                    Submit
+                                                    className={`bg-indigo-700 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${submittingComment ? 'cursor-not-allowed opacity-50' : ''
+                                                        }`}
+                                                    type="submit"
+                                                    disabled={submittingComment}
+                                                >
+                                                    {submittingComment ? 'Submitting...' : 'Submit'}
                                                 </button>
                                             </form>
                                         )}
