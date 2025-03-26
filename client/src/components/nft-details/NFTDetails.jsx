@@ -244,7 +244,7 @@ const NFTDetails = () => {
                                             <h3 className='text-lg font-bold mb-2'>
                                                 Price: {nft.price} ETH
                                             </h3>
-                                            <p>Current price: {Number(nft.price) * currentETHprice.EUR} EUR</p>
+                                            <p>Current price: {(Number(nft.price) * currentETHprice.EUR).toFixed(2)} EUR</p>
                                             <p className="italic text-xs">(live rate from <a className="text-indigo-500 visited:text-indigo-800" target="blank" href="https://www.cryptocompare.com/">cryptocompare.com</a>)</p>
                                         </div>
                                     </div>
