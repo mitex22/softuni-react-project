@@ -7,13 +7,13 @@ This project is a React application built with Vite. It includes various feature
 
 - [Features](#features)
 - [Prerequisites](#prerequisites)
+- [Server](#server)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
 - [Dependencies](#dependencies)
 - [Testing](#testing)
-- [License](#license)
 
 ## Features
 
@@ -116,7 +116,6 @@ client/
 - `npm run build`: Builds the application for production.
 - `npm run serve`: Serves the production build.
 - `npm run lint`: Runs ESLint to check for linting errors.
-- `npm run test`: Runs Cypress end-to-end tests.
 
 ## Dependencies
 
