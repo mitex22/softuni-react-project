@@ -18,14 +18,17 @@ This project is a React application built with Vite. It includes various feature
 ## Features
 
 - User Authentication (Register, Login, Logout)
-- NFT Management (Create, Edit, View, List, Delete)
-- User Portfolio Management
+- NFT Management (Create NFT, Edit NFT, View NFT, List NFTs, Delete NFT)
+- Comments (Create, Delete, Like)
+- Search
+- Filter by Category
+- User Portfolio Management (Buy NFT, Sell NFT)
 - Protected Routes for authenticated and unauthenticated users
 - Error Handling with a custom 404 Not Found page
 - Toast notifications for user feedback
 - Scroll to top functionality on route change
 - Dynamic button states for operations like "Buy NFT," "Edit NFT," and "Delete NFT"
-- End-to-End Testing with Cypress for robust application testing
+- End-to-End Testing with Cypress
 
 ## Prerequisites
 
@@ -153,6 +156,4 @@ This project uses Cypress for end-to-end testing. Cypress is a powerful testing 
     ```
     npx cypress run --spec ".\cypress\e2e\11-NFT-actions.spec.js" --browser chrome --headed
     ```
-*NOTE: All http requests are going to be executed using the data stored in the server whether that be a POST/PUT/DELETE request this will actually change the data on the server so you might need to restart it before actually executing a test suite just to revert the initial state of the server data*
-
-*TODO: Try to mock (stubs/fixtures) the data used in the tests so it will not require restariting of the server in between suites execution*
+*NOTE: All http requests are going to be executed using the data stored in the server whether that be a POST/PUT/DELETE request this will actually change the data on the server so you might need to restart it before actually executing a test suite just to revert the initial state of the server data.*
