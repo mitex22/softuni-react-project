@@ -39,7 +39,6 @@ export function useGetOneNFT(nftId, setLoading) {
                 setNFT(result);
             } catch (error) {
                 navigate("/not-found");
-                // console.log('Error fetching data', error);
             } finally {
                 setLoading(false);
             }
@@ -66,7 +65,6 @@ export function useGetPortfolioNFTs(username, setLoading) {
                 }
             } catch (error) {
                 navigate("/not-found");
-                // console.log('Error fetching data', error);
             } finally {
                 setLoading(false);
             }

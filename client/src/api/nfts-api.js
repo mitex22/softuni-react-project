@@ -31,8 +31,6 @@ export const getAllPortfolios = async () => {
     return nfts;
 };
 
-// export const getOne = (nftId) => request.get(`${BASE_URL}/${nftId}`);
-
 export const getOne = async (nftId) => {
     const query = new URLSearchParams({
         load: `author=_ownerId:users`

@@ -13,7 +13,6 @@ async function requester(method, url, data) {
         options.body = JSON.stringify(data);
     }
 
-    // local storage
     const accessToken = localStorage.getItem('accessToken');
 
     if (accessToken) {

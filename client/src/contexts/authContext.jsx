@@ -91,8 +91,6 @@ export const AuthProvider = ({
         setError,
         username: auth.username || auth.email,
         email: auth.email,
-        // double negation - if truthy value cast to TRUE
-        // double negation - if falsy value cast to FALSE
         isAuthenticated: !!auth.email,
         userId: auth._id
     };

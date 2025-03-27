@@ -23,7 +23,6 @@ const Register = () => {
             ? 'disabled:bg-slate-100 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none cursor-not-allowed w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
             : 'w-full text-white bg-indigo-700 hover:bg-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center';
 
-    // cleanup 
     useEffect(() => {
 
         return () => {
