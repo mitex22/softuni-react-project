@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
@@ -7,6 +7,7 @@ import * as nftsAPI from "../../api/nfts-api";
 import PATH from "../../paths/paths"
 import Spinner from '../common/Spinner';
 import { isValidURL } from '../../utils/urlValidator';
+import AuthContext from '../../contexts/authContext';
 
 const EDIT_NFT_FORM_KEYS = {
     TITLE: 'title',
@@ -19,7 +20,10 @@ const EDIT_NFT_FORM_KEYS = {
 
 const NFTEdit = () => {
 
+    const { userId } = useContext(AuthContext);
+
     const navigate = useNavigate();
+
     const { nftId } = useParams();
     const [nft, setNFT] = useState({
         [EDIT_NFT_FORM_KEYS.TITLE]: '',
@@ -143,6 +147,24 @@ const NFTEdit = () => {
     const isFormDirty = () => {
         return JSON.stringify(nft) !== JSON.stringify(initialNFT);
     };
+
+    const isOwner = userId === nft._ownerId;
+
+    if (!isOwner) {
+        return (
+            <section className="bg-gray-50 pt-20 pb-10 h-[100vh]">
+                <div className="flex flex-col items-center justify-center px-6 py-6 mx-auto lg:py-0">
+                    <div className="w-full bg-white rounded-lg shadow md:mt-20 sm:max-w-md xl:p-0">
+                        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                            <h1 className="text-xl font-bold leading-tight tracking-tight text-slate-700 md:text-xl">
+                                You are not the owner of this NFT!
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        )
+    }
 
     return (
         <>

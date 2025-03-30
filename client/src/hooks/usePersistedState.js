@@ -18,7 +18,7 @@ export default function usePersistedState(key, defaultValue) {
         let serializedValue;
 
         if (typeof value === 'function') {
-            serializedValue = JSON.stringify(value(value));
+            serializedValue = JSON.stringify(value(state));
         } else {
             serializedValue = JSON.stringify(value);
         }
